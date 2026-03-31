@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/supabase';
 import { leadSchema } from '@/lib/validations/lead';
 import { z } from 'zod';
 
@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     const parsedData = leadSchema.parse(body);
 
     // 2. Inserir no Supabase
-    const { data: leadData, error: dbError } = await supabase
+    const { data: leadData, error: dbError } = await getSupabase()
       .from('leads')
       .insert([parsedData])
       .select()
