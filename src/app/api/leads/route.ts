@@ -38,7 +38,7 @@ export async function POST(request: Request) {
         body: JSON.stringify({
           ...parsedData,
           source: 'Website Neoeng',
-          eventId: leadData.id, 
+          eventId: leadData.id,
         }),
       }).catch((webhookError) => {
         // Apenas logamos o erro, não queremos falhar a chamada do usuário se o n8n cair
