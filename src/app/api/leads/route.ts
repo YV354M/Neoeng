@@ -51,7 +51,7 @@ export async function POST(request: Request) {
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: 'Dados inválidos.', details: (error as any).errors || (error as any).issues },
+        { error: 'Dados inválidos.', details: error.flatten().fieldErrors },
         { status: 400 }
       );
     }

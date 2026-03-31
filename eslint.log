@@ -1,0 +1,17 @@
+
+C:\Users\yvesr\Desktop\projantigravity\neoeng_site2\src\app\api\leads\route.ts
+  54:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  54:82  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\yvesr\Desktop\projantigravity\neoeng_site2\src\components\Authority.tsx
+  121:11   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  121:105  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\yvesr\Desktop\projantigravity\neoeng_site2\src\components\Differentiator.tsx
+  95:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\yvesr\Desktop\projantigravity\neoeng_site2\src\components\Specialties.tsx
+  5:10  warning  'ScrollTrigger' is defined but never used  @typescript-eslint/no-unused-vars
+
+Γ£û 6 problems (4 errors, 2 warnings)
+

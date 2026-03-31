@@ -118,7 +118,7 @@ export default function Authority() {
         </div>
 
         <p className="text-center text-sm text-off-white/50 mt-8 italic">
-          "Acervo técnico dos sócios fundadores: Projetos liderados por Yves Mourão e Alexandre Modesto."
+          &quot;Acervo técnico dos sócios fundadores: Projetos liderados por Yves Mourão e Alexandre Modesto.&quot;
         </p>
       </div>
 
