@@ -14,12 +14,17 @@ export default function Footer() {
           
           {/* Brand & Mission */}
           <div className="lg:col-span-5 flex flex-col items-start gap-8">
-            <div className="relative h-44 w-44 -mt-8 transform hover:scale-105 transition-transform duration-500">
+            <div className="relative h-44 w-44 -mt-8 transform hover:scale-105 transition-transform duration-500 group flex items-center justify-center">
+              {/* Stronger spotlight to highlight the dark blue 'ENG' */}
+              <div className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-20 bg-white/15 blur-[35px] rounded-[100%] pointer-events-none z-0" />
+              <div className="absolute inset-0 bg-white/5 blur-[50px] rounded-full scale-125 opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
+              <div className="absolute inset-8 bg-active-orange/10 blur-[30px] rounded-full opacity-40 pointer-events-none z-0" />
+              
               <Image 
                 src="/logos_neoeng/vertical_neoeng.png" 
                 alt="Neoeng Instalações" 
                 fill 
-                className="object-contain"
+                className="object-contain relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]"
               />
             </div>
             <p className="text-off-white/70 leading-relaxed text-[15px] max-w-sm text-balance">
