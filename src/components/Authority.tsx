@@ -33,7 +33,7 @@ export default function Authority() {
             A Base de Confiança da Neoeng.
           </h2>
           <p className="text-off-white/80 text-lg text-balance">
-            A Neoeng nasce da união de Yves Mourão e Alexandre Modesto, somando décadas de liderança no setor focada na excelência técnica em engenharia em todo Brasil.
+            A neoeng nasce com um time com larga experiência em obras rápidas e de grande porte, realizadas em todo o Brasil
           </p>
         </div>
 
