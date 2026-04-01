@@ -71,7 +71,7 @@ export default function Authority() {
 
         {/* FOUNDERS & PARTNERS B2B */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12">
-          <div>
+          <div className="flex flex-col h-full justify-center">
             <h3 className="text-2xl font-bold mb-4">Para Escritórios de Projeto</h3>
             <p className="text-off-white/70 mb-8 leading-relaxed">
               Focamos exclusivamente na excelência da execução de projetos de parceiros. Executamos instalações garantindo que o seu design seja implementado com exatidão técnica, sem a preocupação da gestão de obra direto para o projetista.
@@ -82,15 +82,15 @@ export default function Authority() {
                 <div className="flex gap-6 items-center">
                   {PARTNER_LOGOS.map((pt, id) => (
                     <div key={id} className="relative w-32 h-16 md:w-48 md:h-24 shrink-0">
-                      <Image src={pt.src} alt={pt.alt} fill className="object-contain" />
+                      <Image src={pt.src} alt={pt.alt} fill className="object-contain object-left" />
                     </div>
                   ))}
                 </div>
               </div>
             )}
           </div>
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="flex-1 relative h-64 md:h-auto rounded-2xl overflow-hidden group">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 lg:mt-0 lg:h-full">
+            <div className="relative w-full h-[320px] lg:h-auto min-h-[320px] rounded-2xl overflow-hidden group">
               <Image
                 src="/socios/Yves.jpg"
                 alt="Yves Mourão"
@@ -105,7 +105,7 @@ export default function Authority() {
               </div>
             </div>
             {/* Sócio Alexandre */}
-            <div className="flex-1 relative h-64 md:h-auto rounded-2xl overflow-hidden group">
+            <div className="relative w-full h-[320px] lg:h-auto min-h-[320px] rounded-2xl overflow-hidden group">
               <Image src="/socios/alexandre.jpeg" alt="Alexandre Modesto" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/90 to-transparent flex items-end p-6">
                 <div>
