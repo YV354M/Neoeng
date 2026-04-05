@@ -64,13 +64,13 @@ export default function ConversionForm() {
               
               <div className="relative z-10">
                 <ShieldCheck className="w-10 h-10 text-active-orange mb-4" />
-                <h3 className="text-xl font-bold mb-2">Bônus: Guia de Mitigação de Riscos</h3>
+                <h3 className="text-xl font-bold mb-2">Bônus: 2 E-books Exclusivos</h3>
                 <p className="text-sm text-off-white/80 mb-6">
-                  Ao solicitar seu orçamento, você ganha acesso imediato ao nosso checklist exclusivo de <strong>Prevenção de Atrasos em Instalações Complexas</strong>.
+                  Ao solicitar seu orçamento, você ganha acesso imediato aos nossos guias de <strong>Previsibilidade e Prevenção de Atrasos em Instalações Complexas</strong>.
                 </p>
                 <div className="flex items-center gap-2 text-active-orange font-medium text-sm">
                   <Download className="w-4 h-4" />
-                  <span>Incluído no contato inicial</span>
+                  <span>Incluídos no contato inicial</span>
                 </div>
               </div>
             </div>

@@ -8,7 +8,7 @@
 5. **Publicação (Fase 4):** Deploy em VPS Hostinger, configuração de DNS (A records), setup de Nginx/PM2 e SSL (Certbot).
 
 ## Trajetória Atual
-- **Passo Atual:** PROJETO CONCLUÍDO - Aguardando Deploy em Produção.
+- **Passo Atual:** Ajuste de Ativos e Links de Conversão Finalizados.
 
 ## Status do Squad
 
@@ -21,3 +21,4 @@
 | Antigravity | Animacões GSAP e Polimento            | Feito       |
 | Antigravity | Verificação Visual e QA (`npm build`) | Feito       |
 | Antigravity | Auditoria Final de Pré-Lançamento     | Feito       |
+| Antigravity | Ajuste de E-books, Links e Créditos   | Feito       |

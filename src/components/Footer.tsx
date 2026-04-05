@@ -33,10 +33,10 @@ export default function Footer() {
             </p>
             
             <div className="flex items-center gap-5">
-              <a href="#" aria-label="LinkedIn" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-active-orange hover:text-white transition-all duration-300 shadow-sm">
+              <a href="https://www.linkedin.com/company/neoeng-engenharia/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-active-orange hover:text-white transition-all duration-300 shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               </a>
-              <a href="#" aria-label="Instagram" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-active-orange hover:text-white transition-all duration-300 shadow-sm">
+              <a href="https://www.instagram.com/neoengco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-active-orange hover:text-white transition-all duration-300 shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </a>
             </div>
@@ -62,8 +62,11 @@ export default function Footer() {
                   <MapPin className="w-5 h-5 text-active-orange" />
                 </div>
                 <div>
-                  <p className="text-white text-sm font-bold mb-1">Presença Nacional</p>
-                  <p className="text-off-white/60 text-sm leading-relaxed">Foco estratégico nas regiões Nordeste e Sudeste do Brasil.</p>
+                  <p className="text-white text-sm font-bold mb-1">Endereço</p>
+                  <p className="text-off-white/60 text-sm leading-relaxed">
+                    Av. Antônio Sales 1317, Sala 702<br />
+                    Fortaleza - CE, 60135-100
+                  </p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -82,14 +85,36 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
-        <p className="text-xs text-off-white/40">
-          © {new Date().getFullYear()} Neoeng Instalações. Todos os direitos reservados.
-        </p>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+          <p className="text-[10px] md:text-xs text-off-white/40 tracking-wider">
+            © {new Date().getFullYear()} Neoeng Instalações. Todos os direitos reservados.
+          </p>
+          
+          <div className="h-4 w-[1px] bg-white/10 hidden md:block" />
+
+          <a 
+            href="http://www.yrmstrategylab.com.br" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 group transition-all duration-300 opacity-40 hover:opacity-100"
+          >
+            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-medium text-off-white/80">Powered by</span>
+            <div className="relative w-4 h-4 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+              <Image 
+                src="/credits/yrm-logo.png" 
+                alt="YRM Logo" 
+                fill 
+                className="object-contain"
+              />
+            </div>
+            <span className="text-[10px] md:text-[11px] font-bold text-white tracking-wide group-hover:text-active-orange transition-colors">YRM Strategy Lab</span>
+          </a>
+        </div>
 
         <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full">
-          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          <span className="text-xs font-mono text-off-white/60">SYSTEM OPERATIONAL</span>
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.4)]" />
+          <span className="text-[10px] font-mono text-off-white/60 tracking-wider">SYSTEM OPERATIONAL</span>
         </div>
       </div>
     </footer>

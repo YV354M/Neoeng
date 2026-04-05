@@ -24,22 +24,35 @@ export default function ObrigadoPage() {
         <div className="bg-white/5 border border-white/10 rounded-2xl p-8 mb-10">
           <h2 className="text-xl font-bold mb-4 flex items-center justify-center gap-2">
             <Download className="w-6 h-6 text-active-orange" />
-            Seu E-book Exclusivo
+            Seus E-books Exclusivos
           </h2>
           <p className="text-sm text-off-white/70 mb-6">
-            Conforme prometido, baixe agora o <strong>Guia de Mitigação de Riscos em Instalações Complexas</strong>.
+            Conforme prometido, baixe agora os materiais exclusivos da Neoeng.
           </p>
           
-          <button 
-            type="button" 
-            className="w-full bg-active-orange/90 hover:bg-active-orange text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-colors group"
-          >
-            Baixar E-book (PDF)
-            <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
-          </button>
-          <p className="text-xs text-white/40 mt-3">
-            O documento será disponibilizado em breve.
-          </p>
+          <div className="flex flex-col gap-4">
+            <a 
+              href="/ebooks/Como-evitar-atrasos-retrabalho-e-estouro-de-orcamento-em-obras-de-instalacoes.pdf" 
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-active-orange/90 hover:bg-active-orange text-white font-bold py-3 md:py-4 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors group text-sm md:text-base text-center"
+            >
+              Como Evitar Atrasos (PDF)
+              <Download className="w-5 h-5 flex-shrink-0 group-hover:-translate-y-1 transition-transform" />
+            </a>
+            
+            <a 
+              href="/ebooks/Execucao-de-obras-de-instalacoes-com-previsibilidade-metodo-controle-e-gestao.pdf" 
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-active-orange/90 hover:bg-active-orange text-white font-bold py-3 md:py-4 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors group text-sm md:text-base text-center"
+            >
+              Execução com Previsibilidade (PDF)
+              <Download className="w-5 h-5 flex-shrink-0 group-hover:-translate-y-1 transition-transform" />
+            </a>
+          </div>
         </div>
 
         <Link 

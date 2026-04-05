@@ -77,10 +77,10 @@ export default function Hero() {
                 Material Exclusivo
               </div>
               <h3 className="text-xl font-bold text-white mb-2 leading-tight">
-                Como evitar atrasos, retrabalho e estouro de orçamento
+                Acervo de Engenharia Neoeng
               </h3>
               <p className="text-sm text-off-white/60 mb-6">
-                Baixe nosso E-book sobre gestão de obras de instalações e engenharia.
+                Baixe nossos 2 E-books exclusivos e descubra como garantir previsibilidade e evitar atrasos em obras de instalações.
               </p>
               
               <a href="#orcamento" className="flex items-center gap-2 text-active-orange font-medium hover:text-white transition-colors">
