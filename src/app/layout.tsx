@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Neoeng Instalações | Execução de Sistemas de Engenharia",
+  title: "Neoeng Engenharia | Execução de Sistemas de Engenharia",
   description: "Transformamos projetos complexos em infraestrutura de alta performance. Especialistas em execução de instalações com metodologia Lean Construction e análise preditiva via IA.",
   other: {
     "build-version": "2026-04-02-v3",

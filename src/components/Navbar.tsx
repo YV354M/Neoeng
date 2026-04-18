@@ -35,7 +35,7 @@ export default function Navbar() {
             
             <Image 
               src="/logos_neoeng/horizontal-neoeng.png" 
-              alt="Neoeng Instalações" 
+              alt="Neoeng Engenharia" 
               fill 
               className="object-contain object-left relative z-10 drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]"
             />

@@ -56,7 +56,7 @@ export default function ConversionForm() {
               Precisando de Rigor na Execução da Obra?
             </h2>
             <p className="text-deep-navy/70 mb-8 leading-relaxed">
-              Deixe os riscos para trás. A Neoeng Instalações garante cumprimento de cronograma com tecnologia e previsibilidade.
+              Deixe os riscos para trás. A Neoeng Engenharia garante cumprimento de cronograma com tecnologia e previsibilidade.
             </p>
 
             <div className="bg-deep-navy text-white rounded-2xl p-8 relative overflow-hidden group mb-8 lg:mb-0">
@@ -139,7 +139,7 @@ export default function ConversionForm() {
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-bold text-deep-navy">Tipo de Obra (Especialidades)</label>
                 <div className="flex flex-wrap gap-3 mt-1">
-                  {["Elétrica", "Incêndio", "SPDA", "HVAC", "Automação", "Outros"].map((item) => (
+                  {["Elétrica", "Incêndio", "SPDA", "Climatização", "Automação", "Energia Solar", "Estrutura", "Dados", "Hidrossanitário", "Piscina", "Outros"].map((item) => (
                     <label key={item} className="flex items-center gap-2 cursor-pointer group">
                       <input 
                         {...register("services")}

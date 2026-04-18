@@ -22,7 +22,7 @@ export default function Footer() {
               
               <Image 
                 src="/logos_neoeng/vertical_neoeng.png" 
-                alt="Neoeng Instalações" 
+                alt="Neoeng Engenharia" 
                 fill 
                 className="object-contain relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]"
               />
@@ -86,12 +86,20 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
-        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-          <p className="text-[10px] md:text-xs text-off-white/40 tracking-wider">
-            © {new Date().getFullYear()} Neoeng Instalações. Todos os direitos reservados.
-          </p>
+        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-center md:text-left">
+          <div className="flex flex-col gap-1.5">
+            <p className="text-[10px] md:text-xs text-off-white/40 tracking-wider">
+              © {new Date().getFullYear()} Neoeng Engenharia. Todos os direitos reservados. CNPJ: 66.113.679/0001-33
+            </p>
+            <Link 
+              href="/politica-de-privacidade" 
+              className="text-[10px] md:text-xs text-off-white/40 tracking-wider hover:text-active-orange transition-colors"
+            >
+              Política de Privacidade e de Cookies
+            </Link>
+          </div>
           
-          <div className="h-4 w-[1px] bg-white/10 hidden md:block" />
+          <div className="h-8 w-[1px] bg-white/10 hidden md:block" />
 
           <a 
             href="http://www.yrmstrategylab.com.br" 
