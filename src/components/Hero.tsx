@@ -40,6 +40,7 @@ export default function Hero() {
                 src="/logos_neoeng/horizontal-neoeng.png"
                 alt="Neoeng Engenharia Logo"
                 fill
+                sizes="(max-width: 768px) 340px, 680px"
                 className="object-contain object-left"
                 priority
               />

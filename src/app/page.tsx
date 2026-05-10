@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Specialties from "@/components/Specialties";
 import Differentiator from "@/components/Differentiator";
 import Authority from "@/components/Authority";
+import Portfolio from "@/components/Portfolio";
 import ConversionForm from "@/components/ConversionForm";
 import Footer from "@/components/Footer";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Specialties />
       <Differentiator />
       <Authority />
+      <Portfolio />
       <ConversionForm />
       <Footer />
     </main>

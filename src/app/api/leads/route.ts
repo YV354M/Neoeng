@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
-import { getSupabase } from '@/lib/supabase';
 import { leadSchema } from '@/lib/validations/lead';
 import { z } from 'zod';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
+import { JWT } from 'google-auth-library';
 
 export async function POST(request: Request) {
   try {
@@ -10,43 +11,50 @@ export async function POST(request: Request) {
     // 1. Validar os dados de entrada usando Zod
     const parsedData = leadSchema.parse(body);
 
-    // 2. Inserir no Supabase
-    const { data: leadData, error: dbError } = await getSupabase()
-      .from('leads')
-      .insert([parsedData])
-      .select()
-      .single();
+    // 2. Autenticar no Google Sheets
+    const serviceAccountAuth = new JWT({
+      email: process.env.GOOGLE_CLIENT_EMAIL,
+      key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      scopes: [
+        'https://www.googleapis.com/auth/spreadsheets',
+      ],
+    });
 
-    if (dbError) {
-      console.error('Erro ao inserir lead no Supabase:', dbError);
-      return NextResponse.json(
-        { error: 'Falha ao processar solicitação no banco de dados.' },
-        { status: 500 }
-      );
-    }
+    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID as string, serviceAccountAuth);
+    await doc.loadInfo(); // carrega as informações da planilha
+    const sheet = doc.sheetsByIndex[0]; // pega a primeira aba
 
-    // 3. Trigger do Webhook n8n (em background - não bloqueante)
+    // 3. Inserir a linha na planilha
+    await sheet.addRow({
+      Nome: parsedData.name,
+      Email: parsedData.email,
+      Empresa: parsedData.company,
+      Whatsapp: parsedData.whatsapp,
+      Servicos: parsedData.services.join(', '),
+      Prazo: parsedData.timeline,
+      Detalhes: parsedData.details || '',
+      Data: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
+    });
+
+    // 4. Trigger do Webhook n8n (em background - não bloqueante)
     if (process.env.N8N_WEBHOOK_URL) {
       // Usando fetch assíncrono para não segurar a resposta
       fetch(process.env.N8N_WEBHOOK_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // Se o webhook do n8n precisar do token JWT de autenticação fornecido:
           'Authorization': `Bearer ${process.env.N8N_API_KEY}`,
         },
         body: JSON.stringify({
           ...parsedData,
           source: 'Website Neoeng',
-          eventId: leadData.id,
         }),
       }).catch((webhookError) => {
-        // Apenas logamos o erro, não queremos falhar a chamada do usuário se o n8n cair
         console.error('Falha ao acionar webhook n8n:', webhookError);
       });
     }
 
-    return NextResponse.json({ success: true, lead: leadData }, { status: 201 });
+    return NextResponse.json({ success: true }, { status: 201 });
 
   } catch (error) {
     if (error instanceof z.ZodError) {

@@ -62,7 +62,7 @@ export default function Authority() {
             <div className="animate-marquee flex gap-16 md:gap-24 items-center min-w-full">
               {[...STYLED_LOGOS, ...STYLED_LOGOS].map((logo, idx) => (
                 <div key={idx} className="relative w-32 h-16 md:w-48 md:h-24 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all shrink-0">
-                  <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
+                  <Image src={logo.src} alt={logo.alt} fill sizes="200px" className="object-contain" />
                 </div>
               ))}
             </div>
@@ -82,7 +82,7 @@ export default function Authority() {
                 <div className="flex gap-6 items-center">
                   {PARTNER_LOGOS.map((pt, id) => (
                     <div key={id} className="relative w-32 h-16 md:w-48 md:h-24 shrink-0">
-                      <Image src={pt.src} alt={pt.alt} fill className="object-contain object-left" />
+                      <Image src={pt.src} alt={pt.alt} fill sizes="200px" className="object-contain object-left" />
                     </div>
                   ))}
                 </div>
@@ -95,6 +95,7 @@ export default function Authority() {
                 src="/socios/Yves.jpg"
                 alt="Yves Mourão"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-[center_15%] scale-[1.65] group-hover:scale-[1.75] transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/90 to-transparent flex items-end p-6">
@@ -106,7 +107,7 @@ export default function Authority() {
             </div>
             {/* Sócio Alexandre */}
             <div className="relative w-full h-[320px] lg:h-auto min-h-[320px] rounded-2xl overflow-hidden group">
-              <Image src="/socios/alexandre.jpeg" alt="Alexandre Modesto" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <Image src="/socios/alexandre.jpeg" alt="Alexandre Modesto" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/90 to-transparent flex items-end p-6">
                 <div>
                   <h4 className="font-bold text-lg">Alexandre Modesto</h4>

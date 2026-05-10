@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Zap, Flame, CloudLightning, Wind, Cpu } from "lucide-react";
+import { Zap, Flame, CloudLightning, Wind, Cpu, BrickWall } from "lucide-react";
 
 const SolarPanelIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -61,6 +61,12 @@ const specialties = [
     title: "Energia Solar",
     description: "Instalação e manutenção de sistemas residenciais, industriais e em fazendas solares.",
     bgImage: "/images/bg-solar.png"
+  },
+  {
+    icon: BrickWall,
+    title: "Obras Civis",
+    description: "Execução de estruturas de concreto, vedações internas e externas, coberturas, piscinas e acabamentos, garantindo conformidade técnica e precisão em cada etapa.",
+    bgImage: "/images/bg-concrete-metal.png"
   }
 ];
 

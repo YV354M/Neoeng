@@ -37,15 +37,17 @@ export default function Navbar() {
               src="/logos_neoeng/horizontal-neoeng.png" 
               alt="Neoeng Engenharia" 
               fill 
+              sizes="(max-width: 768px) 150px, 250px"
               className="object-contain object-left relative z-10 drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]"
             />
           </Link>
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link href="#especialidades" className="text-sm font-medium hover:-translate-y-[1px] transition-transform">Especialidades</Link>
-          <Link href="#diferencial" className="text-sm font-medium hover:-translate-y-[1px] transition-transform">Por Que Nós?</Link>
-          <Link href="#autoridade" className="text-sm font-medium hover:-translate-y-[1px] transition-transform">Experiência</Link>
+          <Link href="/#especialidades" className="text-sm font-medium hover:-translate-y-[1px] transition-transform">Especialidades</Link>
+          <Link href="/#diferencial" className="text-sm font-medium hover:-translate-y-[1px] transition-transform">Por Que Nós?</Link>
+          <Link href="/#autoridade" className="text-sm font-medium hover:-translate-y-[1px] transition-transform">Experiência</Link>
+          <Link href="/private-homes" className="text-sm font-medium hover:-translate-y-[1px] transition-transform text-active-orange">Private Homes</Link>
         </div>
 
         <div className="flex items-center gap-2 md:gap-4 shrink-0">
@@ -75,11 +77,13 @@ export default function Navbar() {
         }`}
       >
         <div className="bg-deep-navy/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 flex flex-col gap-6 shadow-2xl">
-          <Link href="#especialidades" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-active-orange transition-colors">Especialidades</Link>
+          <Link href="/#especialidades" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-active-orange transition-colors">Especialidades</Link>
           <hr className="border-white/10" />
-          <Link href="#diferencial" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-active-orange transition-colors">Por Que Nós?</Link>
+          <Link href="/#diferencial" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-active-orange transition-colors">Por Que Nós?</Link>
           <hr className="border-white/10" />
-          <Link href="#autoridade" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-active-orange transition-colors">Experiência</Link>
+          <Link href="/#autoridade" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-active-orange transition-colors">Experiência</Link>
+          <hr className="border-white/10" />
+          <Link href="/private-homes" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-active-orange transition-colors">Private Homes</Link>
         </div>
       </div>
     </>

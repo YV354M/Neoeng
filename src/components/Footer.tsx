@@ -24,6 +24,7 @@ export default function Footer() {
                 src="/logos_neoeng/vertical_neoeng.png" 
                 alt="Neoeng Engenharia" 
                 fill 
+                sizes="(max-width: 768px) 150px, 200px"
                 className="object-contain relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]"
               />
             </div>
@@ -113,6 +114,7 @@ export default function Footer() {
                 src="/credits/yrm-logo.png" 
                 alt="YRM Logo" 
                 fill 
+                sizes="20px"
                 className="object-contain"
               />
             </div>
