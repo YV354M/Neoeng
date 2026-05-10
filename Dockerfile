@@ -27,9 +27,9 @@ RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nodejs
 
 # Standalone: o Next.js gera tudo que precisa dentro de .next/standalone
-COPY --from=builder /app/public ./public
-COPY --from=builder --chown=node:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=node:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nodejs:nodejs /app/public ./public
+COPY --from=builder --chown=nodejs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nodejs:nodejs /app/.next/static ./.next/static
 
 USER nodejs
 
