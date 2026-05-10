@@ -14,10 +14,16 @@ export async function POST(request: Request) {
     console.log('[leads] 2. Validação OK');
 
     // 2. Autenticar no Google Sheets
-    // A chave pode ter \\n (literal) ou \n (real) dependendo do ambiente — normalizamos para sempre usar \n real
-    const rawKey = process.env.GOOGLE_PRIVATE_KEY ?? '';
-    const privateKey = rawKey.includes('\\n') ? rawKey.replace(/\\n/g, '\n') : rawKey;
-    console.log('[leads] 3. Chave privada carregada, tamanho:', privateKey?.length, '| Começa com:', privateKey?.substring(0, 30));
+    // Remove aspas e espaços extras que parsers de env (Easypanel, Docker) podem injetar
+    let rawKey = process.env.GOOGLE_PRIVATE_KEY ?? '';
+    rawKey = rawKey.trim();
+    // Remove aspas duplas ou simples ao redor do valor inteiro
+    if ((rawKey.startsWith('"') && rawKey.endsWith('"')) || (rawKey.startsWith("'") && rawKey.endsWith("'"))) {
+      rawKey = rawKey.slice(1, -1);
+    }
+    // Converte \n literais para quebras de linha reais
+    const privateKey = rawKey.replace(/\\n/g, '\n');
+    console.log('[leads] 3. Chave carregada | tamanho:', privateKey.length, '| início:', privateKey.substring(0, 27), '| fim:', privateKey.slice(-25).trim());
 
     const serviceAccountAuth = new JWT({
       email: process.env.GOOGLE_CLIENT_EMAIL,
