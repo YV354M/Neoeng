@@ -14,16 +14,19 @@ export async function POST(request: Request) {
     console.log('[leads] 2. Validação OK');
 
     // 2. Autenticar no Google Sheets
-    // Remove aspas e espaços extras que parsers de env (Easypanel, Docker) podem injetar
-    let rawKey = process.env.GOOGLE_PRIVATE_KEY ?? '';
-    rawKey = rawKey.trim();
-    // Remove aspas duplas ou simples ao redor do valor inteiro
-    if ((rawKey.startsWith('"') && rawKey.endsWith('"')) || (rawKey.startsWith("'") && rawKey.endsWith("'"))) {
-      rawKey = rawKey.slice(1, -1);
+    // Usamos a chave em Base64 para evitar corrupção de \n em builds Docker/Nixpacks
+    // Suporta GOOGLE_PRIVATE_KEY_B64 (preferencial) ou GOOGLE_PRIVATE_KEY (fallback)
+    let privateKey: string;
+    if (process.env.GOOGLE_PRIVATE_KEY_B64) {
+      privateKey = Buffer.from(process.env.GOOGLE_PRIVATE_KEY_B64, 'base64').toString('utf-8');
+      console.log('[leads] 3. Chave carregada via BASE64 | tamanho:', privateKey.length);
+    } else {
+      let rawKey = process.env.GOOGLE_PRIVATE_KEY ?? '';
+      rawKey = rawKey.trim().replace(/^["']|["']$/g, '');
+      privateKey = rawKey.replace(/\\n/g, '\n');
+      console.log('[leads] 3. Chave carregada via PRIVATE_KEY | tamanho:', privateKey.length);
     }
-    // Converte \n literais para quebras de linha reais
-    const privateKey = rawKey.replace(/\\n/g, '\n');
-    console.log('[leads] 3. Chave carregada | tamanho:', privateKey.length, '| início:', privateKey.substring(0, 27), '| fim:', privateKey.slice(-25).trim());
+    console.log('[leads] 3b. Início:', privateKey.substring(0, 27), '| Fim:', privateKey.slice(-25).trim());
 
     const serviceAccountAuth = new JWT({
       email: process.env.GOOGLE_CLIENT_EMAIL,
