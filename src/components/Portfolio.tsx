@@ -7,32 +7,32 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const portfolioImages = [
   {
-    src: "/Obras/Comercial/Tatu Bola/WhatsApp Image 2026-05-06 at 22.08.00 (10).jpeg",
+    src: "/obras/Comercial/Tatu Bola/WhatsApp Image 2026-05-06 at 22.08.00 (10).jpeg",
     alt: "Projeto Tatu Bola - Obra entregue",
     aspectRatio: "aspect-[4/3]",
   },
   {
-    src: "/Obras/Comercial/GAV Resorts/WhatsApp Image 2026-05-06 at 22.08.00.jpeg",
+    src: "/obras/Comercial/GAV Resorts/WhatsApp Image 2026-05-06 at 22.08.00.jpeg",
     alt: "Projeto GAV Resorts - Excelência Técnica",
     aspectRatio: "aspect-[3/4]",
   },
   {
-    src: "/Obras/Comercial/Galpão/WhatsApp Image 2026-05-06 at 22.01.21 (1).jpeg",
+    src: "/obras/Comercial/Galpão/WhatsApp Image 2026-05-06 at 22.01.21 (1).jpeg",
     alt: "Projeto Galpão Comercial - Detalhes Estruturais",
     aspectRatio: "aspect-square",
   },
   {
-    src: "/Obras/Comercial/Tatu Bola/WhatsApp Image 2026-05-06 at 22.08.00 (6).jpeg",
+    src: "/obras/Comercial/Tatu Bola/WhatsApp Image 2026-05-06 at 22.08.00 (6).jpeg",
     alt: "Projeto Tatu Bola - Alta Performance",
     aspectRatio: "aspect-[4/3]",
   },
   {
-    src: "/Obras/Comercial/Galpão/WhatsApp Image 2026-05-06 at 22.01.19.jpeg",
+    src: "/obras/Comercial/Galpão/WhatsApp Image 2026-05-06 at 22.01.19.jpeg",
     alt: "Projeto Galpão - Fundação e Estrutura",
     aspectRatio: "aspect-[3/4]",
   },
   {
-    src: "/Obras/Comercial/GAV Resorts/WhatsApp Image 2026-05-06 at 22.09.17 (1).jpeg",
+    src: "/obras/Comercial/GAV Resorts/WhatsApp Image 2026-05-06 at 22.09.17 (1).jpeg",
     alt: "Projeto GAV Resorts - Instalações",
     aspectRatio: "aspect-[4/3]",
   }

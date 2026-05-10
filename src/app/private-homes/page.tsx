@@ -10,32 +10,32 @@ import { CheckCircle2, Eye, ShieldCheck, ArrowRight, MessageCircle } from "lucid
 
 const privateImages = [
   {
-    src: "/Obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (11).jpeg",
+    src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (11).jpeg",
     alt: "Padrão Neoeng: Onde o luxo encontra a segurança estrutural.",
     aspectRatio: "aspect-[4/3]"
   },
   {
-    src: "/Obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.40 (1).jpeg",
+    src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.40 (1).jpeg",
     alt: "Padrão Neoeng: Onde o luxo encontra a segurança estrutural.",
     aspectRatio: "aspect-[3/4]"
   },
   {
-    src: "/Obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (2).jpeg",
+    src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (2).jpeg",
     alt: "Padrão Neoeng: Onde o luxo encontra a segurança estrutural.",
     aspectRatio: "aspect-square"
   },
   {
-    src: "/Obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (6).jpeg",
+    src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (6).jpeg",
     alt: "Padrão Neoeng: Onde o luxo encontra a segurança estrutural.",
     aspectRatio: "aspect-[4/3]"
   },
   {
-    src: "/Obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (4).jpeg",
+    src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (4).jpeg",
     alt: "Padrão Neoeng: Onde o luxo encontra a segurança estrutural.",
     aspectRatio: "aspect-[3/4]"
   },
   {
-    src: "/Obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41.jpeg",
+    src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41.jpeg",
     alt: "Padrão Neoeng: Onde o luxo encontra a segurança estrutural.",
     aspectRatio: "aspect-[4/3]"
   }
@@ -43,17 +43,17 @@ const privateImages = [
 
 const brasilImages = [
   {
-    src: "/Obras/Casas/Casas Brasil/20201228_083121.jpg",
+    src: "/obras/Casas/Casas Brasil/20201228_083121.jpg",
     alt: "Padrão Neoeng: Engenharia Residencial de Alta Performance.",
     aspectRatio: "aspect-[4/3]"
   },
   {
-    src: "/Obras/Casas/Casas Brasil/20231124_181030.jpg",
+    src: "/obras/Casas/Casas Brasil/20231124_181030.jpg",
     alt: "Padrão Neoeng: Engenharia Residencial de Alta Performance.",
     aspectRatio: "aspect-[3/4]"
   },
   {
-    src: "/Obras/Casas/Casas Brasil/DSC_0062.JPG",
+    src: "/obras/Casas/Casas Brasil/DSC_0062.JPG",
     alt: "Padrão Neoeng: Engenharia Residencial de Alta Performance.",
     aspectRatio: "aspect-square"
   }
@@ -114,7 +114,7 @@ export default function PrivateHomes() {
       <section ref={heroRef} className="relative min-h-[90vh] flex items-center justify-center pt-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/Obras/Casas/Projetos/Casa1.webp"
+            src="/obras/Casas/Projetos/Casa1.webp"
             alt="Neoeng Private Homes - Engenharia de Luxo"
             fill
             className="object-cover object-center"
@@ -178,7 +178,7 @@ export default function PrivateHomes() {
           </div>
           <div className="flex-1 relative w-full aspect-square md:aspect-auto md:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/Obras/Casas/Projetos/Casa6.png"
+              src="/obras/Casas/Projetos/Casa6.png"
               alt="Modelo de Gestão"
               fill
               className="object-cover"
@@ -194,7 +194,7 @@ export default function PrivateHomes() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 flex flex-col-reverse md:flex-row items-center gap-16">
           <div className="flex-1 relative w-full aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-white/10">
             <Image
-              src="/Obras/Casas/Projetos/acompanhamento-celular.jpg"
+              src="/obras/Casas/Projetos/acompanhamento-celular.jpg"
               alt="Acompanhamento em tempo real"
               fill
               className="object-cover"
