@@ -46,6 +46,7 @@ export async function POST(request: Request) {
     console.log('[leads] 6. Planilha carregada:', doc.title);
 
     const sheet = doc.sheetsByIndex[0];
+    await sheet.loadHeaderRow(); // obrigatório na v5 antes de addRow()
     console.log('[leads] 7. Aba:', sheet.title, '| Headers:', sheet.headerValues);
 
     // 4. Inserir a linha na planilha
