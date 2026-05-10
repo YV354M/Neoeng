@@ -13,38 +13,42 @@ export async function POST(request: Request) {
     const parsedData = leadSchema.parse(body);
     console.log('[leads] 2. Validação OK');
 
-    // 2. Autenticar no Google Sheets
-    // Usamos a chave em Base64 para evitar corrupção de \n em builds Docker/Nixpacks
-    // Suporta GOOGLE_PRIVATE_KEY_B64 (preferencial) ou GOOGLE_PRIVATE_KEY (fallback)
-    let privateKey: string;
-    if (process.env.GOOGLE_PRIVATE_KEY_B64) {
-      privateKey = Buffer.from(process.env.GOOGLE_PRIVATE_KEY_B64, 'base64').toString('utf-8');
-      console.log('[leads] 3. Chave carregada via BASE64 | tamanho:', privateKey.length);
-    } else {
-      let rawKey = process.env.GOOGLE_PRIVATE_KEY ?? '';
-      rawKey = rawKey.trim().replace(/^["']|["']$/g, '');
-      privateKey = rawKey.replace(/\\n/g, '\n');
-      console.log('[leads] 3. Chave carregada via PRIVATE_KEY | tamanho:', privateKey.length);
-    }
-    console.log('[leads] 3b. Início:', privateKey.substring(0, 27), '| Fim:', privateKey.slice(-25).trim());
+    // 2. Ler env vars — .trim() obrigatório pois Easypanel inclui espaços ao redor do "="
+    const sheetId = (process.env.GOOGLE_SHEET_ID ?? '').trim();
+    const clientEmail = (process.env.GOOGLE_CLIENT_EMAIL ?? '').trim();
+    console.log('[leads] 3. Sheet ID:', `"${sheetId}"`, '| Email:', `"${clientEmail}"`);
 
+    // Suporta GOOGLE_PRIVATE_KEY_B64 (preferencial, sem problemas de escaping)
+    // ou GOOGLE_PRIVATE_KEY como fallback
+    let privateKey: string;
+    const b64raw = (process.env.GOOGLE_PRIVATE_KEY_B64 ?? '').trim();
+    if (b64raw) {
+      privateKey = Buffer.from(b64raw, 'base64').toString('utf-8');
+      console.log('[leads] 4. Chave via BASE64 | tamanho:', privateKey.length);
+    } else {
+      let rawKey = (process.env.GOOGLE_PRIVATE_KEY ?? '').trim();
+      rawKey = rawKey.replace(/^["']|["']$/g, '');
+      privateKey = rawKey.replace(/\\n/g, '\n');
+      console.log('[leads] 4. Chave via PRIVATE_KEY | tamanho:', privateKey.length);
+    }
+    console.log('[leads] 4b. Início:', privateKey.substring(0, 27), '| Fim:', privateKey.slice(-25).trim());
+
+    // 3. Autenticar no Google Sheets
     const serviceAccountAuth = new JWT({
-      email: process.env.GOOGLE_CLIENT_EMAIL,
+      email: clientEmail,
       key: privateKey,
-      scopes: [
-        'https://www.googleapis.com/auth/spreadsheets',
-      ],
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
-    console.log('[leads] 4. JWT criado, carregando planilha:', process.env.GOOGLE_SHEET_ID);
-    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID as string, serviceAccountAuth);
-    await doc.loadInfo(); // carrega as informações da planilha
-    console.log('[leads] 5. Planilha carregada:', doc.title);
+    console.log('[leads] 5. Carregando planilha...');
+    const doc = new GoogleSpreadsheet(sheetId, serviceAccountAuth);
+    await doc.loadInfo();
+    console.log('[leads] 6. Planilha carregada:', doc.title);
 
-    const sheet = doc.sheetsByIndex[0]; // pega a primeira aba
-    console.log('[leads] 6. Aba selecionada:', sheet.title, '| Cabeçalhos:', sheet.headerValues);
+    const sheet = doc.sheetsByIndex[0];
+    console.log('[leads] 7. Aba:', sheet.title, '| Headers:', sheet.headerValues);
 
-    // 3. Inserir a linha na planilha
+    // 4. Inserir a linha na planilha
     await sheet.addRow({
       Nome: parsedData.name,
       Email: parsedData.email,
@@ -55,23 +59,19 @@ export async function POST(request: Request) {
       Detalhes: parsedData.details || '',
       Data: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
     });
-    console.log('[leads] 7. Linha inserida com sucesso');
+    console.log('[leads] 8. Linha inserida com sucesso');
 
-    // 4. Trigger do Webhook n8n (em background - não bloqueante)
+    // 5. Trigger do Webhook n8n (em background — não bloqueia a resposta)
     if (process.env.N8N_WEBHOOK_URL) {
-      // Usando fetch assíncrono para não segurar a resposta
-      fetch(process.env.N8N_WEBHOOK_URL, {
+      fetch(process.env.N8N_WEBHOOK_URL.trim(), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.N8N_API_KEY}`,
+          'Authorization': `Bearer ${(process.env.N8N_API_KEY ?? '').trim()}`,
         },
-        body: JSON.stringify({
-          ...parsedData,
-          source: 'Website Neoeng',
-        }),
+        body: JSON.stringify({ ...parsedData, source: 'Website Neoeng' }),
       }).catch((webhookError) => {
-        console.error('Falha ao acionar webhook n8n:', webhookError);
+        console.error('[leads] Falha no webhook n8n:', webhookError);
       });
     }
 
@@ -85,10 +85,13 @@ export async function POST(request: Request) {
       );
     }
 
-    console.error('Erro na API leads:', error instanceof Error ? error.message : error);
-    if (error instanceof Error) console.error('Stack:', error.stack);
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error('[leads] ERRO CRÍTICO:', msg);
+    if (error instanceof Error) console.error('[leads] Stack:', error.stack);
+
+    // detail exposto para diagnóstico — remover após estabilização em produção
     return NextResponse.json(
-      { error: 'Erro interno no servidor.' },
+      { error: 'Erro interno no servidor.', detail: msg },
       { status: 500 }
     );
   }
