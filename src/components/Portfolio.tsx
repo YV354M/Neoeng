@@ -43,7 +43,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".portfolio-item",

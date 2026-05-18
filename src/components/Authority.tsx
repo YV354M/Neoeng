@@ -111,7 +111,7 @@ export default function Authority() {
               <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/90 to-transparent flex items-end p-6">
                 <div>
                   <h4 className="font-bold text-lg">Alexandre Modesto</h4>
-                  <span className="text-active-orange text-sm font-medium">Diretor Técnico</span>
+                  <span className="text-active-orange text-sm font-medium">ResponsávelTécnico</span>
                 </div>
               </div>
             </div>
