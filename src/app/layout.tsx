@@ -8,10 +8,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Neoeng Engenharia | Execução de Sistemas de Engenharia",
-  description: "Transformamos projetos complexos em infraestrutura de alta performance. Especialistas em execução de instalações com metodologia Lean Construction e análise preditiva via IA.",
+  title: "Neoeng Engenharia | Execução Técnica de Obras Complexas em Fortaleza",
+  description: "Execução técnica de obras complexas, comerciais e instalações de alta performance em Fortaleza. Foco em controle de custos e conformidade de projeto.",
   other: {
-    "build-version": "2026-04-02-v3",
+    "build-version": "2026-05-19-v1",
   },
 };
 

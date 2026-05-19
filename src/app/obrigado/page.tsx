@@ -18,7 +18,7 @@ export default function ObrigadoPage() {
         </h1>
 
         <p className="text-lg text-off-white/80 mb-10 leading-relaxed">
-          Nossa equipe técnica já está analisando as informações da sua obra. Entraremos em contato via WhatsApp nas próximas 24 horas úteis.
+          Recebemos sua solicitação. A equipe da Neoeng irá analisar as informações enviadas e entrar em contato para entender melhor o seu projeto.
         </p>
 
         <div className="bg-white/5 border border-white/10 rounded-2xl p-8 mb-10">

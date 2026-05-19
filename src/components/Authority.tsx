@@ -32,31 +32,31 @@ export default function Authority() {
           <h2 className="text-4xl md:text-5xl font-black mb-6">
             A Base de Confiança da Neoeng.
           </h2>
-          <p className="text-off-white/80 text-lg text-balance">
-            A neoeng nasce com um time com larga experiência em obras rápidas e de grande porte, realizadas em todo o Brasil
+          <p className="text-off-white/80 text-lg text-balance font-light">
+            A Neoeng consolida a experiência acumulada de seu fundador e time técnico na execução de obras rápidas, complexas e de grande porte em todo o Brasil, integrando este acervo técnico e profissional na nova operação.
           </p>
         </div>
 
         {/* STATS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
           <div className="bg-white/5 border border-white/10 p-8 rounded-3xl text-center">
-            <h3 className="text-5xl font-black text-active-orange mb-2">30 Anos</h3>
-            <p className="text-off-white/70">Experiência acumulada em obras de grande porte.</p>
+            <h3 className="text-5xl font-black text-active-orange mb-2 font-serif">30 Anos</h3>
+            <p className="text-off-white/70">Experiência acumulada do time em obras complexas.</p>
           </div>
           <div className="bg-white/5 border border-white/10 p-8 rounded-3xl text-center">
-            <h3 className="text-5xl font-black text-active-orange mb-2">+700k m²</h3>
-            <p className="text-off-white/70">De ABL (Área Bruta Locável) executados com sucesso.</p>
+            <h3 className="text-5xl font-black text-active-orange mb-2 font-serif">+700k m²</h3>
+            <p className="text-off-white/70">De Área Executada (ABL) no acervo profissional do time.</p>
           </div>
           <div className="bg-white/5 border border-white/10 p-8 rounded-3xl text-center">
-            <h3 className="text-5xl font-black text-active-orange mb-2">Presença</h3>
-            <p className="text-off-white/70">Obras entregues em todas as regiões do Brasil.</p>
+            <h3 className="text-5xl font-black text-active-orange mb-2 font-serif">Nacional</h3>
+            <p className="text-off-white/70">Histórico de projetos geridos em todas as regiões do país.</p>
           </div>
         </div>
 
         {/* CAROUSEL - CLIENTS */}
         <div className="mb-24">
           <h3 className="text-center text-off-white/50 text-sm tracking-widest uppercase mb-8">
-            Empresas que os fundadores já atenderam
+            Marcas atendidas no histórico profissional do time
           </h3>
           <div className="relative flex overflow-x-hidden group">
             <div className="animate-marquee flex gap-16 md:gap-24 items-center min-w-full">
@@ -111,15 +111,15 @@ export default function Authority() {
               <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/90 to-transparent flex items-end p-6">
                 <div>
                   <h4 className="font-bold text-lg">Alexandre Modesto</h4>
-                  <span className="text-active-orange text-sm font-medium">ResponsávelTécnico</span>
+                  <span className="text-active-orange text-sm font-medium">Responsável Técnico</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <p className="text-center text-sm text-off-white/50 mt-8 italic">
-          &quot;Acervo técnico dos sócios fundadores: Projetos liderados por Yves Mourão e Alexandre Modesto.&quot;
+        <p className="text-center text-xs text-off-white/50 mt-8 italic leading-relaxed">
+          * A experiência profissional, áreas executadas e marcas apresentadas nesta página constituem o acervo técnico e comercial acumulado individualmente pelo time da Neoeng ao longo de suas respectivas atuações como responsáveis técnicos e diretores em projetos anteriores.
         </p>
       </div>
 

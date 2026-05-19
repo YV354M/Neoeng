@@ -47,10 +47,11 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <h4 className="font-bold text-white mb-8 uppercase tracking-[0.2em] text-xs">Navegação</h4>
             <ul className="space-y-4">
-              <li><Link href="#especialidades" className="text-off-white/60 hover:text-active-orange transition-colors text-sm flex items-center gap-2 group"><span className="w-1 h-1 bg-active-orange/0 group-hover:bg-active-orange rounded-full transition-all" />Especialidades</Link></li>
-              <li><Link href="#diferencial" className="text-off-white/60 hover:text-active-orange transition-colors text-sm flex items-center gap-2 group"><span className="w-1 h-1 bg-active-orange/0 group-hover:bg-active-orange rounded-full transition-all" />O Diferencial Neoeng</Link></li>
-              <li><Link href="#autoridade" className="text-off-white/60 hover:text-active-orange transition-colors text-sm flex items-center gap-2 group"><span className="w-1 h-1 bg-active-orange/0 group-hover:bg-active-orange rounded-full transition-all" />Autoridade & Sócios</Link></li>
-              <li><Link href="#orcamento" className="text-off-white/60 hover:text-active-orange transition-colors text-sm flex items-center gap-2 group"><span className="w-1 h-1 bg-active-orange/0 group-hover:bg-active-orange rounded-full transition-all" />Solicitar Orçamento</Link></li>
+              <li><Link href="/#especialidades" className="text-off-white/60 hover:text-active-orange transition-colors text-sm flex items-center gap-2 group"><span className="w-1 h-1 bg-active-orange/0 group-hover:bg-active-orange rounded-full transition-all" />Áreas de Atuação</Link></li>
+              <li><Link href="/#diferencial" className="text-off-white/60 hover:text-active-orange transition-colors text-sm flex items-center gap-2 group"><span className="w-1 h-1 bg-active-orange/0 group-hover:bg-active-orange rounded-full transition-all" />Diferenciais</Link></li>
+              <li><Link href="/#autoridade" className="text-off-white/60 hover:text-active-orange transition-colors text-sm flex items-center gap-2 group"><span className="w-1 h-1 bg-active-orange/0 group-hover:bg-active-orange rounded-full transition-all" />Experiência</Link></li>
+              <li><Link href="/private-homes" className="text-off-white/60 hover:text-active-orange transition-colors text-sm flex items-center gap-2 group"><span className="w-1 h-1 bg-active-orange/0 group-hover:bg-active-orange rounded-full transition-all" />Private Homes</Link></li>
+              <li><Link href="/#orcamento" className="text-off-white/60 hover:text-active-orange transition-colors text-sm flex items-center gap-2 group"><span className="w-1 h-1 bg-active-orange/0 group-hover:bg-active-orange rounded-full transition-all" />Solicitar Avaliação</Link></li>
             </ul>
           </div>
 
@@ -76,8 +77,8 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-white text-sm font-bold mb-1">E-mail Corporativo</p>
-                  <a href="mailto:contato@neoeng.com.br" className="text-off-white/60 hover:text-white transition-colors text-sm">
-                    contato@neoeng.com.br
+                  <a href="mailto:contato@neoeng.co" className="text-off-white/60 hover:text-white transition-colors text-sm font-mono">
+                    contato@neoeng.co
                   </a>
                 </div>
               </li>

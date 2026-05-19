@@ -47,12 +47,14 @@ export default function Hero() {
             </div>
           </div>
           <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-[1.1] mb-6 text-balance reveal">
-            Neoeng Engenharia:<br />
-            Execução de Projetos com <span className="italic font-serif font-light text-active-orange">Rigor e Tecnologia.</span>
+            Neoeng Engenharia
           </h1>
+          <h2 className="text-2xl md:text-3xl font-light tracking-tight leading-[1.2] mb-6 text-balance reveal text-active-orange">
+            Execução técnica de obras complexas com controle, transparência e rigor de engenharia.
+          </h2>
 
-          <p className="text-lg md:text-xl text-off-white/80 max-w-2xl mb-10 text-balance reveal">
-            Transformamos projetos complexos em infraestrutura de alta performance. Especialistas em execução de instalações com metodologia Lean Construction e análise preditiva via IA.
+          <p className="text-lg md:text-xl text-off-white/80 max-w-2xl mb-10 text-balance reveal font-light">
+            Atuamos em obras comerciais, industriais, instalações técnicas e residências de alto padrão, conectando experiência de campo, planejamento executivo, tecnologia e gestão operacional para entregar prazo, custo e qualidade com previsibilidade.
           </p>
 
           <div className="flex flex-wrap gap-4 items-center reveal">
@@ -60,9 +62,15 @@ export default function Hero() {
               href="#orcamento"
               className="group relative overflow-hidden bg-active-orange text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:scale-[1.03] transition-transform duration-300"
             >
-              <span className="relative z-10">Solicitar Orçamento de Execução</span>
+              <span className="relative z-10">Solicitar Orçamento</span>
               <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
               <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+            </a>
+            <a
+              href="#especialidades"
+              className="group relative overflow-hidden border border-white/30 hover:border-white/80 text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 transition-colors duration-300"
+            >
+              <span className="relative z-10">Conhecer Áreas de Atuação</span>
             </a>
           </div>
         </div>

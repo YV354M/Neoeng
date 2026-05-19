@@ -3,30 +3,35 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { BrainCircuit, ScanEye, TrendingDown, ClipboardCheck, CheckCircle, BarChart3, CalendarCheck } from "lucide-react";
+import { BrainCircuit, CalendarCheck, Shield, Eye, TrendingDown, CheckCircle, BarChart3 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const diffs = [
   {
     icon: BrainCircuit,
-    title: "IA e Predição",
-    desc: "Usamos Inteligência Artificial para análise preditiva de riscos, garantindo o cumprimento exato do cronograma."
+    title: "Planejamento Executivo",
+    desc: "Detalhamento completo de projetos, cronogramas e fluxos de montagem antes do início da obra física para evitar retrabalhos."
   },
   {
-    icon: ScanEye,
-    title: "Transparência Real-time",
-    desc: "Sistemas próprios de gestão com acompanhamento da obra em tempo real e relatórios periódicos. Acompanhamento de imagens com drone."
+    icon: CalendarCheck,
+    title: "Controle de Prazo e Custo",
+    desc: "Monitoramento constante com reporte periódico ao cliente, focando em previsibilidade financeira e cumprimento do cronograma."
+  },
+  {
+    icon: Shield,
+    title: "Gestão Técnica de Campo",
+    desc: "Coordenação de equipes e supervisão direta de engenharia em campo para compatibilização de disciplinas e controle de qualidade."
+  },
+  {
+    icon: Eye,
+    title: "Tecnologia e Transparência",
+    desc: "Acesso direto a relatórios integrados sobre o andamento físico e financeiro da obra com modelo de custos transparentes."
   },
   {
     icon: TrendingDown,
     title: "Lean Construction",
-    desc: "Eficiência operacional e desperdício zero na execução. Filosofia Lean aplicada de ponta a ponta."
-  },
-  {
-    icon: ClipboardCheck,
-    title: "30 Anos de Experiência",
-    desc: "Experiência robusta em condução de obras do início ao fim."
+    desc: "Aplicação de metodologias ágeis e enxutas para otimização de processos e redução sistemática de desperdícios de materiais e tempo."
   }
 ];
 
@@ -41,7 +46,7 @@ export default function Differentiator() {
         {
           x: 0,
           opacity: 1,
-          stagger: 0.15,
+          stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -65,10 +70,10 @@ export default function Differentiator() {
             Por que escolher a Neoeng?
           </h2>
           <p className="text-lg text-deep-navy/80 mb-10 max-w-xl text-balance">
-            O Diferencial Tecnológico na execução de sistemas prediais e industriais. Saímos do modelo tradicional de engenharia para um ecossistema de dados e eficiência.
+            Segurança técnica e controle operacional. Garantimos que sua obra seja executada sob rígidos padrões de engenharia com total visibilidade de custos e cronograma.
           </p>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             {diffs.map((item, id) => {
               const Icon = item.icon;
               return (
@@ -80,7 +85,7 @@ export default function Differentiator() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-deep-navy mb-1">{item.title}</h3>
-                    <p className="text-deep-navy/70 leading-relaxed">{item.desc}</p>
+                    <p className="text-deep-navy/70 leading-relaxed text-sm">{item.desc}</p>
                   </div>
                 </div>
               );
@@ -101,11 +106,11 @@ export default function Differentiator() {
             <div className="absolute bottom-10 left-10 right-10 z-20">
               <div className="bg-deep-navy/60 backdrop-blur-md border border-white/20 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse" />
-                  <span className="text-white font-medium text-sm tracking-wide">COMPUTAÇÃO EM NUVEM</span>
+                  <div className="w-3 h-3 rounded-full bg-orange-400 animate-pulse" />
+                  <span className="text-white font-medium text-sm tracking-wide">GESTÃO OPERACIONAL</span>
                 </div>
                 <p className="text-white/90 text-sm">
-                  Projetos e atualizações de obra sincronizados em tempo real nos tablets da equipe de engenharia em campo.
+                  Planejamento tático de campo e controle de avanço físico atualizados diariamente na nuvem para máxima previsibilidade.
                 </p>
               </div>
             </div>
@@ -115,23 +120,23 @@ export default function Differentiator() {
           <div className="absolute top-12 -left-6 md:-left-12 bg-deep-navy/90 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-2xl z-30 hidden sm:block hover:-translate-y-2 transition-transform duration-500">
             <div className="flex items-center gap-2 mb-4">
               <BarChart3 className="w-4 h-4 text-active-orange" />
-              <div className="text-white text-xs font-bold uppercase tracking-wider">Cronograma (Gantt)</div>
+              <div className="text-white text-xs font-bold uppercase tracking-wider">Cronograma Executivo</div>
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-20 text-white/70 text-xs font-medium">Hidráulica</div>
+                <div className="w-20 text-white/70 text-xs font-medium">Infraestrutura</div>
                 <div className="w-32 h-2.5 bg-white/10 rounded-full overflow-hidden">
                   <div className="w-full h-full bg-green-400 rounded-full" />
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-20 text-white/70 text-xs font-medium">Elétrica</div>
+                <div className="w-20 text-white/70 text-xs font-medium">Instalações</div>
                 <div className="w-32 h-2.5 bg-white/10 rounded-full overflow-hidden">
                   <div className="w-[75%] h-full bg-active-orange rounded-full" />
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-20 text-white/70 text-xs font-medium">Climatização</div>
+                <div className="w-20 text-white/70 text-xs font-medium">Acabamento</div>
                 <div className="w-32 h-2.5 bg-white/10 rounded-full overflow-hidden">
                   <div className="w-[30%] h-full bg-blue-400 rounded-full" />
                 </div>
@@ -145,8 +150,8 @@ export default function Differentiator() {
               <CheckCircle className="w-6 h-6 text-green-400" />
             </div>
             <div>
-              <div className="text-white font-black text-xl">99.8%</div>
-              <div className="text-white/70 text-xs uppercase tracking-wider font-semibold">Qualidade</div>
+              <div className="text-white font-black text-xl">Previsível</div>
+              <div className="text-white/70 text-xs uppercase tracking-wider font-semibold">Controle de Riscos</div>
             </div>
           </div>
 
@@ -156,8 +161,8 @@ export default function Differentiator() {
               <CalendarCheck className="w-5 h-5 text-blue-400" />
             </div>
             <div>
-              <div className="text-white font-black text-lg">Em Dia</div>
-              <div className="text-white/70 text-[10px] uppercase tracking-wider font-semibold">Status do Prazo</div>
+              <div className="text-white font-black text-lg">Controlada</div>
+              <div className="text-white/70 text-[10px] uppercase tracking-wider font-semibold">Previsão de Entrega</div>
             </div>
           </div>
 

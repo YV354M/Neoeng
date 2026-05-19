@@ -1,25 +1,22 @@
-# ROADMAP MASTER: Neoeng Instalações Landing Page
+# ROADMAP MASTER: Ajustes Globais Neoeng (Home & Private Homes)
 
 ## Milestones Claras do Projeto
-1. **Foundation (Fase 0):** Setup do Next.js App Router, Tailwind V4, tipografia e palette de cores Industrial Tech-Solid.
-2. **Componentes Core (Fase 1):** Desenvolvimento da estrutura de Navbar, Hero, Especialidades, Diferencial, Autoridade, e Conversion Form.
-3. **Animação & UX (Fase 2):** Integração do GSAP para scroll animations, micro-interações, hover effects e GSAP ScrollTrigger.
-4. **Finalização & QA (Fase 3):** Teste de contraste (White text on Deep Navy), testes de responsividade mobile, verificação dos assets.
-5. **Publicação (Fase 4):** Deploy em VPS Hostinger, configuração de DNS (A records), setup de Nginx/PM2 e SSL (Certbot).
+1. **Fase 0 - Planejamento & Setup:** Alinhamento dos requisitos e definição das colunas do Google Sheets.
+2. **Fase 1 - Ajustes na Home:** Ajuste do Hero, Soluções Especializadas, Seção Diferenciais (Por que escolher), Seção de Autoridade e Formulário Final (com novos campos e validação).
+3. **Fase 2 - Ajustes na página Private Homes:** Ajuste do Hero, Seção de Gestão por Administração, Seção de Gestão Técnica, Seção de Acompanhamento em Tempo Real, Galeria e Novo Formulário de Avaliação Residencial.
+4. **Fase 3 - Navegação e SEO:** Ajuste de Menus (Navbar/Footer), links para a Home/Private Homes, metadados de SEO para ambas as páginas e correção de e-mails/domínio.
+5. **Fase 4 - Validação e Build:** Verificação do build da aplicação (`npm run build`) para garantir estabilidade e ausência de erros de linting.
 
 ## Trajetória Atual
-- **Passo Atual:** Upload e Sincronização do Código na Branch `main` do GitHub.
+- **Passo Atual:** Todos os ajustes solicitados foram implementados, testados com testes unitários funcionais e a aplicação foi compilada com sucesso (`npm run build`).
 
 ## Status do Squad
 
-| Agente      | Tarefa                                | Status      |
-| :---------- | :------------------------------------ | :---------- |
-| Antigravity | Setup Inicial (Next.js, Tailwind)     | Feito       |
-| Antigravity | Instalação de GSAP e Lucide React     | Feito       |
-| Antigravity | Configuração Global (Cores e Fontes)  | Feito       |
-| Antigravity | Desenvolvimento de Componentes Core   | Feito       |
-| Antigravity | Animacões GSAP e Polimento            | Feito       |
-| Antigravity | Verificação Visual e QA (`npm build`) | Feito       |
-| Antigravity | Auditoria Final de Pré-Lançamento     | Feito       |
-| Antigravity | Ajuste de E-books, Links e Créditos   | Feito       |
-| Antigravity | Upload na branch main do GitHub       | Feito       |
+| Agente | Tarefa | Status |
+| :--- | :--- | :--- |
+| Antigravity | Atualização do PLAN.md e Definição de Colunas | Feito |
+| Antigravity | Ajustes de Validação e API de Leads | Feito |
+| Antigravity | Ajustes na Página Home (Hero, Specialties, Differentiator, Authority, ConversionForm) | Feito |
+| Antigravity | Ajustes na Página Private Homes (Hero, Administração, Gestão, Acompanhamento, Galeria, Form) | Feito |
+| Antigravity | Ajustes de Navegação, SEO, Rodapé e Emails | Feito |
+| Antigravity | Build e QA Final (Validação da aplicação) | Feito |
