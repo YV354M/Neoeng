@@ -138,7 +138,7 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="portfolio-reveal flex items-center justify-between gap-4 mb-8 rounded-[1.75rem] border border-deep-navy/10 bg-white/85 px-5 py-4 shadow-[0_20px_60px_rgba(0,33,71,0.06)]">
+          <div className="portfolio-reveal flex flex-col gap-3 mb-8 rounded-[1.75rem] border border-deep-navy/10 bg-white/85 px-5 py-4 shadow-[0_20px_60px_rgba(0,33,71,0.06)] md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-active-orange">
                 Seleção Comercial
@@ -147,6 +147,9 @@ export default function Portfolio() {
                 Obras do Acervo.
               </p>
             </div>
+            <p className="max-w-md text-right text-xs italic leading-relaxed text-deep-navy/55">
+              Obras executadas pelo time técnico da Neoeng em experiências anteriores.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
