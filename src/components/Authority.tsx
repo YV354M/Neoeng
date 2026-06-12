@@ -40,7 +40,7 @@ export default function Authority() {
         {/* STATS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
           <div className="bg-white/5 border border-white/10 p-8 rounded-3xl text-center">
-            <h3 className="text-5xl font-black text-active-orange mb-2 font-serif">30 Anos</h3>
+            <h3 className="text-5xl font-black text-active-orange mb-2 font-serif">20 Anos</h3>
             <p className="text-off-white/70">Experiência acumulada do time em obras complexas.</p>
           </div>
           <div className="bg-white/5 border border-white/10 p-8 rounded-3xl text-center">
@@ -74,7 +74,7 @@ export default function Authority() {
           <div className="flex flex-col h-full justify-center">
             <h3 className="text-2xl font-bold mb-4">Para Escritórios de Projeto</h3>
             <p className="text-off-white/70 mb-8 leading-relaxed">
-              Focamos exclusivamente na excelência da execução de projetos de parceiros. Executamos instalações garantindo que o seu design seja implementado com exatidão técnica, sem a preocupação da gestão de obra direto para o projetista.
+              Executamos projetos de parceiros com foco em precisão técnica, previsibilidade e controle de obra. Atuamos como braço de execução para escritórios de projeto que precisam transformar design, engenharia e especificações em obra entregue com qualidade.
             </p>
             {PARTNER_LOGOS.length > 0 && (
               <div>
@@ -89,8 +89,8 @@ export default function Authority() {
               </div>
             )}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 lg:mt-0 lg:h-full">
-            <div className="relative w-full h-[320px] lg:h-auto min-h-[320px] rounded-2xl overflow-hidden group">
+          <div className="flex justify-center mt-8 lg:mt-0 lg:h-full">
+            <div className="relative w-full max-w-md h-[320px] lg:h-auto min-h-[320px] rounded-2xl overflow-hidden group">
               <Image
                 src="/socios/Yves.jpg"
                 alt="Yves Mourão"
@@ -101,17 +101,7 @@ export default function Authority() {
               <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/90 to-transparent flex items-end p-6">
                 <div>
                   <h4 className="font-bold text-lg">Yves Mourão</h4>
-                  <span className="text-active-orange text-sm font-medium">Diretor de Operações</span>
-                </div>
-              </div>
-            </div>
-            {/* Sócio Alexandre */}
-            <div className="relative w-full h-[320px] lg:h-auto min-h-[320px] rounded-2xl overflow-hidden group">
-              <Image src="/socios/alexandre.jpeg" alt="Alexandre Modesto" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/90 to-transparent flex items-end p-6">
-                <div>
-                  <h4 className="font-bold text-lg">Alexandre Modesto</h4>
-                  <span className="text-active-orange text-sm font-medium">Responsável Técnico</span>
+                  <span className="text-active-orange text-sm font-medium">Sócio Diretor</span>
                 </div>
               </div>
             </div>
@@ -119,7 +109,7 @@ export default function Authority() {
         </div>
 
         <p className="text-center text-xs text-off-white/50 mt-8 italic leading-relaxed">
-          * A experiência profissional, áreas executadas e marcas apresentadas nesta página constituem o acervo técnico e comercial acumulado individualmente pelo time da Neoeng ao longo de suas respectivas atuações como responsáveis técnicos e diretores em projetos anteriores.
+          *A experiência profissional, áreas executadas e marcas eventualmente apresentadas constituem o acervo técnico e comercial acumulado pelo time da Neoeng ao longo de atuações anteriores e atuais.
         </p>
       </div>
 
