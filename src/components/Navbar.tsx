@@ -47,7 +47,7 @@ export default function Navbar() {
           <Link href="/#especialidades" className="text-sm font-medium hover:-translate-y-[1px] hover:text-active-orange transition-all duration-200">Áreas de Atuação</Link>
           <Link href="/#diferencial" className="text-sm font-medium hover:-translate-y-[1px] hover:text-active-orange transition-all duration-200">Diferenciais</Link>
           <Link href="/#autoridade" className="text-sm font-medium hover:-translate-y-[1px] hover:text-active-orange transition-all duration-200">Experiência</Link>
-          <Link href="/private-homes" className="text-sm font-medium hover:-translate-y-[1px] hover:text-orange-400 transition-all duration-200 text-active-orange font-semibold">Private Homes</Link>
+          <Link href="/private-homes" className="text-sm font-medium hover:-translate-y-[1px] hover:text-orange-400 transition-all duration-200 text-active-orange font-semibold">NeoHouse</Link>
         </div>
 
         <div className="flex items-center gap-2 md:gap-4 shrink-0">
@@ -83,7 +83,7 @@ export default function Navbar() {
           <hr className="border-white/10" />
           <Link href="/#autoridade" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-active-orange transition-colors">Experiência</Link>
           <hr className="border-white/10" />
-          <Link href="/private-homes" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-active-orange transition-colors">Private Homes</Link>
+          <Link href="/private-homes" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-active-orange transition-colors">NeoHouse</Link>
         </div>
       </div>
     </>

@@ -4,75 +4,199 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LeadAssessmentForm from "@/components/LeadAssessmentForm";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { CheckCircle2, Eye, ShieldCheck, ArrowRight, CalendarCheck, Layers, Hammer, Users, DollarSign } from "lucide-react";
+import {
+  ArrowRight,
+  Calculator,
+  Check,
+  CheckCircle2,
+  ClipboardCheck,
+  DraftingCompass,
+  Factory,
+  FileText,
+  Handshake,
+  HardHat,
+  Home as HomeIcon,
+  Landmark,
+  Layers,
+  Presentation,
+  Smartphone,
+  WalletCards,
+} from "lucide-react";
 
-const privateImages = [
+const contactBlocks = [
   {
-    src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (11).jpeg",
-    alt: "Referência Técnica: Execução Residencial de Alto Padrão - Detalhes Estruturais",
-    aspectRatio: "aspect-[4/3]"
+    icon: Handshake,
+    title: "Parceria com arquitetos",
+    copy: "Conectamos você a arquitetos parceiros para personalizar e assinar o projeto da sua casa.",
+    variant: "icon",
   },
   {
-    src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.40 (1).jpeg",
-    alt: "Referência Técnica: Execução Residencial de Alto Padrão - Compatibilização de Projeto",
-    aspectRatio: "aspect-[3/4]"
+    icon: Layers,
+    title: "Projetos complementares",
+    copy: "Projetos elétrico, hidráulico, estrutural e demais complementares, compatibilizados entre si.",
+    variant: "icon",
   },
   {
-    src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (2).jpeg",
-    alt: "Referência Técnica: Execução Residencial de Alto Padrão - Acabamento Fino",
-    aspectRatio: "aspect-square"
+    icon: Calculator,
+    title: "Orçamento da obra antes da aprovação",
+    copy: "Você aprova a construção já sabendo o custo real, sem surpresas no meio do caminho.",
+    variant: "icon",
   },
   {
-    src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (6).jpeg",
-    alt: "Referência Técnica: Execução Residencial de Alto Padrão - Conectividade de Instalações",
-    aspectRatio: "aspect-[4/3]"
+    icon: Factory,
+    title: "Insumos mais baratos, direto de fábrica",
+    copy: "Compra de materiais com condições de fábrica, repassadas integralmente a você.",
+    variant: "icon",
   },
   {
-    src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (4).jpeg",
-    alt: "Referência Técnica: Execução Residencial de Alto Padrão - Gestão Construtiva",
-    aspectRatio: "aspect-[3/4]"
+    icon: Landmark,
+    title: "Parceria com Correspondente da Caixa",
+    copy: "Atenção dedicada ao financiamento da sua construção, do início à liberação dos recursos.",
+    variant: "photo",
+    image: "/assets/neohouse/caixa-logo.png",
+    imageAlt: "Correspondente Caixa",
+    imageFit: "contain" as const,
   },
   {
-    src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41.jpeg",
-    alt: "Referência Técnica: Execução Residencial de Alto Padrão - Estrutura de Concreto",
-    aspectRatio: "aspect-[4/3]"
-  }
-];
+    icon: Smartphone,
+    title: "Acompanhamento pelo App NeoFlow",
+    copy: "Evolução física e financeira da obra, com fotos em tempo real.",
+    variant: "photo",
+    image: "/assets/neohouse/app-neoflow-planta.svg",
+    imageAlt: "App NeoFlow — planta da casa com áreas concluídas e pendentes da obra",
+    imageFit: "cover" as const,
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Checklist de qualidade na entrega",
+    copy: "Cada etapa da obra é validada por um checklist técnico, até a entrega das chaves.",
+    variant: "banner",
+  },
+] as const;
+
+const problemCards = [
+  { icon: WalletCards, title: "Custo real", copy: "Dificuldade para saber quanto a casa realmente vai custar, do projeto ao acabamento." },
+  { icon: HardHat, title: "Execução previsível", copy: "A Neoeng trabalha com sistemas construtivos, equipamentos e tecnologia próprios para dar previsibilidade de prazo, custo e qualidade." },
+  { icon: Presentation, title: "Evolução", copy: "Falta de clareza sobre o avanço físico e financeiro da obra." },
+] as const;
+
+const journey = [
+  "Escolha do lote ou identificação do terreno do cliente",
+  "Análise das regras e características do lote",
+  "Seleção do modelo NeoHouse",
+  "Escolha das opções de personalização",
+  "Desenvolvimento e compatibilização dos projetos",
+  "Orçamento, cronograma e organização documental",
+  "Estruturação e acompanhamento do financiamento",
+  "Início da obra, conduzida pela equipe própria da Neoeng",
+  "Acompanhamento físico-financeiro pelo App NeoFlow",
+  "Organização da entrega e documentação final",
+] as const;
+
+const houseModels = [
+  { name: "Essencial", type: "Casa plana", copy: "Todos os ambientes em um único pavimento, com praticidade, integração e conforto.", image: "/assets/neohouse/house-essencial.webp" },
+  { name: "Horizonte", type: "Térreo + 1 sem rooftop", copy: "Dois pavimentos completos, com mais espaço, privacidade e presença arquitetônica.", image: "/assets/neohouse/house-horizonte.webp" },
+  { name: "Mirante", type: "Térreo + 1 com varanda gourmet integrada", copy: "Casa predominantemente térrea, com ampla varanda gourmet no pavimento superior e um cômodo fechado recuado ao fundo.", image: "/assets/neohouse/house-mirante.png" },
+  { name: "Signature", type: "Térreo + 1 com rooftop superior", copy: "Dois pavimentos e um rooftop aberto acima, criando uma área adicional de lazer e contemplação.", image: "/assets/neohouse/house-signature.webp" },
+] as const;
+
+const trackingMetrics = [
+  "Percentual físico executado",
+  "Valor contratado",
+  "Valor pago",
+  "Valor comprometido",
+  "Saldo disponível",
+  "Projeção de conclusão",
+  "Etapas atrasadas",
+  "Pontos de atenção",
+  "Documentos pendentes",
+  "Histórico de decisões e alterações",
+] as const;
+
+const documentationItems = [
+  "Aprovação dos projetos",
+  "Alvarás e autorizações",
+  "ARTs e RRTs dos profissionais responsáveis",
+  "Contratos e documentos do financiamento",
+  "Orçamentos, cronogramas, medições e registros",
+  "Habite-se e documentação de conclusão",
+  "Manuais, garantias e documentos da entrega",
+] as const;
+
+const adminHighlights = [
+  "Relatórios mensais de conciliação financeira e física.",
+  "Cotações e compras de materiais diretas em nome do cliente, com repasse integral de descontos comerciais.",
+  "Cronogramas executivos atualizados com identificação preventiva de gargalos.",
+] as const;
+
+const profiles = [
+  { title: "Proprietários Exigentes", desc: "Quem busca controle minucioso de custos, fidelidade absoluta ao projeto e atenção obsessiva aos detalhes de acabamento." },
+  { title: "Investidores Residenciais", desc: "Quem exige alta performance financeira, cronogramas previsíveis e qualidade que valoriza o metro quadrado para revenda imediata." },
+  { title: "Arquitetos e Designers", desc: "Parceiros que buscam uma construtora com rigor de engenharia capaz de tirar do papel layouts complexos sem desvios estruturais." },
+] as const;
 
 const brasilImages = [
-  {
-    src: "/obras/Casas/Casas Brasil/20201228_083121.jpg",
-    alt: "Referência Técnica: Projetos residenciais no Brasil liderados pelos sócios.",
-    aspectRatio: "aspect-[4/3]"
-  },
-  {
-    src: "/obras/Casas/Casas Brasil/20231124_181030.jpg",
-    alt: "Referência Técnica: Gestão de montagem e controle de prazo em obras premium.",
-    aspectRatio: "aspect-[3/4]"
-  },
-  {
-    src: "/obras/Casas/Casas Brasil/DSC_0062.JPG",
-    alt: "Referência Técnica: Conclusão de estruturas residenciais complexas.",
-    aspectRatio: "aspect-square"
-  }
+  { src: "/obras/Casas/Casas Brasil/20201228_083121.jpg", alt: "Referência Técnica: Projetos residenciais no Brasil liderados pelos sócios.", aspectRatio: "aspect-[4/3]" },
+  { src: "/obras/Casas/Casas Brasil/20231124_181030.jpg", alt: "Referência Técnica: Gestão de montagem e controle de prazo em obras premium.", aspectRatio: "aspect-[3/4]" },
+  { src: "/obras/Casas/Casas Brasil/DSC_0062.JPG", alt: "Referência Técnica: Conclusão de estruturas residenciais complexas.", aspectRatio: "aspect-square" },
+];
+
+const privateImages = [
+  { src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (11).jpeg", alt: "Referência Técnica: Execução Residencial de Alto Padrão - Detalhes Estruturais", aspectRatio: "aspect-[4/3]" },
+  { src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.40 (1).jpeg", alt: "Referência Técnica: Execução Residencial de Alto Padrão - Compatibilização de Projeto", aspectRatio: "aspect-[3/4]" },
+  { src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (2).jpeg", alt: "Referência Técnica: Execução Residencial de Alto Padrão - Acabamento Fino", aspectRatio: "aspect-square" },
+  { src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (6).jpeg", alt: "Referência Técnica: Execução Residencial de Alto Padrão - Conectividade de Instalações", aspectRatio: "aspect-[4/3]" },
+  { src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41 (4).jpeg", alt: "Referência Técnica: Execução Residencial de Alto Padrão - Gestão Construtiva", aspectRatio: "aspect-[3/4]" },
+  { src: "/obras/Casas/Casa USA/WhatsApp Image 2026-05-06 at 22.05.41.jpeg", alt: "Referência Técnica: Execução Residencial de Alto Padrão - Estrutura de Concreto", aspectRatio: "aspect-[4/3]" },
+];
+
+const clientLogos = [
+  { src: "/logos_clientes/mcdonalds.png", alt: "McDonalds" },
+  { src: "/logos_clientes/kfc-logo_1678128805.png", alt: "KFC" },
+  { src: "/logos_clientes/nike-logo.png", alt: "Nike" },
+  { src: "/logos_clientes/riachuelo.jpg", alt: "Riachuelo" },
+  { src: "/logos_clientes/logo-bradesco-hero.png", alt: "Bradesco" },
+  { src: "/logos_clientes/beachpark.png", alt: "Beach Park" },
+  { src: "/logos_clientes/centauro.png", alt: "Centauro" },
+  { src: "/logos_clientes/AMERICANAS.png", alt: "Americanas" },
+  { src: "/logos_clientes/alifenino.png", alt: "Alife Nino" },
+  { src: "/logos_clientes/logo_grupo-gav_kcywwW.png", alt: "Gav Resorts" },
+  { src: "/logos_clientes/adidas-logo-1971.jpg", alt: "Adidas" },
+];
+
+const commercialPhotos = [
+  { src: "/obras/Comercial/Select/Loja_Nike.jpeg", alt: "Acervo comercial Neoeng - Loja Nike" },
+  { src: "/obras/Comercial/Select/Loja_Centauro.JPG", alt: "Acervo comercial Neoeng - Loja Centauro" },
+  { src: "/obras/Comercial/Select/Loja_Riachuelo.jpeg", alt: "Acervo comercial Neoeng - Loja Riachuelo" },
+  { src: "/obras/Comercial/Select/Gav_Resorts.jpeg", alt: "Acervo comercial Neoeng - Gav Resorts" },
 ];
 
 export default function PrivateHomes() {
   const heroRef = useRef<HTMLDivElement>(null);
+  const layersRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState<"brasil" | "usa">("brasil");
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    
+
     const ctx = gsap.context(() => {
+      gsap.fromTo(".fade-in-up", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power2.out" });
+
       gsap.fromTo(
-        ".fade-in-up",
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power2.out" }
+        ".nh-contact-block",
+        { y: 34, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.15,
+          ease: "power2.out",
+          scrollTrigger: { trigger: layersRef.current, start: "top 78%", toggleActions: "play none none reverse" },
+        },
       );
 
       gsap.fromTo(
@@ -84,320 +208,304 @@ export default function PrivateHomes() {
           duration: 0.8,
           stagger: 0.15,
           ease: "power2.out",
-          scrollTrigger: {
-            trigger: galleryRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
-        }
+          scrollTrigger: { trigger: galleryRef.current, start: "top 80%", toggleActions: "play none none reverse" },
+        },
       );
     });
 
     return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    gsap.fromTo(
-      ".gallery-item",
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power2.out" }
-    );
-  }, [activeTab]);
-
   const currentImages = activeTab === "brasil" ? brasilImages : privateImages;
 
   return (
-    <main className="flex flex-col min-h-screen bg-[#FDFDFD]">
+    <main className="neohouse-page flex flex-col min-h-screen">
       <Navbar />
 
-      {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[90vh] flex items-center justify-center pt-24 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/obras/Casas/Projetos/Casa1.webp"
-            alt="Neoeng Private Homes - Engenharia Residencial de Alto Padrão"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-deep-navy/95 via-deep-navy/85 to-transparent mix-blend-multiply" />
+      {/* Hero */}
+      <section ref={heroRef} className="nh-hero" id="inicio">
+        <div className="nh-hero-image">
+          <Image src="/assets/neohouse/hero-house.webp" alt="Residência de alto padrão NeoHouse" fill priority className="object-cover" />
         </div>
-
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full flex flex-col items-start">
-          <div className="fade-in-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8">
-            <span className="w-2 h-2 rounded-full bg-active-orange animate-pulse" />
-            Neoeng Private Homes
-          </div>
-          <h1 className="fade-in-up text-4xl md:text-6xl font-black text-white leading-tight max-w-4xl mb-6">
-            Residências de Alto Padrão com Engenharia, Controle e Transparência.
-          </h1>
-          <p className="fade-in-up text-lg md:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed font-light">
-            A Neoeng leva para a construção residencial premium a disciplina técnica de obras comerciais e complexas, garantindo controle de custos e conformidade de projetos.
-          </p>
-          <div className="fade-in-up flex flex-wrap gap-4">
-            <a 
-              href="#avaliacao-residencial"
-              className="bg-active-orange text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform flex items-center justify-center gap-2 group shadow-lg shadow-active-orange/20"
-            >
-              Solicitar Consultoria de Alto Padrão
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a 
-              href="#modelo-gestao"
-              className="border border-white/30 hover:border-white/80 text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-colors"
-            >
-              Entender Nosso Modelo de Gestão
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Modelo de Gestão (Construção por Administração) */}
-      <section id="modelo-gestao" className="py-24 relative overflow-hidden bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-16">
-          <div className="flex-1 space-y-6">
-            <div className="w-16 h-1 bg-active-orange rounded-full mb-8" />
-            <h2 className="text-4xl font-light text-deep-navy leading-tight">
-              Construção por Administração: <br />
-              <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-deep-navy to-deep-navy/80">Transparência nas Contratações.</span>
-            </h2>
-            <div className="text-lg text-deep-navy/70 leading-relaxed space-y-4 font-light">
-              <p>
-                No modelo de <strong>Construção por Administração</strong> da Neoeng Private, a obra é executada com custos abertos. Você paga o valor real de materiais e mão de obra, enquanto nós realizamos a gestão operacional e a responsabilidade técnica sob uma taxa administrativa fixa pré-estabelecida.
-              </p>
-              <p>
-                Eliminamos conflitos de interesse de margens ocultas e focamos estritamente na mitigação de riscos, controle físico-financeiro e na entrega de uma engenharia de alto nível para o seu lar.
-              </p>
+        <div className="nh-hero-overlay" />
+        <div className="nh-hero-grid">
+          <div className="nh-hero-copy">
+            <span className="nh-eyebrow fade-in-up"><HomeIcon size={15} /> NeoHouse — Casas de Alto Padrão Neoeng</span>
+            <h1 className="fade-in-up">Do lote às chaves,<br /><em>com clareza em cada decisão.</em></h1>
+            <p className="fade-in-up">Escolha seu projeto, personalize os acabamentos, organize o financiamento e acompanhe a construção em uma única jornada.</p>
+            <p className="fade-in-up">A Neoeng leva para a construção residencial premium a disciplina técnica de obras comerciais e complexas, garantindo controle de custos e conformidade de projetos.</p>
+            <div className="nh-hero-actions fade-in-up">
+              <a className="nh-button nh-button-gold" href="#avaliacao-residencial">Quero construir minha casa <ArrowRight size={18} /></a>
+              <a className="nh-button nh-button-ghost" href="#jornada">Conheça a jornada NeoHouse</a>
             </div>
-            <ul className="space-y-4 mt-8">
-              {[
-                'Relatórios mensais de conciliação financeira e física.',
-                'Cotações e compras de materiais diretas em nome do cliente, com repasse integral de descontos comerciais.',
-                'Cronogramas executivos atualizados com identificação preventiva de gargalos.'
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-deep-navy/80 font-medium text-sm leading-relaxed">
-                  <CheckCircle2 className="w-5 h-5 text-active-orange shrink-0 mt-0.5" />
-                  <span>{item}</span>
-                </li>
-              ))}
+          </div>
+          <aside className="nh-hero-proof fade-in-up">
+            <span>Jornada NeoHouse</span>
+            <strong>Projeto, obra e entrega sob um só time.</strong>
+            <ul>
+              <li><Check size={16} /> Projetos</li>
+              <li><Check size={16} /> Orçamento assertivo</li>
+              <li><Check size={16} /> Financiamento do Terreno e Obra</li>
+              <li><Check size={16} /> Execução com qualidade e previsibilidade de prazo e custo</li>
+              <li><Check size={16} /> Acompanhamento em tempo real via App NeoFlow</li>
             </ul>
-          </div>
-          <div className="flex-1 relative w-full aspect-square md:aspect-auto md:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
-            <Image
-              src="/obras/Casas/Projetos/Casa6.png"
-              alt="Modelo de Gestão por Administração"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-deep-navy/10" />
-          </div>
+          </aside>
         </div>
       </section>
 
-      {/* Seção "Por que alto padrão exige gestão técnica?" */}
-      <section className="py-24 bg-concrete-gray relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <p className="text-active-orange font-bold uppercase tracking-wider mb-2 text-sm">
-              Gestão de Engenharia
-            </p>
-            <h2 className="text-3xl md:text-5xl font-black text-deep-navy leading-tight">
-              Por que Alto Padrão exige Gestão Técnica?
-            </h2>
-            <p className="text-deep-navy/70 mt-4 text-sm md:text-base max-w-xl mx-auto">
-              Projetos sofisticados demandam controle rigoroso. A Neoeng aplica metodologias estruturadas para evitar retrabalhos e assegurar a qualidade de montagem de cada disciplina.
-            </p>
-          </div>
+      <section className="nh-signal-strip">
+        <div><DraftingCompass /><span><b>Projetos</b> adequados ao lote</span></div>
+        <div><HardHat /><span><b>Execução</b> com previsibilidade de prazo e custo</span></div>
+        <div><Smartphone /><span><b>Clareza</b> sobre avanço e pagamentos</span></div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: CalendarCheck,
-                title: "Planejamento Executivo Detalhado",
-                desc: "Estruturação minuciosa do cronograma físico-financeiro e dimensionamento de insumos antes do início dos trabalhos em campo."
-              },
-              {
-                icon: Layers,
-                title: "Compatibilização de Disciplinas",
-                desc: "Análise técnica que garante que os projetos elétrico, hidráulico, estrutural e de climatização convergem sem interferências."
-              },
-              {
-                icon: Hammer,
-                title: "Rigor Geométrico e Estrutural",
-                desc: "Controle dimensional milimétrico e auditoria minuciosa em concretagens, alvenarias e esquadrias de grandes vãos."
-              },
-              {
-                icon: Users,
-                title: "Gestão e Homologação de Fornecedores",
-                desc: "Contratação direta baseada em capacidade técnica comprovada e fiscalização contínua das atividades de terceiros."
-              },
-              {
-                icon: DollarSign,
-                title: "Rastreabilidade de Custos",
-                desc: "Acompanhamento preciso de compras de insumos e mão de obra com total transparência e conciliação de notas fiscais."
-              },
-              {
-                icon: ShieldCheck,
-                title: "Fiscalização e Controle de Qualidade",
-                desc: "Inspeções técnicas sistemáticas em todas as fases da obra, desde a fundação ao acabamento fino de revestimentos."
-              }
-            ].map((card, idx) => {
-              const Icon = card.icon;
+      {/* O desafio de quem vai construir */}
+      <section className="nh-section">
+        <div className="nh-section-head">
+          <span className="nh-kicker">O desafio de quem vai construir</span>
+          <h2>Construir uma casa não deveria ser um salto no escuro.</h2>
+          <p>Depois da compra do lote, surgem decisões sobre projeto, orçamento, documentação, financiamento, fornecedores, pagamentos e qualidade. A NeoHouse organiza essa jornada e coloca a própria Neoeng à frente da execução, do primeiro projeto à entrega das chaves.</p>
+        </div>
+        <div className="nh-problem-grid">
+          {problemCards.map(({ icon: Icon, title, copy }) => (
+            <article key={title}><Icon /><h3>{title}</h3><p>{copy}</p></article>
+          ))}
+        </div>
+      </section>
+
+      {/* Tudo em um só contato */}
+      <section className="nh-section" id="servicos" ref={layersRef}>
+        <div className="nh-section-head nh-center-head">
+          <span className="nh-kicker">NeoHouse</span>
+          <h2>Tudo em um só contato.</h2>
+        </div>
+        <div className="nh-contact-grid">
+          {contactBlocks.map(({ icon: Icon, title, copy, variant, ...rest }) => {
+            const image = "image" in rest ? rest.image : undefined;
+            const imageAlt = "imageAlt" in rest ? rest.imageAlt : title;
+            const imageFit = "imageFit" in rest ? rest.imageFit : "cover";
+            if (variant === "banner") {
               return (
-                <div key={idx} className="bg-white border border-black/5 hover:border-active-orange/20 shadow-md hover:shadow-xl rounded-2xl p-8 transition-all duration-300">
-                  <div className="bg-concrete-gray/30 p-3.5 rounded-xl inline-block text-active-orange mb-6">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-bold text-deep-navy mb-3">{card.title}</h3>
-                  <p className="text-deep-navy/70 text-sm leading-relaxed">{card.desc}</p>
-                </div>
+                <article className="nh-contact-block nh-contact-banner" key={title}>
+                  <span className="nh-contact-icon"><Icon /></span>
+                  <div><h3>{title}</h3><p>{copy}</p></div>
+                </article>
               );
-            })}
+            }
+            if (variant === "photo" && image) {
+              return (
+                <article className="nh-contact-block nh-contact-photo" key={title}>
+                  <div className="nh-contact-media">
+                    <Image src={image} alt={imageAlt} fill style={{ objectFit: imageFit }} sizes="(max-width: 900px) 100vw, 33vw" />
+                  </div>
+                  <div className="nh-contact-photo-body">
+                    <span className="nh-contact-icon"><Icon /></span>
+                    <h3>{title}</h3>
+                    <p>{copy}</p>
+                  </div>
+                </article>
+              );
+            }
+            return (
+              <article className="nh-contact-block" key={title}>
+                <span className="nh-contact-icon"><Icon /></span>
+                <h3>{title}</h3>
+                <p>{copy}</p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Acompanhamento Físico-Financeiro */}
+      <section className="nh-tracking-section" id="acompanhamento">
+        <div className="nh-tracking-header">
+          <span className="nh-kicker">Acompanhamento Físico-Financeiro</span>
+          <h2>Saiba quanto foi executado, quanto foi pago e o que ainda falta.</h2>
+          <p>A equipe Neoeng alimenta o App NeoFlow com a evolução da execução, cronograma, medições, despesas, documentos e evidências fotográficas — para você acompanhar a obra com clareza, de onde estiver.</p>
+        </div>
+        <div className="nh-tracking-body">
+          <div className="nh-tracking-visual-col">
+            <div className="nh-tracking-visual">
+              <Image src="/obras/Casas/Projetos/acompanhamento-celular.jpg" alt="App NeoFlow — acompanhamento físico-financeiro por dispositivo móvel" fill className="object-cover" />
+            </div>
+            <div className="nh-tracking-methods">
+              <div><CheckCircle2 size={18} /><span>RDO online, dia a dia</span></div>
+              <div><CheckCircle2 size={18} /><span>Fotos e imagens aéreas por drone</span></div>
+              <div><CheckCircle2 size={18} /><span>Curva S de custos x avanço</span></div>
+            </div>
+            <small>App NeoFlow — visualização ilustrativa do acompanhamento em tempo real.</small>
+          </div>
+          <div className="nh-metric-panel">
+            {trackingMetrics.map((item, i) => (
+              <div key={item}><span>{String(i + 1).padStart(2, "0")}</span>{item}</div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Acompanhamento em Tempo Real */}
-      <section className="py-24 bg-deep-navy text-white relative">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-active-orange/5 mix-blend-screen pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 flex flex-col-reverse md:flex-row items-center gap-16">
-          <div className="flex-1 relative w-full aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-            <Image
-              src="/obras/Casas/Projetos/acompanhamento-celular.jpg"
-              alt="Acompanhamento físico-financeiro por dispositivo móvel"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="flex-1 space-y-6">
-            <div className="p-4 bg-white/5 inline-block rounded-2xl mb-4 border border-white/10">
-              <Eye className="w-8 h-8 text-active-orange" />
+      {/* Financiamento e Documentação */}
+      <section className="nh-section">
+        <div className="nh-support-grid">
+          <article>
+            <Landmark />
+            <span className="nh-kicker">Financiamento</span>
+            <h2>Também ajudamos a organizar o financiamento da construção.</h2>
+            <div className="nh-highlight-box">
+              <WalletCards size={20} />
+              <p><strong>Viabilizamos o financiamento do terreno e da obra.</strong> Pague as parcelas somente após a conclusão da obra.</p>
             </div>
-            <h2 className="text-4xl font-light leading-tight">
-              Acompanhamento Físico-Financeiro <br />
-              <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">em Tempo Real.</span>
-            </h2>
-            <div className="text-lg text-white/70 leading-relaxed space-y-4 font-light text-justify">
-              <p>
-                Mais do que imagens, entregamos relatórios técnicos de status. Nossa gestão oferece visibilidade completa sobre o ritmo de avanço físico e a curva de desembolso financeiro da sua obra, mitigando surpresas e garantindo tranquilidade.
-              </p>
-              <p>
-                Monitore o avanço e acompanhe cada etapa da execução residencial premium de onde estiver, com total segurança e previsibilidade técnica.
-              </p>
-            </div>
-            <ul className="space-y-3 mt-6">
-              {[
-                'Relatório de Avanço Físico Diário (RDO) disponível online.',
-                'Registro fotográfico e de imagens aéreas (drones) das etapas construtivas.',
-                'Curva S de custos x avanço para acompanhamento em tempo real do orçamento.'
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-white/80 text-sm">
-                  <CheckCircle2 className="w-5 h-5 text-active-orange shrink-0 mt-0.5" />
-                  <span>{item}</span>
-                </li>
+            <p>A Neoeng conta com correspondente bancário da Caixa, com canal dedicado ao financiamento de construção, e acompanha a preparação de documentos, projetos, orçamento e cronograma exigidos na análise. Também facilita a comunicação durante as etapas de contratação, medição e liberação dos recursos.</p>
+            <small>*Aprovação de crédito, valores liberados e itens financiáveis dependem dos critérios e da análise da instituição financeira.</small>
+          </article>
+          <article>
+            <FileText />
+            <span className="nh-kicker">Documentação</span>
+            <h2>Documentação organizada do projeto à entrega.</h2>
+            <ul>{documentationItems.map((item) => <li key={item}><Check size={16} />{item}</li>)}</ul>
+            <small>A Neoeng organiza e acompanha a obtenção dos documentos. A emissão, aprovação e responsabilidade por cada um permanecem com os respectivos profissionais e órgãos competentes.</small>
+          </article>
+        </div>
+      </section>
+
+      {/* Modelos NeoHouse */}
+      <section className="nh-section" id="modelos">
+        <div className="nh-section-head nh-center-head">
+          <span className="nh-kicker">Modelos NeoHouse</span>
+          <h2>Uma base arquitetônica clara. Personalizações que cabem no orçamento.</h2>
+          <p style={{ margin: "0 auto" }}>Antes da contratação definitiva, verificamos a compatibilidade do modelo com o lote e com as regras do empreendimento.</p>
+        </div>
+        <div className="nh-house-grid">
+          {houseModels.map(({ name, type, copy, image }, i) => (
+            <article className="nh-house-card" style={{ backgroundImage: `url(${image})` }} key={name}>
+              <div className="nh-house-content">
+                <span>Modelo {String(i + 1).padStart(2, "0")}</span>
+                <h3>{name}</h3>
+                <b>{type}</b>
+                <p>{copy}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="nh-render-note">Imagens conceituais. Cada projeto é licenciado para uma única construção em lote determinado. A estrutura principal é mantida; acabamentos, texturas, revestimentos, cores e elementos decorativos podem ser escolhidos entre opções previamente selecionadas e orçáveis. Todos os projetos contam com acompanhamento de um arquiteto responsável pela personalização e pela adaptação ao terreno, mesmo dentro do conceito do modelo escolhido.</p>
+        <div className="nh-inline-cta">
+          <div><strong>Encontre o modelo adequado ao seu lote.</strong><span>A NeoHouse verifica regras, características do terreno e possibilidades de personalização.</span></div>
+          <a className="nh-button nh-button-dark" href="#avaliacao-residencial">Conheça os modelos NeoHouse <ArrowRight size={18} /></a>
+        </div>
+      </section>
+
+      {/* Como funciona */}
+      <section className="nh-journey-section" id="jornada">
+        <div className="nh-journey-intro">
+          <span className="nh-kicker">Como funciona</span>
+          <h2>Uma sequência organizada, do terreno à entrega.</h2>
+        </div>
+        <div className="nh-journey-flow">
+          {journey.map((item, i) => (
+            <Fragment key={item}>
+              <div className="nh-journey-step">
+                <span>{String(i + 1).padStart(2, "0")}</span>
+                <p>{item}</p>
+              </div>
+              {i < journey.length - 1 && <ArrowRight className="nh-journey-arrow" />}
+            </Fragment>
+          ))}
+        </div>
+      </section>
+
+      {/* Construção por Administração */}
+      <section className="nh-section" id="modelo-gestao">
+        <div className="nh-section-head" style={{ maxWidth: 760, margin: "0 0 8px" }}>
+          <span className="nh-kicker">Construção por Administração</span>
+        </div>
+        <div className="nh-admin-section">
+          <div className="nh-admin-copy">
+            <h2 style={{ marginTop: 0 }}>Transparência nas contratações, para quem prefere um projeto autoral.</h2>
+            <p>No modelo de <strong>Construção por Administração</strong> da Neoeng, a obra é executada com custos abertos. Você paga o valor real de materiais e mão de obra, enquanto a Neoeng realiza a gestão operacional e a responsabilidade técnica sob uma taxa administrativa fixa pré-estabelecida.</p>
+            <p>Eliminamos conflitos de interesse de margens ocultas e focamos na mitigação de riscos, no controle físico-financeiro e na entrega de uma engenharia de alto nível para o seu lar.</p>
+            <ul>
+              {adminHighlights.map((item) => (
+                <li key={item}><CheckCircle2 size={17} />{item}</li>
               ))}
             </ul>
           </div>
-        </div>
-      </section>
-
-      {/* Galeria de Projetos (Acervo) */}
-      <section ref={galleryRef} className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black text-deep-navy mb-6">
-              Acervo Residencial e Referências de Execução
-            </h2>
-            <p className="text-deep-navy/70 text-lg mb-8 font-light">
-              Portfólio de residências e referências construtivas que compõem o histórico profissional e técnico dos fundadores da Neoeng. Projetos executados com a mesma disciplina técnica e rigor que aplicamos em cada obra.
-            </p>
-
-            <div className="flex items-center justify-center gap-4">
-              <button
-                onClick={() => setActiveTab("brasil")}
-                className={`px-8 py-3 rounded-full font-bold transition-all duration-300 border-2 ${activeTab === "brasil" ? "bg-active-orange border-active-orange text-white" : "border-deep-navy/20 text-deep-navy hover:border-active-orange/50"}`}
-              >
-                Brasil
-              </button>
-              <button
-                onClick={() => setActiveTab("usa")}
-                className={`px-8 py-3 rounded-full font-bold transition-all duration-300 border-2 ${activeTab === "usa" ? "bg-active-orange border-active-orange text-white" : "border-deep-navy/20 text-deep-navy hover:border-active-orange/50"}`}
-              >
-                USA
-              </button>
+          <div className="nh-admin-visual">
+            <div className="nh-admin-visual-frame">
+              <Image src="/assets/neohouse/planta-alto-padrao.webp" alt="Planta baixa de residência de alto padrão NeoHouse, em orientação vertical" width={385} height={216} className="nh-admin-visual-img" />
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-            {currentImages.map((img, index) => (
-              <div key={index} className={`gallery-item relative overflow-hidden rounded-2xl group break-inside-avoid shadow-lg ${img.aspectRatio}`}>
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-deep-navy/90 via-deep-navy/40 to-transparent p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                  <p className="text-white font-medium text-xs leading-snug">
-                    Referência Técnica: Histórico de projetos dos sócios fundadores.
-                  </p>
-                </div>
+      {/* Acervo Residencial e Referências de Execução */}
+      <section ref={galleryRef} className="nh-section" id="acervo">
+        <div className="nh-section-head nh-center-head">
+          <span className="nh-kicker">Acervo Residencial e Referências de Execução</span>
+          <h2>Portfólio e referências construtivas dos fundadores.</h2>
+          <p style={{ margin: "0 auto" }}>Projetos executados com a mesma disciplina técnica e rigor que aplicamos em cada obra NeoHouse.</p>
+        </div>
+
+        <div className="nh-acervo-tabs">
+          <button className={activeTab === "brasil" ? "active" : ""} onClick={() => setActiveTab("brasil")}>Brasil</button>
+          <button className={activeTab === "usa" ? "active" : ""} onClick={() => setActiveTab("usa")}>USA</button>
+        </div>
+
+        <div className="columns-1 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          {currentImages.map((img, index) => (
+            <div key={index} className={`gallery-item relative overflow-hidden rounded-2xl group break-inside-avoid shadow-lg ${img.aspectRatio}`}>
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#08172f]/90 via-[#08172f]/40 to-transparent p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                <p className="text-white font-medium text-xs leading-snug">Referência Técnica: Histórico de projetos dos sócios fundadores.</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="nh-acervo-comercial">
+          <span className="nh-kicker">Acervo Comercial</span>
+          <h2 style={{ marginTop: 12 }}>O mesmo rigor técnico, em obras complexas para grandes marcas.</h2>
+          <p>Antes de aplicar essa disciplina à construção residencial, o time Neoeng executou obras comerciais e industriais para operações como estas.</p>
+          <div className="nh-logo-marquee">
+            <div className="nh-logo-marquee-track">
+              {[...clientLogos, ...clientLogos].map((logo, idx) => (
+                <div key={idx}><Image src={logo.src} alt={logo.alt} fill sizes="150px" className="object-contain" /></div>
+              ))}
+            </div>
+          </div>
+          <div className="nh-comercial-photos">
+            {commercialPhotos.map((photo) => (
+              <div className="nh-gallery-item" key={photo.src}>
+                <Image src={photo.src} alt={photo.alt} fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Seção "Para quem é o Neoeng Private Homes?" */}
-      <section className="py-24 bg-concrete-gray relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <p className="text-active-orange font-bold uppercase tracking-wider mb-2 text-sm">
-              Perfis de Clientes
-            </p>
-            <h2 className="text-3xl md:text-5xl font-black text-deep-navy leading-tight">
-              Para quem é o Neoeng Private Homes?
-            </h2>
-            <p className="text-deep-navy/70 mt-4 text-sm md:text-base max-w-xl mx-auto font-light">
-              Nossa estrutura é voltada para quem não aceita desvios técnicos na execução de seus projetos residenciais de alto padrão.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: "Proprietários Exigentes",
-                desc: "Quem busca controle minucioso de custos, fidelidade absoluta ao projeto e atenção obsessiva aos detalhes de acabamento."
-              },
-              {
-                title: "Investidores Residenciais",
-                desc: "Quem exige alta performance financeira, cronogramas previsíveis e qualidade que valoriza o metro quadrado para revenda imediata."
-              },
-              {
-                title: "Arquitetos e Designers",
-                desc: "Parceiros que buscam uma construtora com rigor de engenharia capaz de tirar do papel layouts complexos sem desvios estruturais."
-              },
-              {
-                title: "Diretores e Empresários",
-                desc: "Profissionais acostumados a metas claras, cronogramas e orçamentos corporativos, que desejam a mesma disciplina na execução de seu lar."
-              }
-            ].map((profile, idx) => (
-              <div key={idx} className="bg-white border border-black/5 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
-                <div>
-                  <div className="w-8 h-8 rounded-full bg-active-orange/10 flex items-center justify-center text-active-orange font-bold text-sm mb-4">
-                    {idx + 1}
-                  </div>
-                  <h3 className="text-lg font-bold text-deep-navy mb-3">{profile.title}</h3>
-                  <p className="text-deep-navy/70 text-xs leading-relaxed">{profile.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Perfis de Clientes */}
+      <section className="nh-section nh-bg-ivory">
+        <div className="nh-section-head nh-center-head">
+          <span className="nh-kicker">Perfis de Clientes</span>
+          <h2>Para quem é a NeoHouse?</h2>
+          <p style={{ margin: "0 auto" }}>Nossa estrutura é voltada para quem não aceita desvios técnicos na execução do seu projeto residencial.</p>
+        </div>
+        <div className="nh-profiles-grid">
+          {profiles.map((profile, idx) => (
+            <article key={profile.title}>
+              <span>{idx + 1}</span>
+              <h3>{profile.title}</h3>
+              <p>{profile.desc}</p>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* CTA Final com Formulário Completo */}
       <LeadAssessmentForm
         source="private-homes"
         eyebrowTitle="Avaliação Técnica Residencial"

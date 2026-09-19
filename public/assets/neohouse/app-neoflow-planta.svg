@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" role="img" aria-labelledby="nfTitle nfDesc">
+  <title id="nfTitle">App NeoFlow — planta da casa com progresso da obra</title>
+  <desc id="nfDesc">Ilustração de um celular exibindo o App NeoFlow com a planta da casa, mostrando áreas concluídas com hachura e áreas pendentes em contorno.</desc>
+
+  <defs>
+    <pattern id="nfHatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+      <rect width="6" height="6" fill="none" />
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#d8a846" stroke-width="1.6" />
+    </pattern>
+    <radialGradient id="nfGlow" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#0d2446" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#0d2446" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="400" height="250" fill="#f5f1e8" />
+  <rect x="0" y="0" width="400" height="250" fill="url(#nfGlow)" />
+
+  <!-- telefone -->
+  <g>
+    <rect x="139" y="18" width="122" height="214" rx="20" fill="#0d2446" />
+    <rect x="146" y="30" width="108" height="182" rx="8" fill="#f8f7f3" />
+    <rect x="182" y="21" width="36" height="6" rx="3" fill="#08172f" />
+
+    <!-- barra do app -->
+    <rect x="146" y="30" width="108" height="22" rx="8" fill="#08172f" />
+    <rect x="146" y="44" width="108" height="8" fill="#08172f" />
+    <circle cx="157" cy="41" r="3.4" fill="#d8a846" />
+    <text x="166" y="44.5" font-family="Georgia, serif" font-size="9" fill="#f5f1e8">NeoFlow</text>
+
+    <!-- planta simplificada dentro da tela -->
+    <g transform="translate(150,58)">
+      <rect x="0" y="0" width="100" height="88" fill="none" stroke="#0d2446" stroke-width="1.4" />
+      <!-- ambientes concluidos (hachurado) -->
+      <rect x="0" y="0" width="46" height="40" fill="url(#nfHatch)" stroke="#0d2446" stroke-width="1" />
+      <rect x="46" y="0" width="54" height="40" fill="url(#nfHatch)" stroke="#0d2446" stroke-width="1" />
+      <!-- ambientes pendentes (contorno apenas) -->
+      <rect x="0" y="40" width="60" height="48" fill="#ffffff" stroke="#0d2446" stroke-width="1" />
+      <rect x="60" y="40" width="40" height="48" fill="#ffffff" stroke="#0d2446" stroke-width="1" stroke-dasharray="3 2" />
+    </g>
+
+    <!-- rodape com progresso -->
+    <rect x="146" y="150" width="108" height="62" fill="#08172f" />
+    <text x="200" y="168" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="7.5" letter-spacing="0.6" fill="#f2cf80">AVANÇO DA OBRA</text>
+    <rect x="156" y="176" width="88" height="6" rx="3" fill="#ffffff" opacity="0.15" />
+    <rect x="156" y="176" width="56" height="6" rx="3" fill="#d8a846" />
+    <text x="156" y="198" font-family="Georgia, serif" font-size="13" fill="#ffffff">64%</text>
+    <g transform="translate(210,186)">
+      <rect x="0" y="0" width="7" height="7" fill="url(#nfHatch)" stroke="#f2cf80" stroke-width="0.6" />
+      <text x="11" y="6.5" font-family="Arial, Helvetica, sans-serif" font-size="6.2" fill="#ffffffb0">Concluído</text>
+    </g>
+  </g>
+
+  <!-- selo de camera / foto em tempo real -->
+  <g transform="translate(266,150)">
+    <circle r="26" fill="#ffffff" stroke="#0d2446" stroke-width="1" />
+    <rect x="-11" y="-7" width="22" height="16" rx="3" fill="none" stroke="#0d2446" stroke-width="1.4" />
+    <circle r="5" cy="1" fill="none" stroke="#0d2446" stroke-width="1.4" />
+    <rect x="-4" y="-10" width="8" height="4" fill="#0d2446" />
+  </g>
+</svg>

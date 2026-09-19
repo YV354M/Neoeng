@@ -8,6 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.neoeng.co"),
   title: "Neoeng Engenharia | Execução Técnica de Obras Complexas em Fortaleza",
   description: "Execução técnica de obras complexas, comerciais e instalações de alta performance em Fortaleza. Foco em controle de custos e conformidade de projeto.",
   other: {

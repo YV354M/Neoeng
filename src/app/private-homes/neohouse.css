@@ -1,0 +1,229 @@
+/*
+  NeoHouse — sub-marca da Neoeng para casas de alto padrão.
+  Identidade visual própria (navy escuro + dourado + serifada), escopada
+  inteiramente sob `.neohouse-page` para não vazar para o restante do site
+  institucional (que segue a paleta navy/laranja/Arial padrão).
+*/
+
+.neohouse-page {
+  --nh-navy: var(--color-neohouse-navy);
+  --nh-navy-2: var(--color-neohouse-navy-2);
+  --nh-gold: var(--color-neohouse-gold);
+  --nh-gold-light: var(--color-neohouse-gold-light);
+  --nh-ivory: var(--color-neohouse-ivory);
+  --nh-ink: #152033;
+  --nh-muted: #6b7280;
+  --nh-line: rgba(8, 23, 47, 0.13);
+  --nh-serif: var(--font-neohouse-serif);
+  background: #f8f7f3;
+  color: var(--nh-ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.neohouse-page a { color: inherit; text-decoration: none; }
+.neohouse-page ul { list-style: none; margin: 0; padding: 0; }
+
+.neohouse-page .nh-kicker,
+.neohouse-page .nh-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--nh-gold-light);
+}
+.neohouse-page .nh-section-head h2,
+.neohouse-page .nh-section h2 {
+  margin: 13px 0 0;
+  font: 500 clamp(2.2rem, 4vw, 4rem) / 1.06 var(--nh-serif);
+  letter-spacing: -0.03em;
+  color: var(--nh-navy);
+}
+.neohouse-page .nh-section-head p { max-width: 720px; font-size: 1.02rem; line-height: 1.75; color: var(--nh-muted); }
+.neohouse-page .nh-center-head { text-align: center; max-width: 800px; margin: 0 auto 24px; }
+.neohouse-page .nh-split-head { display: grid; grid-template-columns: 1.25fr 0.7fr; align-items: end; gap: 48px; margin-bottom: 24px; }
+
+.neohouse-page .nh-section { padding: 96px clamp(24px, 6vw, 92px); max-width: 1320px; margin: auto; }
+.neohouse-page .nh-section-tight { padding-top: 0; }
+.neohouse-page .nh-bg-navy { background: var(--nh-navy); color: #fff; }
+.neohouse-page .nh-bg-navy .nh-section-head h2 { color: #fff; }
+.neohouse-page .nh-bg-ivory { background: var(--nh-ivory); }
+
+/* Buttons */
+.neohouse-page .nh-button { display: inline-flex; justify-content: center; align-items: center; gap: 10px; border: 0; border-radius: 4px; padding: 16px 22px; font-weight: 800; cursor: pointer; transition: 0.2s; }
+.neohouse-page .nh-button:hover { transform: translateY(-2px); }
+.neohouse-page .nh-button-gold { color: #201709; background: linear-gradient(135deg, var(--nh-gold-light), var(--nh-gold)); box-shadow: 0 10px 30px rgba(216, 168, 70, 0.18); }
+.neohouse-page .nh-button-ghost { color: #fff; border: 1px solid rgba(255, 255, 255, 0.35); background: rgba(255, 255, 255, 0.06); }
+.neohouse-page .nh-button-dark { background: var(--nh-navy); color: #fff; }
+
+/* Hero */
+.neohouse-page .nh-hero { min-height: 820px; position: relative; display: grid; align-items: end; overflow: hidden; color: #fff; background: var(--nh-navy); }
+.neohouse-page .nh-hero-image { position: absolute; inset: 0; }
+.neohouse-page .nh-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5, 15, 32, 0.96) 0%, rgba(5, 15, 32, 0.83) 42%, rgba(5, 15, 32, 0.18) 78%), linear-gradient(0deg, rgba(5, 15, 32, 0.7), transparent 46%); }
+.neohouse-page .nh-hero-grid { position: relative; z-index: 1; width: min(1320px, 100%); margin: auto; padding: 168px clamp(24px, 6vw, 92px) 82px; display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.65fr); align-items: end; gap: 56px; }
+.neohouse-page .nh-hero h1 { margin: 20px 0; font-family: var(--nh-serif); font-size: clamp(2.7rem, 6vw, 5.2rem); line-height: 0.97; letter-spacing: -0.03em; font-weight: 500; max-width: 900px; }
+.neohouse-page .nh-hero h1 em { color: var(--nh-gold-light); font-weight: 400; font-style: normal; }
+.neohouse-page .nh-hero-copy > p { max-width: 680px; font-size: 1.1rem; line-height: 1.7; color: rgba(255, 255, 255, 0.78); margin: 14px 0 0; }
+.neohouse-page .nh-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+.neohouse-page .nh-hero-proof { border-left: 1px solid rgba(242, 207, 128, 0.55); padding: 8px 0 8px 26px; }
+.neohouse-page .nh-hero-proof > span { color: var(--nh-gold-light); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; }
+.neohouse-page .nh-hero-proof strong { display: block; margin: 12px 0 18px; font: 1.5rem/1.3 var(--nh-serif); font-weight: 500; }
+.neohouse-page .nh-hero-proof ul { display: grid; gap: 12px; color: rgba(255, 255, 255, 0.76); font-size: 0.9rem; }
+.neohouse-page .nh-hero-proof li { display: flex; gap: 9px; align-items: flex-start; }
+.neohouse-page .nh-hero-proof li svg { width: 16px; color: var(--nh-gold-light); flex: none; margin-top: 3px; }
+
+/* Signal strip */
+.neohouse-page .nh-signal-strip { width: min(1200px, calc(100% - 48px)); margin: -1px auto 0; position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); background: #fff; box-shadow: 0 16px 55px rgba(11, 28, 53, 0.09); }
+.neohouse-page .nh-signal-strip div { display: flex; align-items: center; gap: 14px; padding: 22px 26px; border-right: 1px solid var(--nh-line); }
+.neohouse-page .nh-signal-strip div:last-child { border: 0; }
+.neohouse-page .nh-signal-strip svg { color: var(--nh-gold); flex: none; }
+.neohouse-page .nh-signal-strip span { font-size: 0.88rem; color: var(--nh-muted); }
+.neohouse-page .nh-signal-strip b { color: var(--nh-ink); }
+
+/* Problem / desafio */
+.neohouse-page .nh-problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 44px; background: var(--nh-line); border: 1px solid var(--nh-line); }
+.neohouse-page .nh-problem-grid article { background: #fff; min-height: 250px; padding: 34px 28px; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+.neohouse-page .nh-problem-grid article svg { color: var(--nh-gold); width: 28px; height: 28px; }
+.neohouse-page .nh-problem-grid h3 { margin: 0; font: 1.3rem var(--nh-serif); color: var(--nh-navy); }
+.neohouse-page .nh-problem-grid p { margin: 0; color: var(--nh-muted); line-height: 1.6; font-size: 0.9rem; }
+.neohouse-page .nh-problem-grid article:last-child { background: var(--nh-navy); color: #fff; }
+.neohouse-page .nh-problem-grid article:last-child h3 { color: #fff; }
+.neohouse-page .nh-problem-grid article:last-child p { color: rgba(255, 255, 255, 0.72); }
+.neohouse-page .nh-problem-grid article:last-child svg { color: var(--nh-gold-light); }
+
+/* Tudo em um só contato — bento grid de blocos ilustrados */
+.neohouse-page .nh-contact-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 48px; }
+.neohouse-page .nh-contact-block { grid-column: span 2; display: flex; flex-direction: column; gap: 14px; padding: 30px 26px; background: #fff; border: 1px solid var(--nh-line); box-shadow: 0 18px 50px rgba(11, 28, 53, 0.06); opacity: 0; transform: translateY(24px); }
+.neohouse-page .nh-contact-icon { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: rgba(216, 168, 70, 0.12); color: var(--nh-gold); flex: none; }
+.neohouse-page .nh-contact-icon svg { width: 24px; height: 24px; }
+.neohouse-page .nh-contact-block h3 { margin: 0; font: 1.15rem var(--nh-serif); color: var(--nh-navy); }
+.neohouse-page .nh-contact-block p { margin: 0; color: var(--nh-muted); font-size: 0.88rem; line-height: 1.55; }
+.neohouse-page .nh-contact-photo { padding: 0; overflow: hidden; }
+.neohouse-page .nh-contact-media { position: relative; aspect-ratio: 16 / 10; background: var(--nh-ivory); }
+.neohouse-page .nh-contact-photo-body { padding: 20px 22px 26px; display: flex; flex-direction: column; gap: 10px; }
+.neohouse-page .nh-contact-photo-body .nh-contact-icon { width: 40px; height: 40px; margin-top: -42px; background: #fff; box-shadow: 0 6px 18px rgba(11, 28, 53, 0.18); }
+.neohouse-page .nh-contact-photo-body .nh-contact-icon svg { width: 19px; height: 19px; }
+.neohouse-page .nh-contact-banner { grid-column: span 6; flex-direction: row; align-items: center; gap: 22px; background: var(--nh-navy); border-color: var(--nh-navy); padding: 28px 34px; }
+.neohouse-page .nh-contact-banner .nh-contact-icon { background: rgba(255, 255, 255, 0.1); color: var(--nh-gold-light); }
+.neohouse-page .nh-contact-banner h3 { color: #fff; }
+.neohouse-page .nh-contact-banner p { color: rgba(255, 255, 255, 0.72); }
+
+/* Tracking / acompanhamento */
+.neohouse-page .nh-tracking-section { padding: 96px clamp(24px, 6vw, 92px); background: var(--nh-navy); color: #fff; }
+.neohouse-page .nh-tracking-header { max-width: 760px; margin: 0 0 48px; }
+.neohouse-page .nh-tracking-header p { color: rgba(255, 255, 255, 0.75); line-height: 1.75; margin-top: 14px; }
+.neohouse-page .nh-tracking-body { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: start; }
+.neohouse-page .nh-tracking-visual { position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.12); aspect-ratio: 4 / 3; }
+.neohouse-page .nh-tracking-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+.neohouse-page .nh-tracking-methods > div { display: flex; flex-direction: column; gap: 8px; padding: 14px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; font-size: 0.8rem; line-height: 1.4; color: rgba(255, 255, 255, 0.85); }
+.neohouse-page .nh-tracking-methods svg { color: var(--nh-gold-light); width: 18px; height: 18px; }
+.neohouse-page .nh-tracking-visual-col > small { display: block; margin-top: 16px; color: rgba(255, 255, 255, 0.5); font-size: 0.78rem; }
+.neohouse-page .nh-metric-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.14); align-content: start; }
+.neohouse-page .nh-metric-panel div { display: flex; align-items: center; gap: 12px; min-height: 68px; padding: 14px; background: var(--nh-navy-2); font-size: 0.86rem; }
+.neohouse-page .nh-metric-panel span { color: var(--nh-gold-light); font: 0.95rem var(--nh-serif); }
+
+/* Support grid — financiamento / documentação */
+.neohouse-page .nh-support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.neohouse-page .nh-support-grid > article { padding: 40px; background: #fff; border: 1px solid var(--nh-line); }
+.neohouse-page .nh-support-grid > article > svg { width: 30px; height: 30px; color: var(--nh-gold); margin-bottom: 20px; }
+.neohouse-page .nh-support-grid h2 { margin: 12px 0 20px; font: 500 clamp(1.7rem, 2.6vw, 2.6rem) / 1.1 var(--nh-serif); color: var(--nh-navy); }
+.neohouse-page .nh-support-grid p { color: var(--nh-muted); line-height: 1.7; }
+.neohouse-page .nh-support-grid li { display: flex; gap: 9px; align-items: flex-start; font-size: 0.88rem; line-height: 1.5; margin-bottom: 10px; }
+.neohouse-page .nh-support-grid li svg { width: 16px; height: 16px; flex: none; color: var(--nh-gold); margin-top: 3px; }
+.neohouse-page .nh-support-grid small { display: block; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--nh-line); color: var(--nh-muted); line-height: 1.55; }
+.neohouse-page .nh-highlight-box { display: flex; gap: 14px; align-items: flex-start; margin: 6px 0 20px; padding: 18px 20px; background: rgba(216, 168, 70, 0.1); border-left: 3px solid var(--nh-gold); border-radius: 4px; }
+.neohouse-page .nh-highlight-box svg { color: var(--nh-gold); flex: none; margin-top: 2px; }
+.neohouse-page .nh-highlight-box p { margin: 0; color: var(--nh-ink); font-size: 0.94rem; line-height: 1.55; }
+.neohouse-page .nh-highlight-box strong { color: var(--nh-navy); }
+
+/* Modelos NeoHouse */
+.neohouse-page .nh-house-grid { display: grid; grid-template-columns: 1fr 1.18fr 1fr 1fr; gap: 14px; margin-top: 48px; }
+.neohouse-page .nh-house-card { min-height: 420px; position: relative; display: flex; align-items: end; overflow: hidden; background-size: cover; background-position: center; border-radius: 4px; }
+.neohouse-page .nh-house-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5, 15, 32, 0.85) 0%, transparent 62%); }
+.neohouse-page .nh-house-content { position: relative; z-index: 1; color: #fff; padding: 26px; }
+.neohouse-page .nh-house-content > span { color: var(--nh-gold-light); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; }
+.neohouse-page .nh-house-content h3 { margin: 8px 0; font: 1.7rem var(--nh-serif); }
+.neohouse-page .nh-house-content b { display: block; margin: 4px 0 8px; color: var(--nh-gold-light); font-size: 0.8rem; font-weight: 600; }
+.neohouse-page .nh-house-content p { margin: 0; color: rgba(255, 255, 255, 0.78); font-size: 0.8rem; line-height: 1.5; }
+.neohouse-page .nh-render-note { text-align: center; color: var(--nh-muted); font-size: 0.8rem; margin-top: 20px; max-width: 900px; margin-left: auto; margin-right: auto; }
+.neohouse-page .nh-inline-cta { margin-top: 44px; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 30px; background: var(--nh-ivory); border-left: 3px solid var(--nh-gold); flex-wrap: wrap; }
+.neohouse-page .nh-inline-cta strong { font: 1.25rem var(--nh-serif); color: var(--nh-navy); display: block; }
+.neohouse-page .nh-inline-cta span { color: var(--nh-muted); line-height: 1.5; }
+
+/* Journey / como funciona */
+.neohouse-page .nh-journey-section { padding: 96px clamp(24px, 6vw, 92px); background: var(--nh-ivory); }
+.neohouse-page .nh-journey-intro { max-width: 760px; margin: 0 auto 12px; text-align: center; }
+.neohouse-page .nh-journey-flow { max-width: 1240px; margin: 48px auto 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; }
+.neohouse-page .nh-journey-step { width: 168px; min-height: 148px; padding: 20px 16px; background: #fff; border: 1px solid var(--nh-line); border-radius: 10px; display: flex; flex-direction: column; gap: 12px; }
+.neohouse-page .nh-journey-step span { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--nh-navy); color: var(--nh-gold-light); font: 0.85rem var(--nh-serif); flex: none; }
+.neohouse-page .nh-journey-step p { margin: 0; line-height: 1.45; font-weight: 700; font-size: 0.84rem; color: var(--nh-navy); }
+.neohouse-page .nh-journey-step:last-child { background: var(--nh-navy); border-color: var(--nh-navy); }
+.neohouse-page .nh-journey-step:last-child span { background: var(--nh-gold); color: #201709; }
+.neohouse-page .nh-journey-step:last-child p { color: #fff; }
+.neohouse-page .nh-journey-arrow { color: var(--nh-gold); width: 20px; height: 20px; flex: none; opacity: 0.7; }
+
+/* Construção por Administração */
+.neohouse-page .nh-admin-section { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: stretch; }
+.neohouse-page .nh-admin-copy p { color: var(--nh-muted); line-height: 1.7; margin: 16px 0; }
+.neohouse-page .nh-admin-copy li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.9rem; line-height: 1.5; margin-bottom: 12px; color: var(--nh-ink); }
+.neohouse-page .nh-admin-copy li svg { width: 17px; height: 17px; flex: none; color: var(--nh-gold); margin-top: 3px; }
+.neohouse-page .nh-admin-visual { position: relative; min-height: 460px; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 70px rgba(11, 28, 53, 0.16); border: 1px solid var(--nh-line); background: var(--nh-ivory); }
+.neohouse-page .nh-admin-visual-frame { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.neohouse-page .nh-admin-visual-img { width: 190%; max-width: none; height: auto; flex-shrink: 0; transform: rotate(90deg); }
+
+/* Acervo */
+.neohouse-page .nh-acervo-tabs { display: flex; gap: 10px; justify-content: center; margin: 28px 0 40px; }
+.neohouse-page .nh-acervo-tabs button { padding: 12px 28px; border-radius: 999px; font-weight: 700; font-size: 0.86rem; border: 2px solid var(--nh-line); background: #fff; color: var(--nh-navy); cursor: pointer; transition: 0.2s; }
+.neohouse-page .nh-acervo-tabs button.active { background: var(--nh-navy); border-color: var(--nh-navy); color: #fff; }
+.neohouse-page .nh-acervo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.neohouse-page .nh-acervo-grid .nh-gallery-item { position: relative; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; }
+.neohouse-page .nh-acervo-comercial { margin-top: 72px; padding-top: 56px; border-top: 1px solid var(--nh-line); text-align: center; }
+.neohouse-page .nh-acervo-comercial p { max-width: 720px; margin: 10px auto 0; color: var(--nh-muted); line-height: 1.7; }
+.neohouse-page .nh-logo-marquee { margin-top: 36px; overflow: hidden; position: relative; }
+.neohouse-page .nh-logo-marquee-track { display: flex; gap: clamp(40px, 6vw, 88px); align-items: center; width: max-content; animation: nh-marquee 28s linear infinite; }
+.neohouse-page .nh-logo-marquee:hover .nh-logo-marquee-track { animation-play-state: paused; }
+.neohouse-page .nh-logo-marquee-track > div { position: relative; width: 130px; height: 60px; flex: none; opacity: 0.55; filter: grayscale(1); transition: 0.2s; }
+.neohouse-page .nh-logo-marquee-track > div:hover { opacity: 1; filter: grayscale(0); }
+@keyframes nh-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.neohouse-page .nh-comercial-photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 40px; }
+.neohouse-page .nh-comercial-photos .nh-gallery-item { position: relative; aspect-ratio: 1; border-radius: 6px; overflow: hidden; }
+
+/* Perfis de clientes */
+.neohouse-page .nh-profiles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
+.neohouse-page .nh-profiles-grid article { background: #fff; border: 1px solid var(--nh-line); padding: 28px; }
+.neohouse-page .nh-profiles-grid article > span { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: rgba(216, 168, 70, 0.14); color: var(--nh-gold); font-weight: 800; font-size: 0.85rem; margin-bottom: 14px; }
+.neohouse-page .nh-profiles-grid h3 { margin: 0 0 10px; font: 1.15rem var(--nh-serif); color: var(--nh-navy); }
+.neohouse-page .nh-profiles-grid p { margin: 0; color: var(--nh-muted); font-size: 0.85rem; line-height: 1.6; }
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .neohouse-page .nh-hero-grid { grid-template-columns: 1fr; }
+  .neohouse-page .nh-hero-proof { border-left: 0; padding-left: 0; margin-top: 24px; }
+  .neohouse-page .nh-signal-strip { grid-template-columns: 1fr; }
+  .neohouse-page .nh-signal-strip div { border-right: 0; border-bottom: 1px solid var(--nh-line); }
+  .neohouse-page .nh-problem-grid,
+  .neohouse-page .nh-support-grid,
+  .neohouse-page .nh-admin-section,
+  .neohouse-page .nh-tracking-body,
+  .neohouse-page .nh-profiles-grid,
+  .neohouse-page .nh-acervo-grid,
+  .neohouse-page .nh-comercial-photos { grid-template-columns: 1fr; }
+  .neohouse-page .nh-contact-block,
+  .neohouse-page .nh-contact-banner { grid-column: span 3; }
+  .neohouse-page .nh-house-grid { grid-template-columns: 1fr 1fr; }
+  .neohouse-page .nh-split-head { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .neohouse-page .nh-journey-arrow { display: none; }
+  .neohouse-page .nh-journey-step { width: 100%; flex-direction: row; align-items: center; min-height: auto; }
+}
+@media (max-width: 640px) {
+  .neohouse-page .nh-house-grid { grid-template-columns: 1fr; }
+  .neohouse-page .nh-comercial-photos { grid-template-columns: 1fr 1fr; }
+  .neohouse-page .nh-tracking-methods { grid-template-columns: 1fr; }
+  .neohouse-page .nh-contact-grid { grid-template-columns: 1fr 1fr; }
+  .neohouse-page .nh-contact-block,
+  .neohouse-page .nh-contact-banner { grid-column: span 2; }
+}
