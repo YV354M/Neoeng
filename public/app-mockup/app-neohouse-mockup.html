@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoHouse - App Mockup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Cores da Marca NeoHouse */
+        :root {
+            --dark-blue: #0A192F;
+            --light-blue: #172A45;
+            --gold: #D4AF37;
+            --gold-light: #FCE694;
+            --text-light: #E2E8F0;
+        }
+
+        /* Container do Celular Mockup */
+        .phone-mockup {
+            width: 375px;
+            height: 812px;
+            background-color: var(--dark-blue);
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            border: 14px solid #111;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Aviso de Autoplay (Estilo Ilha Dinâmica / Toast) */
+        .autoplay-badge {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(212, 175, 55, 0.9);
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+
+        /* Cabeçalho */
+        .app-header {
+            background-color: var(--dark-blue);
+            padding: 50px 20px 15px;
+            text-align: center;
+            border-bottom: 2px solid var(--gold);
+            z-index: 20;
+        }
+        .app-header h1 {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+        .app-header .subtitle {
+            color: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-top: 2px;
+        }
+
+        /* Área de Telas (Screens) */
+        .screens-container {
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s ease-in-out;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+        }
+        .screen::-webkit-scrollbar { display: none; }
+        .screen.active {
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 10;
+        }
+
+        /* Elementos UI Globais */
+        .card {
+            background-color: var(--light-blue);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            color: var(--text-light);
+        }
+        .card-title {
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Gráfico Circular Home */
+        .circle-progress-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .circle-wrap {
+            width: 120px;
+            height: 120px;
+            background: conic-gradient(var(--gold) 68%, rgba(255,255,255,0.05) 0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .circle-wrap::before {
+            content: "";
+            position: absolute;
+            inset: 8px;
+            background: var(--light-blue);
+            border-radius: 50%;
+        }
+        .circle-value {
+            position: relative;
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .circle-label {
+            position: relative;
+            font-size: 0.65rem;
+            color: #a0aec0;
+            margin-top: -5px;
+            text-align: center;
+        }
+
+        /* Mini Gantt Home */
+        .mini-gantt-item { margin-bottom: 10px; }
+        .mini-gantt-item:last-child { margin-bottom: 0; }
+        .gantt-header { display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 5px; }
+        .gantt-track { height: 6px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+        .gantt-fill { height: 100%; border-radius: 4px; }
+        .fill-gold { background-color: var(--gold); }
+        .fill-done { background-color: #4ade80; } /* Verde para concluído */
+
+        /* Mini Galeria Home */
+        .mini-gallery {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+        .mini-gallery img {
+            width: 30%;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Galeria Tela 2 */
+        .full-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .full-gallery img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Chat Tela 4 */
+        .chat-container { display: flex; flex-direction: column; gap: 12px; margin-bottom: 50px;}
+        .chat-bubble {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        .bubble-eng {
+            background-color: var(--light-blue);
+            color: #fff;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        .bubble-client {
+            background-color: var(--gold);
+            color: #000;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            font-weight: 500;
+        }
+        .chat-input {
+            position: absolute;
+            bottom: 20px; left: 20px; right: 20px;
+            background: var(--light-blue);
+            border-radius: 20px;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Menu Inferior */
+        .bottom-nav {
+            background-color: var(--dark-blue);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0 25px;
+            z-index: 20;
+        }
+        .nav-item {
+            color: #64748b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.65rem;
+            gap: 4px;
+            transition: color 0.3s;
+        }
+        .nav-item i { font-size: 1.2rem; }
+        .nav-item.active {
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="phone-mockup">
+        <div class="autoplay-badge">
+            <i class="fas fa-play-circle"></i> Navegação Automática
+        </div>
+
+        <header class="app-header">
+            <h1>NEOENG</h1>
+            <div class="subtitle">NEOHOUSE</div>
+        </header>
+
+        <main class="screens-container">
+
+            <!-- TELA 1: HOME (RESUMO) -->
+            <section id="screen-0" class="screen active">
+                <h2 class="text-white text-lg font-semibold text-center mb-1">Residência Alphaville</h2>
+
+                <!-- Indicador Principal -->
+                <div class="card flex flex-col items-center py-4">
+                    <span class="text-xs text-gray-400 mb-2">Avanço Físico Global</span>
+                    <div class="circle-wrap">
+                        <div class="flex flex-col items-center z-10">
+                            <span class="circle-value">68%</span>
+                            <span class="circle-label">Concluído</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mini Gantt -->
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-tasks"></i> Etapas Atuais</div>
+                    <div class="mini-gantt-item">
+                        <div class="gantt-header"><span>Alvenaria</span> <span>100%</span></div>
+                        <div class="gantt-track"><div class="gantt-fill fill-done" style="width: 100%;"></div></div>
+                    </div>
+                    <div class="mini-gantt-item">
+                        <div class="gantt-header"><span>Instalações Elétricas</span> <span>75%</span></div>
+                        <div class="gantt-track"><div class="gantt-fill fill-gold" style="width: 75%;"></div></div>
+                    </div>
+                    <div class="mini-gantt-item">
+                        <div class="gantt-header"><span>Revestimentos</span> <span>20%</span></div>
+                        <div class="gantt-track"><div class="gantt-fill fill-gold" style="width: 20%;"></div></div>
+                    </div>
+                </div>
+
+                <!-- Mini Galeria -->
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-camera"></i> Últimas Fotos</div>
+                    <div class="mini-gallery">
+                        <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?w=200&q=80" alt="Obra 1">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=200&q=80" alt="Obra 2">
+                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=200&q=80" alt="Obra 3">
+                    </div>
+                </div>
+            </section>
+
+            <!-- TELA 2: GALERIA -->
+            <section id="screen-1" class="screen">
+                <div class="card-title mb-2"><i class="fas fa-images"></i> Diário de Obra Visual</div>
+                <p class="text-xs text-gray-400 mb-4">Acompanhe a evolução da sua NeoHouse nesta semana.</p>
+                <div class="full-gallery">
+                    <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?w=400&q=80" alt="Obra">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&q=80" alt="Obra">
+                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&q=80" alt="Obra">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Obra">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356f58?w=400&q=80" alt="Obra">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&q=80" alt="Obra">
+                </div>
+            </section>
+
+            <!-- TELA 3: INDICADORES -->
+            <section id="screen-2" class="screen">
+                <div class="card-title"><i class="fas fa-chart-line"></i> Evolução Físico-Financeira</div>
+
+                <div class="card mb-4">
+                    <canvas id="financeChart" height="200"></canvas>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="card text-center py-3">
+                        <div class="text-xs text-gray-400 mb-1">Medição Atual</div>
+                        <div class="text-[var(--gold)] font-bold">R$ 145.000</div>
+                    </div>
+                    <div class="card text-center py-3">
+                        <div class="text-xs text-gray-400 mb-1">Status Orçamento</div>
+                        <div class="text-green-400 font-bold">Dentro do Previsto</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TELA 4: CHAT -->
+            <section id="screen-3" class="screen relative pb-20">
+                <div class="card-title"><i class="fas fa-hard-hat"></i> Eng. Rafael Moura</div>
+
+                <div class="chat-container mt-4">
+                    <div class="chat-bubble bubble-eng">
+                        Boa tarde! Finalizamos a concretagem da laje do 2º pavimento hoje pela manhã.
+                    </div>
+                    <div class="chat-bubble bubble-client">
+                        Excelente notícia Rafael! Vi as fotos na galeria, ficou ótimo.
+                    </div>
+                    <div class="chat-bubble bubble-eng">
+                        Amanhã iniciaremos as marcações de alvenaria. Tudo seguindo rigorosamente o cronograma.
+                    </div>
+                    <div class="chat-bubble bubble-client">
+                        Perfeito. Obrigado pelo acompanhamento!
+                    </div>
+                </div>
+
+                <div class="chat-input">
+                    <span class="text-gray-400 text-sm">Digite uma mensagem...</span>
+                    <i class="fas fa-paper-plane text-[var(--gold)]"></i>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Menu Navegação -->
+        <nav class="bottom-nav">
+            <div class="nav-item active" id="nav-0">
+                <i class="fas fa-home"></i>
+                <span>Resumo</span>
+            </div>
+            <div class="nav-item" id="nav-1">
+                <i class="fas fa-image"></i>
+                <span>Galeria</span>
+            </div>
+            <div class="nav-item" id="nav-2">
+                <i class="fas fa-chart-bar"></i>
+                <span>Indicadores</span>
+            </div>
+            <div class="nav-item" id="nav-3">
+                <i class="fas fa-comments"></i>
+                <span>Engenharia</span>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        // 1. Configuração do Gráfico (Chart.js) para a Tela de Indicadores
+        const ctx = document.getElementById('financeChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Mai', 'Jun', 'Jul', 'Ago', 'Set'],
+                datasets: [
+                    {
+                        label: 'Desembolso (Previsto)',
+                        data: [20, 45, 80, 110, 150],
+                        type: 'line',
+                        borderColor: '#D4AF37', // Dourado
+                        borderWidth: 2,
+                        pointBackgroundColor: '#D4AF37',
+                        tension: 0.4,
+                        fill: false,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'Físico (Executado)',
+                        data: [18, 42, 85, 115, 145],
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)', // Branco/Cinza claro
+                        borderRadius: 4,
+                        yAxisID: 'y'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        display: false
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#a0aec0', font: { size: 10 } }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            boxWidth: 10,
+                            color: '#a0aec0',
+                            font: { size: 10 }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 2. Lógica de Navegação Automática (Vídeo Mockup)
+        const totalScreens = 4;
+        let currentScreenIndex = 0;
+        const transitionInterval = 4500; // Troca de tela a cada 4.5 segundos
+
+        function changeScreen() {
+            // Remove a classe 'active' da tela e do ícone de navegação atual
+            document.getElementById(`screen-${currentScreenIndex}`).classList.remove('active');
+            document.getElementById(`nav-${currentScreenIndex}`).classList.remove('active');
+
+            // Incrementa o índice (volta a zero se chegar ao fim)
+            currentScreenIndex = (currentScreenIndex + 1) % totalScreens;
+
+            // Adiciona a classe 'active' para a nova tela e novo ícone
+            document.getElementById(`screen-${currentScreenIndex}`).classList.add('active');
+            document.getElementById(`nav-${currentScreenIndex}`).classList.add('active');
+        }
+
+        // Inicia o loop automático
+        setInterval(changeScreen, transitionInterval);
+    </script>
+</body>
+</html>

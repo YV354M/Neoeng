@@ -116,7 +116,8 @@
 .neohouse-page .nh-tracking-header { max-width: 760px; margin: 0 0 48px; }
 .neohouse-page .nh-tracking-header p { color: rgba(255, 255, 255, 0.75); line-height: 1.75; margin-top: 14px; }
 .neohouse-page .nh-tracking-body { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: start; }
-.neohouse-page .nh-tracking-visual { position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.12); aspect-ratio: 4 / 3; }
+.neohouse-page .nh-phone-frame { height: 560px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.neohouse-page .nh-phone-frame-iframe { width: 440px; height: 900px; border: 0; flex: none; transform: scale(0.62); transform-origin: center; }
 .neohouse-page .nh-tracking-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
 .neohouse-page .nh-tracking-methods > div { display: flex; flex-direction: column; gap: 8px; padding: 14px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; font-size: 0.8rem; line-height: 1.4; color: rgba(255, 255, 255, 0.85); }
 .neohouse-page .nh-tracking-methods svg { color: var(--nh-gold-light); width: 18px; height: 18px; }

@@ -65,8 +65,8 @@ const contactBlocks = [
     title: "Acompanhamento pelo App NeoFlow",
     copy: "Evolução física e financeira da obra, com fotos em tempo real.",
     variant: "photo",
-    image: "/assets/neohouse/app-neoflow-planta.svg",
-    imageAlt: "App NeoFlow — planta da casa com áreas concluídas e pendentes da obra",
+    image: "/obras/Casas/Projetos/acompanhamento-celular.jpg",
+    imageAlt: "App NeoFlow — acompanhamento em tempo real pelo celular",
     imageFit: "cover" as const,
   },
   {
@@ -322,8 +322,13 @@ export default function PrivateHomes() {
         </div>
         <div className="nh-tracking-body">
           <div className="nh-tracking-visual-col">
-            <div className="nh-tracking-visual">
-              <Image src="/obras/Casas/Projetos/acompanhamento-celular.jpg" alt="App NeoFlow — acompanhamento físico-financeiro por dispositivo móvel" fill className="object-cover" />
+            <div className="nh-phone-frame">
+              <iframe
+                src="/app-mockup/app-neohouse-mockup.html"
+                title="App NeoFlow — mockup interativo de acompanhamento de obra"
+                className="nh-phone-frame-iframe"
+                loading="lazy"
+              />
             </div>
             <div className="nh-tracking-methods">
               <div><CheckCircle2 size={18} /><span>RDO online, dia a dia</span></div>
