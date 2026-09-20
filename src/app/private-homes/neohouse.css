@@ -18,6 +18,7 @@
   background: #f8f7f3;
   color: var(--nh-ink);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 .neohouse-page a { color: inherit; text-decoration: none; }
@@ -177,8 +178,6 @@
 .neohouse-page .nh-acervo-tabs { display: flex; gap: 10px; justify-content: center; margin: 28px 0 40px; }
 .neohouse-page .nh-acervo-tabs button { padding: 12px 28px; border-radius: 999px; font-weight: 700; font-size: 0.86rem; border: 2px solid var(--nh-line); background: #fff; color: var(--nh-navy); cursor: pointer; transition: 0.2s; }
 .neohouse-page .nh-acervo-tabs button.active { background: var(--nh-navy); border-color: var(--nh-navy); color: #fff; }
-.neohouse-page .nh-acervo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.neohouse-page .nh-acervo-grid .nh-gallery-item { position: relative; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; }
 .neohouse-page .nh-acervo-comercial { margin-top: 72px; padding-top: 56px; border-top: 1px solid var(--nh-line); text-align: center; }
 .neohouse-page .nh-acervo-comercial p { max-width: 720px; margin: 10px auto 0; color: var(--nh-muted); line-height: 1.7; }
 .neohouse-page .nh-logo-marquee { margin-top: 36px; overflow: hidden; position: relative; }
@@ -208,7 +207,6 @@
   .neohouse-page .nh-admin-section,
   .neohouse-page .nh-tracking-body,
   .neohouse-page .nh-profiles-grid,
-  .neohouse-page .nh-acervo-grid,
   .neohouse-page .nh-comercial-photos { grid-template-columns: 1fr; }
   .neohouse-page .nh-contact-block,
   .neohouse-page .nh-contact-banner { grid-column: span 3; }
@@ -221,9 +219,10 @@
 }
 @media (max-width: 640px) {
   .neohouse-page .nh-house-grid { grid-template-columns: 1fr; }
-  .neohouse-page .nh-comercial-photos { grid-template-columns: 1fr 1fr; }
+  .neohouse-page .nh-comercial-photos { grid-template-columns: repeat(3, 1fr); gap: 6px; }
   .neohouse-page .nh-tracking-methods { grid-template-columns: 1fr; }
   .neohouse-page .nh-contact-grid { grid-template-columns: 1fr 1fr; }
   .neohouse-page .nh-contact-block,
   .neohouse-page .nh-contact-banner { grid-column: span 2; }
+  .neohouse-page .nh-logo-marquee-track > div { width: 92px; height: 44px; }
 }

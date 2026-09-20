@@ -176,7 +176,6 @@ const commercialPhotos = [
 
 export default function PrivateHomes() {
   const heroRef = useRef<HTMLDivElement>(null);
-  const layersRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState<"brasil" | "usa">("brasil");
 
@@ -186,17 +185,13 @@ export default function PrivateHomes() {
     const ctx = gsap.context(() => {
       gsap.fromTo(".fade-in-up", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power2.out" });
 
+      // Animação disparada ao montar (sem ScrollTrigger): em telas de celular a altura da
+      // viewport muda quando a barra de endereço recolhe, o que desalinha o ponto de disparo
+      // do ScrollTrigger e deixava os cards invisíveis até o fim da seção.
       gsap.fromTo(
         ".nh-contact-block",
-        { y: 34, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          stagger: 0.15,
-          ease: "power2.out",
-          scrollTrigger: { trigger: layersRef.current, start: "top 78%", toggleActions: "play none none reverse" },
-        },
+        { y: 24, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.08, delay: 0.2, ease: "power2.out" },
       );
 
       gsap.fromTo(
@@ -219,9 +214,10 @@ export default function PrivateHomes() {
   const currentImages = activeTab === "brasil" ? brasilImages : privateImages;
 
   return (
-    <main className="neohouse-page flex flex-col min-h-screen">
+    <main className="flex flex-col min-h-screen">
       <Navbar />
 
+      <div className="neohouse-page">
       {/* Hero */}
       <section ref={heroRef} className="nh-hero" id="inicio">
         <div className="nh-hero-image">
@@ -274,7 +270,7 @@ export default function PrivateHomes() {
       </section>
 
       {/* Tudo em um só contato */}
-      <section className="nh-section" id="servicos" ref={layersRef}>
+      <section className="nh-section" id="servicos">
         <div className="nh-section-head nh-center-head">
           <span className="nh-kicker">NeoHouse</span>
           <h2>Tudo em um só contato.</h2>
@@ -450,7 +446,7 @@ export default function PrivateHomes() {
           <button className={activeTab === "usa" ? "active" : ""} onClick={() => setActiveTab("usa")}>USA</button>
         </div>
 
-        <div className="columns-1 md:columns-3 lg:columns-4 gap-4 space-y-4">
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 space-y-3 md:space-y-4">
           {currentImages.map((img, index) => (
             <div key={index} className={`gallery-item relative overflow-hidden rounded-2xl group break-inside-avoid shadow-lg ${img.aspectRatio}`}>
               <Image
@@ -505,6 +501,8 @@ export default function PrivateHomes() {
           ))}
         </div>
       </section>
+
+      </div>
 
       <LeadAssessmentForm
         source="private-homes"
