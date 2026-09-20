@@ -339,7 +339,7 @@ export default function PrivateHomes() {
           </div>
           <div className="nh-metric-panel">
             {trackingMetrics.map((item, i) => (
-              <div key={item}><span>{String(i + 1).padStart(2, "0")}</span>{item}</div>
+              <div key={item}><span className="nh-metric-number">{String(i + 1).padStart(2, "0")}</span><span className="nh-metric-label">{item}</span></div>
             ))}
           </div>
         </div>
