@@ -43,22 +43,37 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-4 lg:gap-8">
           <Link href="/#especialidades" className="text-sm font-medium hover:-translate-y-[1px] hover:text-active-orange transition-all duration-200">Áreas de Atuação</Link>
           <Link href="/#diferencial" className="text-sm font-medium hover:-translate-y-[1px] hover:text-active-orange transition-all duration-200">Diferenciais</Link>
           <Link href="/#autoridade" className="text-sm font-medium hover:-translate-y-[1px] hover:text-active-orange transition-all duration-200">Experiência</Link>
           <Link href="/private-homes" className="text-sm font-medium hover:-translate-y-[1px] hover:text-orange-400 transition-all duration-200 text-active-orange font-semibold">NeoHouse</Link>
+          <a
+            href="https://obra360.yrmstrategylab.com.br/neoflow/entrar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative h-8 w-28 shrink-0 transition-transform duration-200 hover:scale-105"
+            aria-label="Acessar Neoflow"
+          >
+            <Image
+              src="/logos_neoflow/neoflow.png"
+              alt="Neoflow"
+              fill
+              sizes="112px"
+              className="object-contain"
+            />
+          </a>
         </div>
 
         <div className="flex items-center gap-2 md:gap-4 shrink-0">
-          <a
+          <Link
             href="/#orcamento"
             className="relative overflow-hidden group bg-active-orange text-white px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-xs md:text-sm transition-transform hover:scale-[1.03] active:scale-95 duration-300 whitespace-nowrap"
           >
             <span className="relative z-10 hidden sm:inline">Solicitar Avaliação Técnica</span>
             <span className="relative z-10 sm:hidden">Avaliação Técnica</span>
             <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-          </a>
+          </Link>
 
           <button 
             className="md:hidden p-1.5 text-white hover:text-active-orange transition-colors"
@@ -84,6 +99,23 @@ export default function Navbar() {
           <Link href="/#autoridade" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-active-orange transition-colors">Experiência</Link>
           <hr className="border-white/10" />
           <Link href="/private-homes" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-active-orange transition-colors">NeoHouse</Link>
+          <hr className="border-white/10" />
+          <a
+            href="https://obra360.yrmstrategylab.com.br/neoflow/entrar"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileMenuOpen(false)}
+            className="relative h-10 w-36 transition-transform duration-200 hover:scale-105 origin-left"
+            aria-label="Acessar Neoflow"
+          >
+            <Image
+              src="/logos_neoflow/neoflow.png"
+              alt="Neoflow"
+              fill
+              sizes="144px"
+              className="object-contain object-left"
+            />
+          </a>
         </div>
       </div>
     </>
