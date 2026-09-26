@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Specialties from "@/components/Specialties";
 import Differentiator from "@/components/Differentiator";
+import NeoFlowTracking from "@/components/NeoFlowTracking";
 import Authority from "@/components/Authority";
 import Portfolio from "@/components/Portfolio";
 import LeadAssessmentForm from "@/components/LeadAssessmentForm";
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <Specialties />
       <Differentiator />
+      <NeoFlowTracking />
       <Authority />
       <Portfolio />
       <LeadAssessmentForm

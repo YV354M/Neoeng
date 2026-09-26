@@ -1,0 +1,57 @@
+.section {
+  --accent: #ff6b00;
+  --accent-soft: #ffb06f;
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: 100px;
+  padding: 34px clamp(24px, 6vw, 92px);
+  color: #fff;
+  background: radial-gradient(circle at 82% 8%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 34%), linear-gradient(135deg, #06172e 0%, #002147 54%, #071a32 100%);
+}
+
+.section[data-variant="residential"] { --accent: #d8a846; --accent-soft: #f2cf80; }
+.inner { width: min(1240px, 100%); margin: 0 auto; }
+.header { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 36px; margin-bottom: 22px; }
+.copy { max-width: 850px; }
+.kicker { display: block; margin-bottom: 10px; color: var(--accent-soft); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
+.copy h2 { max-width: 850px; margin: 0; color: #fff; font-size: clamp(2rem, 3.4vw, 3.45rem); font-weight: 850; line-height: 1.02; letter-spacing: -0.035em; text-wrap: balance; }
+.section[data-variant="residential"] .copy h2 { font-family: var(--font-neohouse-serif), Georgia, serif; font-weight: 500; }
+.copy p { max-width: 790px; margin: 12px 0 0; color: rgba(255, 255, 255, 0.72); font-size: 0.92rem; line-height: 1.6; }
+.brandAction { display: flex; min-width: 210px; flex-direction: column; align-items: flex-start; gap: 12px; }
+.logo { position: relative; width: 190px; height: 64px; }
+.logoImage { object-fit: contain; object-position: left center; }
+.cta { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; color: #101722; background: linear-gradient(135deg, var(--accent-soft), var(--accent)); box-shadow: 0 12px 28px color-mix(in srgb, var(--accent) 24%, transparent); font-size: 0.84rem; font-weight: 850; text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease; }
+.cta:hover { transform: translateY(-2px); box-shadow: 0 16px 34px color-mix(in srgb, var(--accent) 34%, transparent); }
+.cta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.body { display: grid; grid-template-columns: minmax(300px, 0.75fr) minmax(0, 1.25fr); gap: clamp(24px, 4vw, 52px); align-items: center; }
+.visualColumn { min-width: 0; text-align: center; }
+.phoneFrame { height: 305px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 22px; background: rgba(255, 255, 255, 0.035); border: 1px solid rgba(255, 255, 255, 0.08); }
+.phoneIframe { width: 440px; height: 900px; flex: none; border: 0; transform: scale(0.35); transform-origin: center; }
+.visualColumn small { display: block; margin-top: 8px; color: rgba(255, 255, 255, 0.45); font-size: 0.7rem; }
+.informationColumn { display: grid; gap: 12px; min-width: 0; }
+.metricPanel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 16px; background: rgba(255, 255, 255, 0.14); }
+.metricPanel > div { min-width: 0; min-height: 50px; display: flex; align-items: center; gap: 10px; padding: 10px 13px; color: rgba(255, 255, 255, 0.88); background: rgba(5, 22, 43, 0.88); font-size: 0.8rem; line-height: 1.25; }
+.metricNumber { flex: none; color: var(--accent-soft); font-family: Georgia, serif; font-size: 0.87rem; }
+.methods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.methods > div { display: flex; align-items: flex-start; gap: 8px; min-width: 0; padding: 11px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; color: rgba(255, 255, 255, 0.8); background: rgba(255, 255, 255, 0.045); font-size: 0.74rem; line-height: 1.35; }
+.methods svg { flex: none; color: var(--accent-soft); }
+
+@media (max-width: 960px) {
+  .header { grid-template-columns: minmax(0, 1fr); align-items: start; }
+  .brandAction { min-width: 0; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; }
+  .body { grid-template-columns: minmax(0, 1fr); }
+  .phoneFrame { height: 305px; }
+}
+
+@media (max-width: 640px) {
+  .section { padding: 40px 20px; }
+  .header { gap: 22px; margin-bottom: 22px; }
+  .copy h2 { font-size: 2rem; }
+  .brandAction { flex-direction: column; align-items: stretch; }
+  .logo { width: 164px; height: 52px; }
+  .cta { width: 100%; }
+  .phoneFrame { height: 300px; }
+  .phoneIframe { transform: scale(0.35); }
+  .metricPanel, .methods { grid-template-columns: minmax(0, 1fr); }
+  .metricPanel > div { min-height: 44px; }
+}

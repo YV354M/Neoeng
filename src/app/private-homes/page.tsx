@@ -3,6 +3,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LeadAssessmentForm from "@/components/LeadAssessmentForm";
+import NeoFlowTracking from "@/components/NeoFlowTracking";
 import Image from "next/image";
 import { Fragment, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
@@ -101,19 +102,6 @@ const houseModels = [
   { name: "Horizonte", type: "Térreo + 1 sem rooftop", copy: "Dois pavimentos completos, com mais espaço, privacidade e presença arquitetônica.", image: "/assets/neohouse/house-horizonte.webp" },
   { name: "Mirante", type: "Térreo + 1 com varanda gourmet integrada", copy: "Casa predominantemente térrea, com ampla varanda gourmet no pavimento superior e um cômodo fechado recuado ao fundo.", image: "/assets/neohouse/house-mirante.png" },
   { name: "Signature", type: "Térreo + 1 com rooftop superior", copy: "Dois pavimentos e um rooftop aberto acima, criando uma área adicional de lazer e contemplação.", image: "/assets/neohouse/house-signature.webp" },
-] as const;
-
-const trackingMetrics = [
-  "Percentual físico executado",
-  "Valor contratado",
-  "Valor pago",
-  "Valor comprometido",
-  "Saldo disponível",
-  "Projeção de conclusão",
-  "Etapas atrasadas",
-  "Pontos de atenção",
-  "Documentos pendentes",
-  "Histórico de decisões e alterações",
 ] as const;
 
 const documentationItems = [
@@ -313,37 +301,7 @@ export default function PrivateHomes() {
         </div>
       </section>
 
-      {/* Acompanhamento Físico-Financeiro */}
-      <section className="nh-tracking-section" id="acompanhamento">
-        <div className="nh-tracking-header">
-          <span className="nh-kicker">Acompanhamento Físico-Financeiro</span>
-          <h2>Saiba quanto foi executado, quanto foi pago e o que ainda falta.</h2>
-          <p>A equipe Neoeng alimenta o App NeoFlow com a evolução da execução, cronograma, medições, despesas, documentos e evidências fotográficas — para você acompanhar a obra com clareza, de onde estiver.</p>
-        </div>
-        <div className="nh-tracking-body">
-          <div className="nh-tracking-visual-col">
-            <div className="nh-phone-frame">
-              <iframe
-                src="/app-mockup/app-neohouse-mockup.html"
-                title="App NeoFlow — mockup interativo de acompanhamento de obra"
-                className="nh-phone-frame-iframe"
-                loading="lazy"
-              />
-            </div>
-            <div className="nh-tracking-methods">
-              <div><CheckCircle2 size={18} /><span>RDO online, dia a dia</span></div>
-              <div><CheckCircle2 size={18} /><span>Fotos e imagens aéreas por drone</span></div>
-              <div><CheckCircle2 size={18} /><span>Curva S de custos x avanço</span></div>
-            </div>
-            <small>App NeoFlow — visualização ilustrativa do acompanhamento em tempo real.</small>
-          </div>
-          <div className="nh-metric-panel">
-            {trackingMetrics.map((item, i) => (
-              <div key={item}><span className="nh-metric-number">{String(i + 1).padStart(2, "0")}</span><span className="nh-metric-label">{item}</span></div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <NeoFlowTracking variant="residential" />
 
       {/* Financiamento e Documentação */}
       <section className="nh-section">

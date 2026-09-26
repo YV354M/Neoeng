@@ -37,6 +37,7 @@ export default function Navbar() {
               src="/logos_neoeng/horizontal-neoeng.png" 
               alt="Neoeng Engenharia" 
               fill 
+              loading="eager"
               sizes="(max-width: 768px) 150px, 250px"
               className="object-contain object-left relative z-10 drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]"
             />
@@ -49,7 +50,7 @@ export default function Navbar() {
           <Link href="/#autoridade" className="text-sm font-medium hover:-translate-y-[1px] hover:text-active-orange transition-all duration-200">Experiência</Link>
           <Link href="/private-homes" className="text-sm font-medium hover:-translate-y-[1px] hover:text-orange-400 transition-all duration-200 text-active-orange font-semibold">NeoHouse</Link>
           <a
-            href="https://obra360.yrmstrategylab.com.br/neoflow/entrar"
+            href="https://www.obra360.pro/neoflow/entrar"
             target="_blank"
             rel="noopener noreferrer"
             className="relative h-8 w-28 shrink-0 transition-transform duration-200 hover:scale-105"
@@ -101,7 +102,7 @@ export default function Navbar() {
           <Link href="/private-homes" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-active-orange transition-colors">NeoHouse</Link>
           <hr className="border-white/10" />
           <a
-            href="https://obra360.yrmstrategylab.com.br/neoflow/entrar"
+            href="https://www.obra360.pro/neoflow/entrar"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}

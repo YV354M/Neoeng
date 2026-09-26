@@ -111,22 +111,6 @@
 .neohouse-page .nh-contact-banner h3 { color: #fff; }
 .neohouse-page .nh-contact-banner p { color: rgba(255, 255, 255, 0.72); }
 
-/* Tracking / acompanhamento */
-.neohouse-page .nh-tracking-section { padding: 96px clamp(24px, 6vw, 92px); background: var(--nh-navy); color: #fff; }
-.neohouse-page .nh-tracking-header { max-width: 760px; margin: 0 0 48px; }
-.neohouse-page .nh-tracking-header p { color: rgba(255, 255, 255, 0.75); line-height: 1.75; margin-top: 14px; }
-.neohouse-page .nh-tracking-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
-.neohouse-page .nh-phone-frame { height: 560px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.neohouse-page .nh-phone-frame-iframe { width: 440px; height: 900px; border: 0; flex: none; transform: scale(0.62); transform-origin: center; }
-.neohouse-page .nh-tracking-methods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
-.neohouse-page .nh-tracking-methods > div { display: flex; flex-direction: column; gap: 8px; padding: 14px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; font-size: 0.8rem; line-height: 1.4; color: rgba(255, 255, 255, 0.85); }
-.neohouse-page .nh-tracking-methods svg { color: var(--nh-gold-light); width: 18px; height: 18px; }
-.neohouse-page .nh-tracking-visual-col > small { display: block; margin-top: 16px; color: rgba(255, 255, 255, 0.5); font-size: 0.78rem; }
-.neohouse-page .nh-metric-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1px; background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.14); align-content: start; min-width: 0; }
-.neohouse-page .nh-metric-panel div { display: flex; align-items: center; gap: 12px; min-height: 68px; padding: 14px; background: var(--nh-navy-2); font-size: 0.86rem; min-width: 0; }
-.neohouse-page .nh-metric-number { color: var(--nh-gold-light); font: 0.95rem var(--nh-serif); flex: none; }
-.neohouse-page .nh-metric-label { min-width: 0; overflow-wrap: break-word; }
-
 /* Support grid — financiamento / documentação */
 .neohouse-page .nh-support-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
 .neohouse-page .nh-support-grid > article { padding: 40px; background: #fff; border: 1px solid var(--nh-line); }
@@ -207,7 +191,6 @@
   .neohouse-page .nh-problem-grid,
   .neohouse-page .nh-support-grid,
   .neohouse-page .nh-admin-section,
-  .neohouse-page .nh-tracking-body,
   .neohouse-page .nh-profiles-grid,
   .neohouse-page .nh-comercial-photos { grid-template-columns: minmax(0, 1fr); }
   .neohouse-page .nh-contact-block,
@@ -222,7 +205,6 @@
 @media (max-width: 640px) {
   .neohouse-page .nh-house-grid { grid-template-columns: minmax(0, 1fr); }
   .neohouse-page .nh-comercial-photos { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
-  .neohouse-page .nh-tracking-methods { grid-template-columns: minmax(0, 1fr); }
   .neohouse-page .nh-contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .neohouse-page .nh-contact-block,
   .neohouse-page .nh-contact-banner { grid-column: span 2; }
