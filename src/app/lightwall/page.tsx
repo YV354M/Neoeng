@@ -47,6 +47,61 @@ const technicalBenefits = [
   },
 ] as const;
 
+const citedStandards = [
+  ["NBR 17073:2024", "Sistemas construtivos — requisitos e avaliação do sistema citado nos materiais."],
+  ["NBR 15575", "Desempenho de edificações habitacionais, incluindo requisitos de conforto e segurança."],
+  ["NBR 17036", "Painéis de vedação — referência apresentada para o sistema Lightwall."],
+  ["NBR 14718", "Guardas-corpos — aplicável às interfaces e elementos previstos no projeto."],
+] as const;
+
+const evidenceSlides = [
+  {
+    src: "/assets/lightwall/lightwall-acoustic.png",
+    alt: "Desempenho acústico de diferentes composições de painéis Lightwall",
+    caption: "Desempenho acústico informado para diferentes composições: Rw de 39, 42, 45 e 51 dB. Fonte: material técnico Lightwall Brasil, slide fornecido pelo usuário.",
+  },
+  {
+    src: "/assets/lightwall/lightwall-installations.png",
+    alt: "Exemplo de instalações elétricas e hidráulicas em painel Lightwall",
+    caption: "Passagem de instalações elétricas e hidráulicas com cava para dutos e fechamento com argamassa ACIII. Fonte: material técnico Lightwall Brasil.",
+  },
+  {
+    src: "/assets/lightwall/lightwall-ecolabel.png",
+    alt: "Rótulo Ecológico ABNT e certificado de conformidade do Lightwall",
+    caption: "Rótulo Ecológico ABNT e certificado de conformidade apresentados no material, incluindo o registro nº 595.001/25. Fonte: Lightwall Brasil.",
+  },
+  {
+    src: "/assets/lightwall/lightwall-standards.png",
+    alt: "Slide sobre sistema Lightwall normatizado pela ABNT",
+    caption: "Slide que cita NBR 17073, NBR 15575 e NBR 17036, além de financiamento pela Caixa. A aplicação deve ser conferida no projeto e nos documentos vigentes.",
+  },
+  {
+    src: "/assets/lightwall/lightwall-comparison.png",
+    alt: "Quadro comparativo entre Lightwall e outros sistemas construtivos",
+    caption: "Comparativo de peso, velocidade, acústica e resistência ao fogo apresentado pela Lightwall Brasil. Os valores dependem das premissas de cada composição e obra.",
+  },
+] as const;
+
+const galleryPhotos = [
+  ["/assets/lightwall/gallery-piloto-fabrica.png", "Piloto e fábrica", "Montagem de painéis em unidade-piloto/fábrica. Slide 47 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-piloto-montagem.png", "Execução de painéis", "Equipe em etapa de montagem de uma unidade-piloto. Slide 47 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-rio-claro.jpg", "Rio Claro/SP", "Empreendimento habitacional citado como Rio Claro/SP — 4.000 casas. Slide 48 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-casa-popular-sertania.jpg", "Casa Popular — Sertânia/PE", "Casa Popular de 55 m², Sertânia/PE. Slide 49 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-condominio-sertania.jpg", "Condomínio — Sertânia/PE", "Conjunto de 20 casas em Sertânia/PE. Slide 51 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-rooftop-tacaruna-montagem.jpg", "Rooftop Shopping Tacaruna", "Montagem no Rooftop Shopping Tacaruna, Recife/PE. Slide 53 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-rooftop-tacaruna-final.jpg", "Rooftop finalizado", "Rooftop Shopping Tacaruna, Recife/PE, em registro de conclusão. Slide 54 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-edificio-rooftop.jpg", "Edifício Rooftop", "Edifício Rooftop — Construtora Moura Dubeux. Slide 56 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-edificio-neue-haut.jpg", "Edifício Neue Haut", "Edifício Neue Haut, João Pessoa/PB. Slide 58 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-pedras-patacho.jpg", "Pedras do Patacho", "Pedras do Patacho Hotel Boutique, Milagres/AL. Slide 60 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-pedras-patacho-interior.jpg", "Interior de hotelaria", "Aplicação interna no Pedras do Patacho Hotel Boutique, Milagres/AL. Slide 61 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-grand-oca.jpg", "Grand Oca Resort", "Grand Oca Resort, Maragogi/AL. Slide 64 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-guadalupe.jpg", "Guadalupe Beach Resort", "Guadalupe Beach Resort, Sirinhaém/PE. Slide 65 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-mercado-livre.jpg", "Galpão Mercado Livre", "Execução de vedação em galpão do Mercado Livre, São Paulo/SP. Slide 75 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-galeria-jarlan.jpg", "Galeria Jarlan", "Galeria Jarlan, Maceió/AL. Slide 76 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-bar-cuscuz.jpg", "Bar do Cuscuz", "Bar do Cuscuz, Recife/PE. Slide 77 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-fratelate.jpg", "Fratelate", "Fratelate, Recife/PE. Slide 78 da apresentação técnico-comercial."],
+] as const;
+
 const executionSteps = [
   ["01", "Diagnóstico técnico", "Leitura da tipologia, projeto, interferências, riscos e viabilidade do sistema."],
   ["02", "Paginação e compatibilização", "Definição dos painéis, cortes, juntas, instalações e interfaces com a estrutura."],
@@ -209,8 +264,24 @@ export default function LightwallPage() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-deep-navy/10 p-5"><h3 className="font-bold">Térmico</h3><p className="mt-2 text-sm leading-relaxed text-deep-navy/65">U de 0,63 W/m².K para o painel citado, comparado a 2,53 e 2,72 W/m².K em referências de alvenaria no material. A apresentação resume isso como 4 a 5 vezes mais isolante.</p></div>
-              <div className="rounded-2xl border border-deep-navy/10 p-5"><h3 className="font-bold">Acústico</h3><p className="mt-2 text-sm leading-relaxed text-deep-navy/65">O deck cita 2P com Rw de 39 dB e combinações com lã de vidro ou lã de rocha chegando a 51–55 dB em ensaios/cases específicos.</p></div>
+              <div className="rounded-2xl border border-deep-navy/10 p-5"><h3 className="font-bold">Acústico</h3><p className="mt-2 text-sm leading-relaxed text-deep-navy/65">As composições ilustradas informam Rw de 39 dB (painel 90 mm), 42 dB (120 mm), 45 dB (75 mm + câmara de ar de 30 mm) e 51 dB (75 mm + lã de vidro de 50 mm). Outras combinações do deck chegam a 55 dB em ensaios/cases específicos.</p></div>
               <div className="rounded-2xl border border-deep-navy/10 p-5 sm:col-span-2"><h3 className="font-bold">Fogo</h3><p className="mt-2 text-sm leading-relaxed text-deep-navy/65">O painel 2P90 é apresentado com desempenho CF120 em relatório de ensaio citado no material. A solução final deve ser especificada conforme ocupação, compartimentação, norma e projeto de segurança contra incêndio.</p></div>
+            </div>
+          </section>
+
+          <section className="mt-20" aria-labelledby="evidencias-lightwall">
+            <p className="text-sm font-bold uppercase tracking-[0.24em] text-active-orange">Evidências técnicas</p>
+            <h2 id="evidencias-lightwall" className="mt-3 text-3xl font-black md:text-4xl">Desempenho e aplicações documentados</h2>
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-deep-navy/70">Os quadros abaixo reproduzem informações dos materiais técnicos compartilhados para esta página. Eles ajudam a contextualizar acústica, instalações, sustentabilidade, normalização e comparativos — sem substituir laudos, memoriais ou a especificação do projeto.</p>
+            <div className="mt-8 grid gap-7 md:grid-cols-2">
+              {evidenceSlides.map((item) => (
+                <figure key={item.src} className="overflow-hidden rounded-3xl border border-deep-navy/10 bg-concrete-gray/30 p-3">
+                  <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-white">
+                    <Image src={item.src} alt={item.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain" />
+                  </div>
+                  <Caption>{item.caption}</Caption>
+                </figure>
+              ))}
             </div>
           </section>
 
@@ -228,12 +299,15 @@ export default function LightwallPage() {
               <div className="rounded-3xl border border-deep-navy/10 p-7">
                 <ShieldCheck className="h-8 w-8 text-active-orange" aria-hidden="true" />
                 <h3 className="mt-4 text-xl font-bold">Referências técnicas do sistema</h3>
-                <p className="mt-3 text-sm leading-relaxed text-deep-navy/65">Os materiais fornecidos citam NBR 15575, NBR 17073:2024, NBR 17036, NBR 14718, homologação SINAT, 100% de financiamento pela Caixa, vida útil de projeto de 50 anos e Rótulo Ecológico ABNT. Esses itens devem ser conferidos conforme o painel, o escopo, a edição do documento e a aplicação antes da especificação final.</p>
+                <p className="mt-3 text-sm leading-relaxed text-deep-navy/65">Os materiais fornecidos citam as normas abaixo, além de homologação SINAT, financiamento pela Caixa, vida útil de projeto de 50 anos e Rótulo Ecológico ABNT. A aplicação e o atendimento devem ser confirmados para o painel, escopo, edição do documento e projeto correspondentes.</p>
+                <ul className="mt-5 space-y-3">
+                  {citedStandards.map(([standard, description]) => <li key={standard} className="flex gap-3 text-sm leading-relaxed text-deep-navy/70"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-active-orange" aria-hidden="true" /><span><strong className="text-deep-navy">{standard}</strong> — {description}</span></li>)}
+                </ul>
               </div>
               <div className="rounded-3xl border border-deep-navy/10 p-7">
                 <FileCheck2 className="h-8 w-8 text-active-orange" aria-hidden="true" />
                 <h3 className="mt-4 text-xl font-bold">Neoeng habilitada</h3>
-                <p className="mt-3 text-sm leading-relaxed text-deep-navy/65">Yves Rabelo Mourão concluiu o curso Lightwall Experts Pro, com imersão presencial na fábrica em Cabo de Santo Agostinho/PE, nos dias 25 e 26 de junho de 2026, totalizando 20 horas práticas sobre montagem, especificações, normativas e aplicações.</p>
+                <p className="mt-3 text-sm leading-relaxed text-deep-navy/65">Yves Rabelo Mourão concluiu o curso Lightwall Experts Pro, com imersão presencial na fábrica em Cabo de Santo Agostinho/PE, acumulando experiência prática sobre montagem, especificações, normativas e aplicações.</p>
                 <a href="/assets/lightwall/certificado-expert-yves.pdf" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-active-orange hover:text-orange-600">Consultar certificado <ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
               </div>
             </div>
@@ -265,6 +339,22 @@ export default function LightwallPage() {
                 <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/assets/lightwall/lightwall-installation.jpeg" alt="Equipe montando painéis Lightwall em canteiro de obra" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /></div>
                 <Caption>Montagem de painéis em canteiro. Imagem fornecida pela Lightwall Brasil.</Caption>
               </figure>
+            </div>
+            <div className="mt-12">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-active-orange">Galeria de obras</p>
+              <h3 className="mt-2 text-2xl font-black md:text-3xl">Aplicações apresentadas nos slides 46–84</h3>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy/65">Uma seleção de registros e imagens de empreendimentos residenciais, hoteleiros e comerciais presentes na apresentação técnico-comercial. Cada legenda identifica o empreendimento ou a etapa mostrada e informa a origem da imagem.</p>
+              <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {galleryPhotos.map(([src, alt, caption]) => (
+                  <figure key={src}>
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-concrete-gray/45">
+                      <Image src={src} alt={alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-contain" />
+                    </div>
+                    <Caption>{caption} Imagem fornecida pela Lightwall Brasil.</Caption>
+                  </figure>
+                ))}
+              </div>
+              <p className="mt-5 text-[10px] leading-relaxed text-deep-navy/50">As imagens desta galeria foram extraídas da apresentação técnico-comercial fornecida para esta página. A presença de uma obra no material não constitui, por si só, atestado de escopo executado pela Neoeng.</p>
             </div>
             <div className="mt-7 grid gap-4 sm:grid-cols-3">
               {[
