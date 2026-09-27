@@ -5,17 +5,18 @@ import { ArrowRight, CheckCircle2, FileCheck2, ShieldCheck } from "lucide-react"
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LeadAssessmentForm from "@/components/LeadAssessmentForm";
+import LightwallEvidenceGallery from "@/components/LightwallEvidenceGallery";
 
 export const metadata: Metadata = {
   title: "Sistema construtivo Lightwall | Execução habilitada pela Neoeng",
   description:
-    "Conheça o sistema construtivo Lightwall, seus ganhos potenciais de prazo, resíduos, desempenho e área útil, e como a Neoeng conduz obras com equipe habilitada.",
+    "Conheça o sistema construtivo Lightwall, com painéis cimentíceos de núcleo de concreto leve, EPS e aditivos, ganhos de prazo, resíduos, desempenho e área útil.",
   keywords: [
     "sistema construtivo Lightwall",
     "Lightwall Fortaleza",
     "construção modular",
     "obra industrializada",
-    "painel de concreto leve",
+    "painéis cimentíceos",
     "Neoeng Lightwall",
   ],
   alternates: { canonical: "/lightwall" },
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
       "Tecnologia modular, desempenho documentado e execução Neoeng para obras residenciais, comerciais e industriais.",
     url: "/lightwall",
     type: "article",
-    images: [{ url: "/assets/lightwall/lightwall-installation.jpeg", alt: "Montagem de painéis Lightwall em obra" }],
+    images: [{ url: "/assets/lightwall/lightwall-installation.jpeg", alt: "Montagem de painéis cimentíceos Lightwall em obra" }],
   },
 };
 
@@ -33,17 +34,17 @@ const technicalBenefits = [
   {
     title: "Prazo",
     value: "Até 5×",
-    text: "A montagem pode ser até 5 vezes mais rápida que a alvenaria convencional. O resultado depende do projeto, da equipe, da logística e das condições do canteiro.",
+    text: "A montagem é até 5 vezes mais rápida que a alvenaria convencional.",
   },
   {
     title: "Resíduos",
     value: "83× menos",
-    text: "O sistema pode gerar até 83 vezes menos resíduos: 1,13 kg/m² no Lightwall contra 93,89 kg/m² na alvenaria, conforme as condições da comparação.",
+    text: "O sistema gera até 83 vezes menos resíduos: 1,13 kg/m² no Lightwall contra 93,89 kg/m² na alvenaria.",
   },
   {
     title: "Estrutura",
     value: "7–11%",
-    text: "A redução estimada de aço e fundação fica entre 7% e 11% em determinadas configurações. O projeto estrutural deve confirmar o resultado em cada obra.",
+    text: "A economia de aço e fundação fica entre 7% e 11%.",
   },
 ] as const;
 
@@ -51,83 +52,80 @@ const citedStandards = [
   ["NBR 17073:2024", "Sistemas construtivos — requisitos e avaliação da solução."],
   ["NBR 15575", "Desempenho de edificações habitacionais, incluindo requisitos de conforto e segurança."],
   ["NBR 17036", "Painéis de vedação — requisitos relacionados ao sistema Lightwall."],
-  ["NBR 14718", "Guardas-corpos — aplicável às interfaces e elementos previstos no projeto."],
+  ["NBR 14718", "Guardas-corpos e interfaces de proteção."],
 ] as const;
 
 const evidenceSlides = [
   {
-    src: "/assets/lightwall/lightwall-acoustic.png",
-    alt: "Desempenho acústico de diferentes composições de painéis Lightwall",
-    caption: "Desempenho acústico para diferentes composições: Rw de 39, 42, 45 e 51 dB. Dados apresentados pela Lightwall Brasil.",
-  },
-  {
     src: "/assets/lightwall/lightwall-installations.png",
-    alt: "Exemplo de instalações elétricas e hidráulicas em painel Lightwall",
-    caption: "Passagem de instalações elétricas e hidráulicas com cava para dutos e fechamento com argamassa ACIII. Solução apresentada pela Lightwall Brasil.",
-  },
-  {
-    src: "/assets/lightwall/lightwall-ecolabel.png",
-    alt: "Rótulo Ecológico ABNT e certificado de conformidade do Lightwall",
-    caption: "Rótulo Ecológico ABNT e certificado de conformidade, incluindo o registro nº 595.001/25. Informação apresentada pela Lightwall Brasil.",
-  },
-  {
-    src: "/assets/lightwall/lightwall-standards.png",
-    alt: "Slide sobre sistema Lightwall normatizado pela ABNT",
-    caption: "Sistema normatizado pela ABNT, com NBR 17073, NBR 15575 e NBR 17036, além de financiamento pela Caixa. A aplicação deve ser conferida no projeto vigente.",
+    alt: "Exemplo de instalações elétricas e hidráulicas em painéis cimentíceos Lightwall",
+    caption: "Passagem de instalações elétricas e hidráulicas com cava para dutos e fechamento com argamassa ACIII.",
   },
   {
     src: "/assets/lightwall/lightwall-comparison.png",
     alt: "Quadro comparativo entre Lightwall e outros sistemas construtivos",
-    caption: "Comparativo de peso, velocidade, acústica e resistência ao fogo. Os valores dependem da composição e das condições de cada obra.",
+    caption: "Comparativo de peso, velocidade, acústica e resistência ao fogo entre sistemas construtivos.",
   },
 ] as const;
 
 const galleryPhotos = [
-  ["/assets/lightwall/gallery-piloto-fabrica.png", "Piloto e fábrica", "Montagem de painéis em unidade-piloto/fábrica. Slide 47 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-piloto-montagem.png", "Execução de painéis", "Equipe em etapa de montagem de uma unidade-piloto. Slide 47 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-rio-claro.jpg", "Rio Claro/SP", "Empreendimento habitacional citado como Rio Claro/SP — 4.000 casas. Slide 48 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-casa-popular-sertania.jpg", "Casa Popular — Sertânia/PE", "Casa Popular de 55 m², Sertânia/PE. Slide 49 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-condominio-sertania.jpg", "Condomínio — Sertânia/PE", "Conjunto de 20 casas em Sertânia/PE. Slide 51 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-rooftop-tacaruna-montagem.jpg", "Rooftop Shopping Tacaruna", "Montagem no Rooftop Shopping Tacaruna, Recife/PE. Slide 53 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-rooftop-tacaruna-final.jpg", "Rooftop finalizado", "Rooftop Shopping Tacaruna, Recife/PE, em registro de conclusão. Slide 54 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-edificio-rooftop.jpg", "Edifício Rooftop", "Edifício Rooftop — Construtora Moura Dubeux. Slide 56 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-edificio-neue-haut.jpg", "Edifício Neue Haut", "Edifício Neue Haut, João Pessoa/PB. Slide 58 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-pedras-patacho.jpg", "Pedras do Patacho", "Pedras do Patacho Hotel Boutique, Milagres/AL. Slide 60 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-pedras-patacho-interior.jpg", "Interior de hotelaria", "Aplicação interna no Pedras do Patacho Hotel Boutique, Milagres/AL. Slide 61 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-grand-oca.jpg", "Grand Oca Resort", "Grand Oca Resort, Maragogi/AL. Slide 64 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-guadalupe.jpg", "Guadalupe Beach Resort", "Guadalupe Beach Resort, Sirinhaém/PE. Slide 65 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-mercado-livre.jpg", "Galpão Mercado Livre", "Execução de vedação em galpão do Mercado Livre, São Paulo/SP. Slide 75 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-galeria-jarlan.jpg", "Galeria Jarlan", "Galeria Jarlan, Maceió/AL. Slide 76 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-bar-cuscuz.jpg", "Bar do Cuscuz", "Bar do Cuscuz, Recife/PE. Slide 77 da apresentação técnico-comercial."],
-  ["/assets/lightwall/gallery-fratelate.jpg", "Fratelate", "Fratelate, Recife/PE. Slide 78 da apresentação técnico-comercial."],
+  ["/assets/lightwall/gallery-piloto-fabrica.png", "Piloto e fábrica", "Montagem de painéis cimentíceos em unidade-piloto e fábrica."],
+  ["/assets/lightwall/gallery-piloto-montagem.png", "Execução de painéis", "Equipe em etapa de montagem de painéis cimentíceos em uma unidade-piloto."],
+  ["/assets/lightwall/gallery-rio-claro.jpg", "Rio Claro/SP", "Empreendimento habitacional com 4.000 casas em Rio Claro/SP."],
+  ["/assets/lightwall/gallery-casa-popular-sertania.jpg", "Casa Popular — Sertânia/PE", "Casa Popular de 55 m² em Sertânia/PE."],
+  ["/assets/lightwall/gallery-condominio-sertania.jpg", "Condomínio — Sertânia/PE", "Conjunto de 20 casas em Sertânia/PE."],
+  ["/assets/lightwall/gallery-rooftop-tacaruna-montagem.jpg", "Rooftop Shopping Tacaruna", "Montagem no Rooftop Shopping Tacaruna, Recife/PE."],
+  ["/assets/lightwall/gallery-rooftop-tacaruna-final.jpg", "Rooftop finalizado", "Rooftop Shopping Tacaruna, Recife/PE, em registro de conclusão."],
+  ["/assets/lightwall/gallery-edificio-rooftop.jpg", "Edifício Rooftop", "Edifício Rooftop, da Construtora Moura Dubeux."],
+  ["/assets/lightwall/gallery-edificio-neue-haut.jpg", "Edifício Neue Haut", "Edifício Neue Haut, João Pessoa/PB."],
+  ["/assets/lightwall/gallery-pedras-patacho.jpg", "Pedras do Patacho", "Pedras do Patacho Hotel Boutique, Milagres/AL."],
+  ["/assets/lightwall/gallery-pedras-patacho-interior.jpg", "Interior de hotelaria", "Aplicação interna no Pedras do Patacho Hotel Boutique, Milagres/AL."],
+  ["/assets/lightwall/gallery-grand-oca.jpg", "Grand Oca Resort", "Grand Oca Resort, Maragogi/AL."],
+  ["/assets/lightwall/gallery-guadalupe.jpg", "Guadalupe Beach Resort", "Guadalupe Beach Resort, Sirinhaém/PE."],
+  ["/assets/lightwall/gallery-mercado-livre.jpg", "Galpão Mercado Livre", "Execução de vedação em galpão do Mercado Livre, São Paulo/SP."],
+  ["/assets/lightwall/gallery-galeria-jarlan.jpg", "Galeria Jarlan", "Galeria Jarlan, Maceió/AL."],
+  ["/assets/lightwall/gallery-bar-cuscuz.jpg", "Bar do Cuscuz", "Bar do Cuscuz, Recife/PE."],
+  ["/assets/lightwall/gallery-fratelate.jpg", "Fratelate", "Fratelate, Recife/PE."],
 ] as const;
 
 const lightwallWhatsappHref = "https://wa.me/5585987240375?text=Vim%20do%20site%20da%20Neoeng%20e%20desejo%20entender%20mais%20sobre%20Lightwall.";
 
 const executionSteps = [
   ["01", "Diagnóstico técnico", "Leitura da tipologia, projeto, interferências, riscos e viabilidade do sistema."],
-  ["02", "Paginação e compatibilização", "Definição dos painéis, cortes, juntas, instalações e interfaces com a estrutura."],
+  ["02", "Paginação e compatibilização", "Definição dos painéis cimentíceos, cortes, juntas, instalações e interfaces com a estrutura."],
   ["03", "Suprimentos no timing certo", "Planejamento de materiais, logística e sequência para proteger o cronograma."],
-  ["04", "Execução controlada", "Equipe orientada ao sistema, conferência geométrica e controle de produtividade."],
+  ["04", "Execução controlada", "Equipe orientada aos painéis cimentíceos, conferência geométrica e controle de produtividade."],
   ["05", "Medição e entrega", "Acompanhamento do avanço, registros, correções e entrega com rastreabilidade."],
 ] as const;
 
 const faqs = [
   [
     "O que é o sistema construtivo Lightwall?",
-    "É um sistema modular de vedação com painéis de concreto leve, núcleo com EPS, faces cimentícias e encaixe macho-fêmea. A especificação do painel, das juntas e das interfaces deve ser definida para cada projeto.",
+    "É um sistema modular de vedação com painéis cimentíceos, núcleo de concreto leve com EPS e aditivos, faces de placa cimentícea e encaixe macho-fêmea. A montagem organiza a obra e reduz etapas no canteiro.",
   ],
   [
-    "O Lightwall substitui qualquer sistema em qualquer obra?",
-    "Não. A solução precisa ser estudada conforme tipologia, estrutura, vãos, acústica, fogo, logística, orçamento e projeto executivo. A Neoeng começa pela análise de viabilidade antes de especificar o sistema.",
+    "O Lightwall substitui outros sistemas construtivos?",
+    "Na maioria das vezes, sim. A solução precisa ser estudada conforme tipologia, estrutura, vãos, acústica, fogo, logística, orçamento e projeto executivo. A Neoeng conduz essa análise para definir a melhor configuração.",
   ],
   [
-    "Como são tratadas as informações de desempenho?",
-    "Os números desta página ajudam a entender o potencial do sistema, mas não são uma garantia automática para toda obra. Montagem, espessura, acabamento, vãos e condições de uso influenciam o resultado final.",
+    "Onde os painéis cimentíceos Lightwall podem ser usados?",
+    "Em vedação interna e externa, lajes de piso e cobertura, muros, casas térreas, sobrados, condomínios, hotéis, edifícios, galpões, lojas, restaurantes e muitas outras aplicações.",
+  ],
+  [
+    "Quais ganhos o sistema traz para a obra?",
+    "A montagem chega a ser até 5 vezes mais rápida, gera até 83 vezes menos resíduos e pode reduzir entre 7% e 11% o consumo de aço e o custo de fundações.",
+  ],
+  [
+    "Como é o conforto térmico e acústico?",
+    "O índice de transmitância térmica U pode chegar a 0,63 W/m².K. Quanto menor esse índice, menos calor atravessa a parede — na prática, ela não fica quente no fim do dia. No desempenho acústico, as composições alcançam Rw de 39 a 51 dB.",
+  ],
+  [
+    "Onde estão as fábricas da Lightwall?",
+    "A Lightwall possui fábricas em Cabo de Santo Agostinho/PE, Rio Claro/SP e Brusque/SC.",
   ],
   [
     "Como solicitar um orçamento em Lightwall?",
-    "Use o formulário ao final da página. A equipe Neoeng pode avaliar localização, área, estágio do projeto, prazo, escopo e compatibilidade técnica para orientar a próxima etapa.",
+    "Use o formulário ao final da página. A equipe Neoeng avalia localização, área, estágio do projeto, prazo, escopo e compatibilidade técnica para orientar a próxima etapa.",
   ],
 ] as const;
 
@@ -166,7 +164,7 @@ const jsonLd = {
 function SourceNote() {
   return (
     <p className="mt-5 max-w-3xl border-l-2 border-active-orange pl-4 text-sm leading-relaxed text-deep-navy/65">
-      O Lightwall combina painéis de concreto leve, núcleo isolante e montagem planejada. Os resultados dependem da configuração escolhida e das condições de cada projeto, por isso a Neoeng avalia a solução antes de especificá-la.
+      O Lightwall combina painéis de placa cimentícia, núcleo de concreto, EPS e aditivos e permite montagem planejada.
     </p>
   );
 }
@@ -187,8 +185,8 @@ export default function LightwallPage() {
             <div className="grid items-end gap-12 lg:grid-cols-[1fr_0.9fr]">
               <div>
                 <div className="mb-6 flex items-center gap-4">
-                  <div className="relative h-14 w-40 rounded-xl p-1">
-                    <Image src="/assets/lightwall/lightwall-logo.png" alt="Lightwall" fill sizes="160px" className="object-contain" />
+                  <div className="relative h-16 w-44 rounded-xl p-1">
+                    <Image src="/assets/lightwall/lightwall-logo.png" alt="Lightwall" fill sizes="176px" className="object-contain" />
                   </div>
                   <span className="text-xs font-bold uppercase tracking-[0.24em] text-active-orange">Neoeng Engenharia</span>
                 </div>
@@ -197,17 +195,13 @@ export default function LightwallPage() {
                   Lightwall: desempenho modular com execução Neoeng.
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-xl">
-                  Uma abordagem técnica para avaliar quando painéis modulares de concreto leve podem reduzir etapas, organizar o cronograma e entregar mais previsibilidade à obra.
+                  Painéis cimentíceos modulares com núcleo de concreto leve, EPS e aditivos para reduzir etapas, organizar o cronograma e entregar mais previsibilidade à obra.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Link href="#orcamento" className="group inline-flex items-center gap-2 rounded-full bg-active-orange px-6 py-3.5 text-sm font-bold text-white transition-transform hover:scale-[1.03]">
                     Orçar minha obra em Lightwall
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </Link>
-                  <a href="/assets/lightwall/certificado-expert-yves.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 text-sm font-bold text-white transition-colors hover:border-white/60">
-                    <FileCheck2 className="h-4 w-4" aria-hidden="true" />
-                    Ver certificado de habilitação
-                  </a>
                 </div>
               </div>
 
@@ -229,15 +223,15 @@ export default function LightwallPage() {
             <h2 id="o-que-e-lightwall" className="mt-3 text-3xl font-black md:text-4xl">O que é o Lightwall?</h2>
             <div className="mt-6 grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
               <div className="space-y-4 text-base leading-relaxed text-deep-navy/75">
-                <p>O Lightwall utiliza painéis modulares de concreto leve, núcleo com EPS, faces cimentícias e encaixe macho-fêmea. A solução integra vedação, desempenho e velocidade em uma sequência de montagem planejada.</p>
-                <p>A configuração do painel importa: há painéis SP, com uma face cimentícia, e 2P, com duas faces, além de espessuras e aplicações distintas. A especificação deve acompanhar o projeto, a exigência de desempenho e o método de execução.</p>
-                <p>Para a Neoeng, o sistema é parte de uma decisão de engenharia: antes de vender um painel, avaliamos vocação, interfaces, logística, estrutura, instalações, prazo e custo total da obra.</p>
+                <p>O Lightwall utiliza painéis cimentíceos com núcleo de concreto leve, EPS e aditivos, faces de placa cimentícea e encaixe macho-fêmea. A solução integra vedação, desempenho e velocidade em uma sequência de montagem planejada.</p>
+                <p>A configuração dos painéis cimentíceos importa: há painéis SP, sem placa cimentícea, e 2P, com duas placas cimentíceas, além de espessuras e aplicações distintas. A especificação acompanha o projeto, a exigência de desempenho e o método de execução.</p>
+                <p>Para a Neoeng, o sistema integra uma decisão de engenharia que considera vocação, interfaces, logística, estrutura, instalações, prazo e custo total da obra.</p>
               </div>
               <figure>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-concrete-gray">
-                  <Image src="/assets/lightwall/lightwall-detail.jpeg" alt="Detalhe da seção e do encontro de painéis Lightwall" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover" />
+                  <Image src="/assets/lightwall/lightwall-detail.jpeg" alt="Detalhe da seção e do encontro de painéis cimentíceos Lightwall" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover" />
                 </div>
-                <Caption>Detalhe de painel e encontro construtivo. Imagem fornecida pela Lightwall Brasil.</Caption>
+                <Caption>Detalhe de painel cimentíceo e encontro construtivo. Imagem fornecida pela Lightwall Brasil.</Caption>
               </figure>
             </div>
           </section>
@@ -245,7 +239,7 @@ export default function LightwallPage() {
           <section className="mt-20" aria-labelledby="vantagens-lightwall">
             <p className="text-sm font-bold uppercase tracking-[0.24em] text-active-orange">Custo, prazo e qualidade</p>
             <h2 id="vantagens-lightwall" className="mt-3 text-3xl font-black md:text-4xl">A vantagem está na obra inteira</h2>
-            <p className="mt-5 max-w-3xl text-base leading-relaxed text-deep-navy/70">O sistema não deve ser comparado somente pelo preço do metro quadrado do painel. O impacto potencial aparece na combinação entre produtividade, etapas eliminadas, peso próprio, perdas, custo indireto e área útil.</p>
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-deep-navy/70">A melhor comparação considera mais que o preço do metro quadrado do painel cimentíceo: produtividade, etapas eliminadas, peso próprio, perdas, custo indireto e área útil.</p>
             <div className="mt-8 grid gap-5 md:grid-cols-3">
               {technicalBenefits.map((item) => (
                 <div key={item.title} className="rounded-3xl border border-deep-navy/10 bg-concrete-gray/45 p-6">
@@ -255,35 +249,32 @@ export default function LightwallPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-[11px] leading-relaxed text-deep-navy/50">Os números são indicativos e variam conforme painel, projeto, equipe, logística, estrutura, acabamento e condições de execução.</p>
           </section>
 
           <section className="mt-20 grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center" aria-labelledby="desempenho-lightwall">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.24em] text-active-orange">Desempenho</p>
               <h2 id="desempenho-lightwall" className="mt-3 text-3xl font-black md:text-4xl">Conforto térmico, acústico e segurança ao fogo</h2>
-              <p className="mt-5 text-base leading-relaxed text-deep-navy/70">O desempenho muda conforme a composição do painel, a espessura, o acabamento e a forma de instalação. Os números abaixo ajudam a entender as possibilidades do sistema, mas a especificação final precisa ser feita para cada obra.</p>
+              <p className="mt-5 text-base leading-relaxed text-deep-navy/70">A composição do Lightwall foi pensada para entregar conforto dentro da edificação: menos calor atravessando a parede, melhor controle dos sons e resistência ao fogo.</p>
+              <figure className="mt-6 overflow-hidden rounded-3xl border border-deep-navy/10 bg-concrete-gray/30 p-3">
+                <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-white">
+                  <Image src="/assets/lightwall/lightwall-acoustic.png" alt="Desempenho acústico de diferentes composições de painéis Lightwall" fill sizes="(max-width: 768px) 100vw, 45vw" className="object-contain" />
+                </div>
+                <Caption>As composições de painéis cimentíceos alcançam Rw de 39, 42, 45 e 51 dB.</Caption>
+              </figure>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-deep-navy/10 p-5"><h3 className="font-bold">Térmico</h3><p className="mt-2 text-sm leading-relaxed text-deep-navy/65">Uma composição de painel pode alcançar U de 0,63 W/m².K, enquanto referências de alvenaria ficam em 2,53 e 2,72 W/m².K. Na prática, isso representa potencial de isolamento térmico 4 a 5 vezes maior, conforme a solução escolhida.</p></div>
-              <div className="rounded-2xl border border-deep-navy/10 p-5"><h3 className="font-bold">Acústico</h3><p className="mt-2 text-sm leading-relaxed text-deep-navy/65">As composições ilustradas informam Rw de 39 dB (painel 90 mm), 42 dB (120 mm), 45 dB (75 mm + câmara de ar de 30 mm) e 51 dB (75 mm + lã de vidro de 50 mm). Outras combinações do deck chegam a 55 dB em ensaios/cases específicos.</p></div>
-              <div className="rounded-2xl border border-deep-navy/10 p-5 sm:col-span-2"><h3 className="font-bold">Fogo</h3><p className="mt-2 text-sm leading-relaxed text-deep-navy/65">O painel 2P90 pode alcançar resistência ao fogo CF120, ou seja, 120 minutos nas condições do ensaio. A solução final deve ser especificada conforme ocupação, compartimentação, norma e projeto de segurança contra incêndio.</p></div>
+              <div className="rounded-2xl border border-deep-navy/10 p-5"><h3 className="font-bold">Transmitância térmica</h3><p className="mt-2 text-sm leading-relaxed text-deep-navy/65">O índice U mede quanto calor atravessa a parede. No Lightwall, ele chega a 0,63 W/m².K, contra 2,53 e 2,72 W/m².K em referências de alvenaria. Quanto menor o índice, menos calor entra — por isso a parede não fica quente no fim do dia.</p></div>
+              <div className="rounded-2xl border border-deep-navy/10 p-5 sm:col-span-2"><h3 className="font-bold">Resistência ao fogo</h3><p className="mt-2 text-sm leading-relaxed text-deep-navy/65">O painel cimentíceo 2P90 alcança resistência ao fogo CF120: mantém sua função por até 120 minutos nas condições do ensaio.</p></div>
             </div>
           </section>
 
           <section className="mt-20" aria-labelledby="evidencias-lightwall">
             <p className="text-sm font-bold uppercase tracking-[0.24em] text-active-orange">Evidências técnicas</p>
             <h2 id="evidencias-lightwall" className="mt-3 text-3xl font-black md:text-4xl">Desempenho e aplicações na prática</h2>
-            <p className="mt-5 max-w-3xl text-base leading-relaxed text-deep-navy/70">Os quadros abaixo mostram, de forma visual, como o sistema pode se comportar em acústica, instalações, sustentabilidade, normalização e comparação com outros métodos. Eles ajudam na compreensão, mas não substituem laudos, memoriais ou a especificação do projeto.</p>
-            <div className="mt-8 grid gap-7 md:grid-cols-2">
-              {evidenceSlides.map((item) => (
-                <figure key={item.src} className="overflow-hidden rounded-3xl border border-deep-navy/10 bg-concrete-gray/30 p-3">
-                  <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-white">
-                    <Image src={item.src} alt={item.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain" />
-                  </div>
-                  <Caption>{item.caption}</Caption>
-                </figure>
-              ))}
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-deep-navy/70">Veja em detalhes como funcionam as instalações elétricas e hidráulicas e como o Lightwall se compara a outros sistemas construtivos.</p>
+            <div className="mt-8">
+              <LightwallEvidenceGallery items={evidenceSlides} />
             </div>
           </section>
 
@@ -301,10 +292,24 @@ export default function LightwallPage() {
               <div className="rounded-3xl border border-deep-navy/10 p-7">
                 <ShieldCheck className="h-8 w-8 text-active-orange" aria-hidden="true" />
                 <h3 className="mt-4 text-xl font-bold">Normas e critérios técnicos</h3>
-                <p className="mt-3 text-sm leading-relaxed text-deep-navy/65">O Lightwall segue as referências normativas abaixo e conta com homologação SINAT, possibilidade de financiamento pela Caixa, vida útil de projeto de 50 anos e Rótulo Ecológico ABNT. A aplicação e o atendimento devem ser confirmados para o painel, escopo e projeto correspondentes.</p>
+                <p className="mt-3 text-sm leading-relaxed text-deep-navy/65">O Lightwall segue as referências normativas abaixo e conta com homologação SINAT, possibilidade de financiamento pela Caixa, vida útil de projeto de 50 anos e Rótulo Ecológico ABNT.</p>
                 <ul className="mt-5 space-y-3">
                   {citedStandards.map(([standard, description]) => <li key={standard} className="flex gap-3 text-sm leading-relaxed text-deep-navy/70"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-active-orange" aria-hidden="true" /><span><strong className="text-deep-navy">{standard}</strong> — {description}</span></li>)}
                 </ul>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  <figure>
+                    <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-concrete-gray/30">
+                      <Image src="/assets/lightwall/lightwall-ecolabel.png" alt="Rótulo Ecológico ABNT e certificado de conformidade do Lightwall" fill sizes="(max-width: 640px) 100vw, 50vw" className="object-contain" />
+                    </div>
+                    <Caption>Rótulo Ecológico ABNT e certificado de conformidade nº 595.001/25.</Caption>
+                  </figure>
+                  <figure>
+                    <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-concrete-gray/30">
+                      <Image src="/assets/lightwall/lightwall-standards.png" alt="Sistema Lightwall normatizado pela ABNT e financiável pela Caixa" fill sizes="(max-width: 640px) 100vw, 50vw" className="object-contain" />
+                    </div>
+                    <Caption>Normas ABNT e financiamento pela Caixa apresentados para o sistema.</Caption>
+                  </figure>
+                </div>
               </div>
               <div className="rounded-3xl border border-deep-navy/10 p-7">
                 <FileCheck2 className="h-8 w-8 text-active-orange" aria-hidden="true" />
@@ -334,35 +339,39 @@ export default function LightwallPage() {
             <h2 id="aplicacoes-lightwall" className="mt-3 text-3xl font-black md:text-4xl">Onde a solução pode gerar mais valor</h2>
             <div className="mt-7 grid gap-8 md:grid-cols-2">
               <figure>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/assets/lightwall/lightwall-residence.jpg" alt="Residências executadas com painéis Lightwall em Maresias" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /></div>
-                <Caption>Residências em Maresias/SP. Imagem fornecida para apresentação da tecnologia.</Caption>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/assets/lightwall/lightwall-residence.jpg" alt="Residências executadas com painéis cimentíceos Lightwall em Maresias" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /></div>
+                <Caption>Residências em Maresias/SP.</Caption>
               </figure>
               <figure>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/assets/lightwall/lightwall-installation.jpeg" alt="Equipe montando painéis Lightwall em canteiro de obra" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /></div>
-                <Caption>Montagem de painéis em canteiro. Imagem fornecida pela Lightwall Brasil.</Caption>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/assets/lightwall/lightwall-installation.jpeg" alt="Equipe montando painéis cimentíceos Lightwall em canteiro de obra" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /></div>
+                <Caption>Montagem de painéis cimentíceos em canteiro.</Caption>
               </figure>
             </div>
             <div className="mt-12">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-active-orange">Galeria de obras</p>
-              <h3 className="mt-2 text-2xl font-black md:text-3xl">Aplicações apresentadas nos slides 46–84</h3>
-              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy/65">Uma seleção de registros e imagens de empreendimentos residenciais, hoteleiros e comerciais presentes na apresentação técnico-comercial. Cada legenda identifica o empreendimento ou a etapa mostrada e informa a origem da imagem.</p>
+              <h3 className="mt-2 text-2xl font-black md:text-3xl">Demais Aplicações</h3>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy/65">Uma seleção de registros de empreendimentos residenciais, hoteleiros e comerciais. Cada legenda identifica o empreendimento ou a etapa mostrada.</p>
               <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {galleryPhotos.map(([src, alt, caption]) => (
                   <figure key={src}>
                     <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-concrete-gray/45">
                       <Image src={src} alt={alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-contain" />
                     </div>
-                    <Caption>{caption} Imagem fornecida pela Lightwall Brasil.</Caption>
+                    <Caption>{caption}</Caption>
                   </figure>
                 ))}
               </div>
-              <p className="mt-5 text-[10px] leading-relaxed text-deep-navy/50">As imagens desta galeria foram extraídas da apresentação técnico-comercial da Lightwall Brasil. A presença de uma obra na apresentação não constitui, por si só, atestado de escopo executado pela Neoeng.</p>
             </div>
-            <div className="mt-7 grid gap-4 sm:grid-cols-3">
+            <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 "Casas térreas, sobrados e condomínios padronizados",
                 "Obras com prazo crítico e alto custo indireto de canteiro",
                 "Projetos em que peso, resíduos e área útil influenciam a viabilidade",
+                "Vedação interna",
+                "Vedação externa",
+                "Laje de piso e coberta",
+                "Muro",
+                "E muito mais...",
               ].map((item) => <div key={item} className="flex gap-3 rounded-2xl border border-deep-navy/10 p-5 text-sm leading-relaxed"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-active-orange" aria-hidden="true" /><span>{item}</span></div>)}
             </div>
           </section>

@@ -50,14 +50,14 @@ export default function Navbar() {
           <Link href="/#autoridade" className="text-sm font-medium hover:-translate-y-[1px] hover:text-active-orange transition-all duration-200">Experiência</Link>
           <Link
             href="/lightwall"
-            className="relative flex h-8 w-24 shrink-0 items-center justify-center rounded-md px-1.5 transition-transform duration-200 hover:scale-105"
+            className="relative flex h-9 w-28 shrink-0 items-center justify-center rounded-md px-1.5 transition-transform duration-200 hover:scale-105"
             aria-label="Conheça o sistema construtivo Lightwall"
           >
             <Image
               src="/assets/lightwall/lightwall-logo.png"
               alt="Lightwall"
               fill
-              sizes="96px"
+              sizes="112px"
               className="object-contain p-1"
             />
           </Link>
@@ -115,14 +115,14 @@ export default function Navbar() {
           <Link
             href="/lightwall"
             onClick={() => setMobileMenuOpen(false)}
-            className="relative flex h-10 w-36 items-center justify-start rounded-md px-2 transition-transform duration-200 hover:scale-105"
+            className="relative flex h-11 w-40 items-center justify-start rounded-md px-2 transition-transform duration-200 hover:scale-105"
             aria-label="Conheça o sistema construtivo Lightwall"
           >
             <Image
               src="/assets/lightwall/lightwall-logo.png"
               alt="Lightwall"
               fill
-              sizes="144px"
+              sizes="160px"
               className="object-contain object-left p-1"
             />
           </Link>

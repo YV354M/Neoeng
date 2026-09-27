@@ -11,12 +11,12 @@ const highlights = [
   {
     icon: Sparkles,
     title: "Obra mais limpa",
-    description: "Painéis leves e montagem racionalizada ajudam a reduzir cortes, retrabalho, entulho e interferências no canteiro.",
+    description: "Painéis cimentíceos e montagem racionalizada reduzem cortes, retrabalho, entulho e interferências no canteiro.",
   },
   {
     icon: ShieldCheck,
-    title: "Desempenho documentado",
-    description: "O sistema conta com ensaios e referências técnicas de desempenho térmico, acústico e de segurança ao fogo.",
+    title: "Desempenho e segurança",
+    description: "O sistema oferece conforto térmico e acústico e resistência ao fogo CF120.",
   },
 ] as const;
 
@@ -27,7 +27,7 @@ export default function LightwallSection() {
       <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 md:px-12 lg:grid-cols-[0.92fr_1.08fr]">
         <div>
           <div className="mb-5 flex items-center gap-4">
-            <div className="relative h-12 w-32 rounded-xl bg-white/95 p-2 shadow-lg">
+            <div className="relative h-12 w-32 rounded-xl p-1">
               <Image src="/assets/lightwall/lightwall-logo.png" alt="Lightwall" fill sizes="128px" className="object-contain" />
             </div>
             <span className="text-xs font-bold uppercase tracking-[0.24em] text-active-orange">Sistema construtivo</span>
@@ -36,7 +36,7 @@ export default function LightwallSection() {
             A Neoeng está habilitada para executar obras com a tecnologia Lightwall.
           </h2>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/75">
-            Uma solução modular para transformar planejamento, produtividade e desempenho em uma execução mais previsível — com engenharia Neoeng do diagnóstico à entrega.
+            Painéis cimentíceos com núcleo de concreto leve, EPS e aditivos para transformar planejamento, produtividade e desempenho em uma execução mais previsível — com engenharia Neoeng do diagnóstico à entrega.
           </p>
 
           <div className="mt-9 grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
@@ -62,14 +62,14 @@ export default function LightwallSection() {
           <div className="relative aspect-[4/3]">
             <Image
               src="/assets/lightwall/lightwall-installation.jpeg"
-              alt="Equipe instalando painéis Lightwall em uma obra residencial"
+              alt="Equipe instalando painéis cimentíceos Lightwall em uma obra residencial"
               fill
               sizes="(max-width: 1024px) 100vw, 55vw"
               className="object-cover"
             />
           </div>
           <figcaption className="px-5 py-3 text-[10px] leading-relaxed text-white/55">
-            Imagem de obra fornecida para apresentação institucional da tecnologia Lightwall Brasil.
+            Registro de obra com a tecnologia Lightwall.
           </figcaption>
         </figure>
       </div>
