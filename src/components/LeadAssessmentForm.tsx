@@ -8,13 +8,14 @@ import { leadSchema, type LeadFormData } from "@/lib/validations/lead";
 import { useRouter } from "next/navigation";
 
 type LeadAssessmentFormProps = {
-  source: "home" | "private-homes";
+  source: "home" | "private-homes" | "lightwall";
   eyebrowTitle: string;
   title: string;
   description: string;
   submitLabel?: string;
   theme?: "light" | "dark";
   sectionId?: string;
+  defaultProjectCategory?: string;
 };
 
 const projectOptions = [
@@ -30,6 +31,7 @@ const projectOptions = [
   "Automação",
   "Hidrossanitário",
   "Obra Civil / Estrutura / Acabamento",
+  "Sistema construtivo Lightwall",
   "Ainda não sei classificar",
   "Outro",
 ] as const;
@@ -94,6 +96,7 @@ export default function LeadAssessmentForm({
   submitLabel = "Solicitar Avaliação Técnica",
   theme = "light",
   sectionId = "orcamento",
+  defaultProjectCategory = "",
 }: LeadAssessmentFormProps) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -122,7 +125,7 @@ export default function LeadAssessmentForm({
       whatsapp: "",
       email: "",
       location: "",
-      projectCategory: "",
+      projectCategory: defaultProjectCategory,
       currentStage: "",
       requestedServices: [],
       approximateArea: "",

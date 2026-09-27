@@ -48,6 +48,19 @@ export default function Navbar() {
           <Link href="/#especialidades" className="text-sm font-medium hover:-translate-y-[1px] hover:text-active-orange transition-all duration-200">Áreas de Atuação</Link>
           <Link href="/#diferencial" className="text-sm font-medium hover:-translate-y-[1px] hover:text-active-orange transition-all duration-200">Diferenciais</Link>
           <Link href="/#autoridade" className="text-sm font-medium hover:-translate-y-[1px] hover:text-active-orange transition-all duration-200">Experiência</Link>
+          <Link
+            href="/lightwall"
+            className="relative flex h-8 w-24 shrink-0 items-center justify-center rounded-md bg-white px-1.5 transition-transform duration-200 hover:scale-105"
+            aria-label="Conheça o sistema construtivo Lightwall"
+          >
+            <Image
+              src="/assets/lightwall/lightwall-logo.png"
+              alt="Lightwall"
+              fill
+              sizes="96px"
+              className="object-contain p-1"
+            />
+          </Link>
           <Link href="/private-homes" className="text-sm font-medium hover:-translate-y-[1px] hover:text-orange-400 transition-all duration-200 text-active-orange font-semibold">NeoHouse</Link>
           <a
             href="https://www.obra360.pro/neoflow/entrar"
@@ -98,6 +111,21 @@ export default function Navbar() {
           <Link href="/#diferencial" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-active-orange transition-colors">Diferenciais</Link>
           <hr className="border-white/10" />
           <Link href="/#autoridade" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-active-orange transition-colors">Experiência</Link>
+          <hr className="border-white/10" />
+          <Link
+            href="/lightwall"
+            onClick={() => setMobileMenuOpen(false)}
+            className="relative flex h-10 w-36 items-center justify-start rounded-md bg-white px-2 transition-transform duration-200 hover:scale-105"
+            aria-label="Conheça o sistema construtivo Lightwall"
+          >
+            <Image
+              src="/assets/lightwall/lightwall-logo.png"
+              alt="Lightwall"
+              fill
+              sizes="144px"
+              className="object-contain object-left p-1"
+            />
+          </Link>
           <hr className="border-white/10" />
           <Link href="/private-homes" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-active-orange transition-colors">NeoHouse</Link>
           <hr className="border-white/10" />

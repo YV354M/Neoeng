@@ -16,10 +16,6 @@ const STYLED_LOGOS = [
   { src: "/logos_clientes/adidas-logo-1971.jpg", alt: "Adidas" },
 ];
 
-const PARTNER_LOGOS = [
-  { src: "/parceiros/IEX-branco-sem-fundo-scaled.png", alt: "IEX" },
-]
-
 export default function Authority() {
 
   return (
@@ -65,45 +61,6 @@ export default function Authority() {
                   <Image src={logo.src} alt={logo.alt} fill sizes="200px" className="object-contain" />
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-
-        {/* FOUNDERS & PARTNERS B2B */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12">
-          <div className="flex flex-col h-full justify-center">
-            <h3 className="text-2xl font-bold mb-4">Para Escritórios de Projeto</h3>
-            <p className="text-off-white/70 mb-8 leading-relaxed">
-              Executamos projetos de parceiros com foco em precisão técnica, previsibilidade e controle de obra. Atuamos como braço de execução para escritórios de projeto que precisam transformar design, engenharia e especificações em obra entregue com qualidade.
-            </p>
-            {PARTNER_LOGOS.length > 0 && (
-              <div>
-                <h4 className="text-sm font-bold text-active-orange uppercase mb-4">Parceiros B2B</h4>
-                <div className="flex gap-6 items-center">
-                  {PARTNER_LOGOS.map((pt, id) => (
-                    <div key={id} className="relative w-32 h-16 md:w-48 md:h-24 shrink-0">
-                      <Image src={pt.src} alt={pt.alt} fill sizes="200px" className="object-contain object-left" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-          <div className="flex justify-center mt-8 lg:mt-0 lg:h-full">
-            <div className="relative w-full max-w-md h-[320px] lg:h-auto min-h-[320px] rounded-2xl overflow-hidden group">
-              <Image
-                src="/socios/Yves.jpg"
-                alt="Yves Mourão"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-[center_15%] scale-[1.65] group-hover:scale-[1.75] transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/90 to-transparent flex items-end p-6">
-                <div>
-                  <h4 className="font-bold text-lg">Yves Mourão</h4>
-                  <span className="text-active-orange text-sm font-medium">Sócio Diretor</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

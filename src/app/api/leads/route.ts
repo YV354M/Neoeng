@@ -4,8 +4,8 @@ import { z } from "zod";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { JWT } from "google-auth-library";
 
-const formatOrigin = (source: "home" | "private-homes") =>
-  source === "private-homes" ? "private-homes" : "home";
+const formatOrigin = (source: "home" | "private-homes" | "lightwall") =>
+  source === "private-homes" ? "private-homes" : source === "lightwall" ? "lightwall" : "home";
 
 export async function POST(request: Request) {
   try {

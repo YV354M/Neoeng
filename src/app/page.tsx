@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Specialties from "@/components/Specialties";
 import Differentiator from "@/components/Differentiator";
+import LightwallSection from "@/components/LightwallSection";
 import NeoFlowTracking from "@/components/NeoFlowTracking";
 import Authority from "@/components/Authority";
 import Portfolio from "@/components/Portfolio";
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero />
       <Specialties />
       <Differentiator />
+      <LightwallSection />
       <NeoFlowTracking />
       <Authority />
       <Portfolio />

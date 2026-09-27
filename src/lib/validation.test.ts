@@ -40,6 +40,24 @@ test("Lead Schema Validation - Sucesso (Private Homes)", () => {
   assert.strictEqual(result.success, true);
 });
 
+test("Lead Schema Validation - Sucesso (Lightwall)", () => {
+  const validData = {
+    source: "lightwall" as const,
+    name: "Yves Mourão",
+    whatsapp: "85987654321",
+    email: "yves@example.com",
+    location: "Fortaleza - CE",
+    projectCategory: "Sistema construtivo Lightwall",
+    currentStage: "Projeto arquitetônico pronto",
+    requestedServices: ["Orçamento para obra"],
+    timeline: "Em 1 a 3 meses",
+    details: "Avaliação de viabilidade e orçamento de uma obra em Lightwall.",
+  };
+
+  const result = leadSchema.safeParse(validData);
+  assert.strictEqual(result.success, true);
+});
+
 test("Lead Schema Validation - Erro (WhatsApp curto)", () => {
   const invalidData = {
     source: "home" as const,

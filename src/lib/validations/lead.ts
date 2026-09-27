@@ -3,7 +3,7 @@ import { z } from "zod";
 const requiredSelect = (message: string) => z.string().min(1, message);
 
 export const leadSchema = z.object({
-  source: z.enum(["home", "private-homes"]),
+  source: z.enum(["home", "private-homes", "lightwall"]),
   name: z.string().min(3, "O nome deve ter pelo menos 3 caracteres").max(100),
   whatsapp: z.string().min(10, "Insira um número de WhatsApp válido com DDD").max(20),
   email: z.string().email("Por favor, insira um e-mail válido"),
