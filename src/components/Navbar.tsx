@@ -50,7 +50,7 @@ export default function Navbar() {
           <Link href="/#autoridade" className="text-sm font-medium hover:-translate-y-[1px] hover:text-active-orange transition-all duration-200">Experiência</Link>
           <Link
             href="/lightwall"
-            className="relative flex h-8 w-24 shrink-0 items-center justify-center rounded-md bg-white px-1.5 transition-transform duration-200 hover:scale-105"
+            className="relative flex h-8 w-24 shrink-0 items-center justify-center rounded-md px-1.5 transition-transform duration-200 hover:scale-105"
             aria-label="Conheça o sistema construtivo Lightwall"
           >
             <Image
@@ -84,8 +84,8 @@ export default function Navbar() {
             href="/#orcamento"
             className="relative overflow-hidden group bg-active-orange text-white px-4 py-2 md:px-5 md:py-2.5 rounded-full font-bold text-xs md:text-sm transition-transform hover:scale-[1.03] active:scale-95 duration-300 whitespace-nowrap"
           >
-            <span className="relative z-10 hidden sm:inline">Solicitar Avaliação Técnica</span>
-            <span className="relative z-10 sm:hidden">Avaliação Técnica</span>
+            <span className="relative z-10 hidden sm:inline">Contato</span>
+            <span className="relative z-10 sm:hidden">Contato</span>
             <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
           </Link>
 
@@ -115,7 +115,7 @@ export default function Navbar() {
           <Link
             href="/lightwall"
             onClick={() => setMobileMenuOpen(false)}
-            className="relative flex h-10 w-36 items-center justify-start rounded-md bg-white px-2 transition-transform duration-200 hover:scale-105"
+            className="relative flex h-10 w-36 items-center justify-start rounded-md px-2 transition-transform duration-200 hover:scale-105"
             aria-label="Conheça o sistema construtivo Lightwall"
           >
             <Image
