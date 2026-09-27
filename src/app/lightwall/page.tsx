@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LeadAssessmentForm from "@/components/LeadAssessmentForm";
 import LightwallEvidenceGallery from "@/components/LightwallEvidenceGallery";
+import ImageLightbox from "@/components/ImageLightbox";
 
 export const metadata: Metadata = {
   title: "Sistema construtivo Lightwall | Execução habilitada pela Neoeng",
@@ -195,7 +196,7 @@ export default function LightwallPage() {
                   Lightwall: desempenho modular com execução Neoeng.
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-xl">
-                  Painéis cimentíceos modulares com núcleo de concreto leve, EPS e aditivos para reduzir etapas, organizar o cronograma e entregar mais previsibilidade à obra.
+                  Painéis de placas cimentíceas com núcleo de concreto leve, EPS e aditivos. O peso, perfil modular e a superfície permitem obra mais limpa, menos etapas, menos tempo, menos custo e mais previsibilidade.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Link href="#orcamento" className="group inline-flex items-center gap-2 rounded-full bg-active-orange px-6 py-3.5 text-sm font-bold text-white transition-transform hover:scale-[1.03]">
@@ -206,9 +207,7 @@ export default function LightwallPage() {
               </div>
 
               <figure className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl">
-                <div className="relative aspect-[4/3]">
-                  <Image src="/assets/lightwall/lightwall-team.jpg" alt="Equipe em evento de habilitação Lightwall" fill priority sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" />
-                </div>
+                <ImageLightbox src="/assets/lightwall/lightwall-team.jpg" alt="Equipe em evento de habilitação Lightwall" priority sizes="(max-width: 1024px) 100vw, 45vw" wrapperClassName="aspect-[4/3]" imageClassName="object-cover" />
                 <figcaption className="px-5 py-3 text-[10px] leading-relaxed text-white/55">Registro de equipe em atividade Lightwall. Imagem fornecida para uso institucional.</figcaption>
               </figure>
             </div>
@@ -228,9 +227,7 @@ export default function LightwallPage() {
                 <p>Para a Neoeng, o sistema integra uma decisão de engenharia que considera vocação, interfaces, logística, estrutura, instalações, prazo e custo total da obra.</p>
               </div>
               <figure>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-concrete-gray">
-                  <Image src="/assets/lightwall/lightwall-detail.jpeg" alt="Detalhe da seção e do encontro de painéis cimentíceos Lightwall" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover" />
-                </div>
+                <ImageLightbox src="/assets/lightwall/lightwall-detail.jpeg" alt="Detalhe da seção e do encontro de painéis cimentíceos Lightwall" sizes="(max-width: 768px) 100vw, 40vw" wrapperClassName="aspect-[4/3] rounded-3xl bg-concrete-gray" imageClassName="object-cover" />
                 <Caption>Detalhe de painel cimentíceo e encontro construtivo. Imagem fornecida pela Lightwall Brasil.</Caption>
               </figure>
             </div>
@@ -257,9 +254,7 @@ export default function LightwallPage() {
               <h2 id="desempenho-lightwall" className="mt-3 text-3xl font-black md:text-4xl">Conforto térmico, acústico e segurança ao fogo</h2>
               <p className="mt-5 text-base leading-relaxed text-deep-navy/70">A composição do Lightwall foi pensada para entregar conforto dentro da edificação: menos calor atravessando a parede, melhor controle dos sons e resistência ao fogo.</p>
               <figure className="mt-6 overflow-hidden rounded-3xl border border-deep-navy/10 bg-concrete-gray/30 p-3">
-                <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-white">
-                  <Image src="/assets/lightwall/lightwall-acoustic.png" alt="Desempenho acústico de diferentes composições de painéis Lightwall" fill sizes="(max-width: 768px) 100vw, 45vw" className="object-contain" />
-                </div>
+                <ImageLightbox src="/assets/lightwall/lightwall-acoustic.png" alt="Desempenho acústico de diferentes composições de painéis Lightwall" sizes="(max-width: 768px) 100vw, 45vw" wrapperClassName="aspect-[16/9] rounded-2xl bg-white" imageClassName="object-contain" />
                 <Caption>As composições de painéis cimentíceos alcançam Rw de 39, 42, 45 e 51 dB.</Caption>
               </figure>
             </div>
@@ -296,20 +291,6 @@ export default function LightwallPage() {
                 <ul className="mt-5 space-y-3">
                   {citedStandards.map(([standard, description]) => <li key={standard} className="flex gap-3 text-sm leading-relaxed text-deep-navy/70"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-active-orange" aria-hidden="true" /><span><strong className="text-deep-navy">{standard}</strong> — {description}</span></li>)}
                 </ul>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <figure>
-                    <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-concrete-gray/30">
-                      <Image src="/assets/lightwall/lightwall-ecolabel.png" alt="Rótulo Ecológico ABNT e certificado de conformidade do Lightwall" fill sizes="(max-width: 640px) 100vw, 50vw" className="object-contain" />
-                    </div>
-                    <Caption>Rótulo Ecológico ABNT e certificado de conformidade nº 595.001/25.</Caption>
-                  </figure>
-                  <figure>
-                    <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-concrete-gray/30">
-                      <Image src="/assets/lightwall/lightwall-standards.png" alt="Sistema Lightwall normatizado pela ABNT e financiável pela Caixa" fill sizes="(max-width: 640px) 100vw, 50vw" className="object-contain" />
-                    </div>
-                    <Caption>Normas ABNT e financiamento pela Caixa apresentados para o sistema.</Caption>
-                  </figure>
-                </div>
               </div>
               <div className="rounded-3xl border border-deep-navy/10 p-7">
                 <FileCheck2 className="h-8 w-8 text-active-orange" aria-hidden="true" />
@@ -317,6 +298,16 @@ export default function LightwallPage() {
                 <p className="mt-3 text-sm leading-relaxed text-deep-navy/65">Yves Rabelo Mourão concluiu o curso Lightwall Experts Pro, com imersão presencial na fábrica em Cabo de Santo Agostinho/PE, acumulando experiência prática sobre montagem, especificações, normativas e aplicações.</p>
                 <a href="/assets/lightwall/certificado-expert-yves.pdf" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-active-orange hover:text-orange-600">Consultar certificado <ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
               </div>
+            </div>
+            <div className="mt-7 grid gap-8">
+              <figure className="overflow-hidden rounded-3xl border border-deep-navy/10 bg-concrete-gray/30 p-4">
+                <ImageLightbox src="/assets/lightwall/lightwall-ecolabel.png" alt="Rótulo Ecológico ABNT e certificado de conformidade do Lightwall" sizes="(max-width: 1024px) 100vw, 900px" wrapperClassName="aspect-[16/9] rounded-2xl bg-white" imageClassName="object-contain" />
+                <Caption>Rótulo Ecológico ABNT e certificado de conformidade nº 595.001/25.</Caption>
+              </figure>
+              <figure className="overflow-hidden rounded-3xl border border-deep-navy/10 bg-concrete-gray/30 p-4">
+                <ImageLightbox src="/assets/lightwall/lightwall-standards.png" alt="Sistema Lightwall normatizado pela ABNT e financiável pela Caixa" sizes="(max-width: 1024px) 100vw, 900px" wrapperClassName="aspect-[16/9] rounded-2xl bg-white" imageClassName="object-contain" />
+                <Caption>Normas ABNT e financiamento pela Caixa apresentados para o sistema.</Caption>
+              </figure>
             </div>
           </section>
 
@@ -339,28 +330,13 @@ export default function LightwallPage() {
             <h2 id="aplicacoes-lightwall" className="mt-3 text-3xl font-black md:text-4xl">Onde a solução pode gerar mais valor</h2>
             <div className="mt-7 grid gap-8 md:grid-cols-2">
               <figure>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/assets/lightwall/lightwall-residence.jpg" alt="Residências executadas com painéis cimentíceos Lightwall em Maresias" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /></div>
+                <ImageLightbox src="/assets/lightwall/lightwall-residence.jpg" alt="Residências executadas com painéis cimentíceos Lightwall em Maresias" sizes="(max-width: 768px) 100vw, 50vw" wrapperClassName="aspect-[4/3] rounded-3xl" imageClassName="object-cover" />
                 <Caption>Residências em Maresias/SP.</Caption>
               </figure>
               <figure>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/assets/lightwall/lightwall-installation.jpeg" alt="Equipe montando painéis cimentíceos Lightwall em canteiro de obra" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /></div>
+                <ImageLightbox src="/assets/lightwall/lightwall-installation.jpeg" alt="Equipe montando painéis cimentíceos Lightwall em canteiro de obra" sizes="(max-width: 768px) 100vw, 50vw" wrapperClassName="aspect-[4/3] rounded-3xl" imageClassName="object-cover" />
                 <Caption>Montagem de painéis cimentíceos em canteiro.</Caption>
               </figure>
-            </div>
-            <div className="mt-12">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-active-orange">Galeria de obras</p>
-              <h3 className="mt-2 text-2xl font-black md:text-3xl">Demais Aplicações</h3>
-              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy/65">Uma seleção de registros de empreendimentos residenciais, hoteleiros e comerciais. Cada legenda identifica o empreendimento ou a etapa mostrada.</p>
-              <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {galleryPhotos.map(([src, alt, caption]) => (
-                  <figure key={src}>
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-concrete-gray/45">
-                      <Image src={src} alt={alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-contain" />
-                    </div>
-                    <Caption>{caption}</Caption>
-                  </figure>
-                ))}
-              </div>
             </div>
             <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
@@ -373,6 +349,19 @@ export default function LightwallPage() {
                 "Muro",
                 "E muito mais...",
               ].map((item) => <div key={item} className="flex gap-3 rounded-2xl border border-deep-navy/10 p-5 text-sm leading-relaxed"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-active-orange" aria-hidden="true" /><span>{item}</span></div>)}
+            </div>
+            <div className="mt-12">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-active-orange">Galeria de obras</p>
+              <h3 className="mt-2 text-2xl font-black md:text-3xl">Demais Aplicações</h3>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy/65">Uma seleção de registros de empreendimentos residenciais, hoteleiros e comerciais. Cada legenda identifica o empreendimento ou a etapa mostrada.</p>
+              <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {galleryPhotos.map(([src, alt, caption]) => (
+                  <figure key={src}>
+                    <ImageLightbox src={src} alt={alt} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" wrapperClassName="aspect-[4/3] rounded-2xl bg-concrete-gray/45" imageClassName="object-contain" />
+                    <Caption>{caption}</Caption>
+                  </figure>
+                ))}
+              </div>
             </div>
           </section>
 

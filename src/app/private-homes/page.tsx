@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LeadAssessmentForm from "@/components/LeadAssessmentForm";
 import NeoFlowTracking from "@/components/NeoFlowTracking";
+import ImageLightbox from "@/components/ImageLightbox";
 import Image from "next/image";
 import { Fragment, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
@@ -208,9 +209,7 @@ export default function PrivateHomes() {
       <div className="neohouse-page">
       {/* Hero */}
       <section ref={heroRef} className="nh-hero" id="inicio">
-        <div className="nh-hero-image">
-          <Image src="/assets/neohouse/hero-house.webp" alt="Residência de alto padrão NeoHouse" fill priority className="object-cover" />
-        </div>
+        <ImageLightbox src="/assets/neohouse/hero-house.webp" alt="Residência de alto padrão NeoHouse" priority wrapperClassName="nh-hero-image" imageClassName="object-cover" />
         <div className="nh-hero-overlay" />
         <div className="nh-hero-grid">
           <div className="nh-hero-copy">
@@ -279,9 +278,7 @@ export default function PrivateHomes() {
             if (variant === "photo" && image) {
               return (
                 <article className="nh-contact-block nh-contact-photo" key={title}>
-                  <div className="nh-contact-media">
-                    <Image src={image} alt={imageAlt} fill style={{ objectFit: imageFit }} sizes="(max-width: 900px) 100vw, 33vw" />
-                  </div>
+                  <ImageLightbox src={image} alt={imageAlt} sizes="(max-width: 900px) 100vw, 33vw" wrapperClassName="nh-contact-media" imageClassName="object-cover" imageStyle={{ objectFit: imageFit }} />
                   <div className="nh-contact-photo-body">
                     <span className="nh-contact-icon"><Icon /></span>
                     <h3>{title}</h3>
@@ -388,11 +385,16 @@ export default function PrivateHomes() {
               ))}
             </ul>
           </div>
-          <div className="nh-admin-visual">
-            <div className="nh-admin-visual-frame">
-              <Image src="/assets/neohouse/planta-alto-padrao.webp" alt="Planta baixa de residência de alto padrão NeoHouse, em orientação vertical" width={385} height={216} className="nh-admin-visual-img" />
+            <div className="nh-admin-visual">
+              <ImageLightbox
+                src="/assets/neohouse/planta-alto-padrao.webp"
+                alt="Planta baixa de residência de alto padrão NeoHouse, em orientação vertical"
+                width={385}
+                height={216}
+                wrapperClassName="nh-admin-visual-frame"
+                imageClassName="nh-admin-visual-img"
+              />
             </div>
-          </div>
         </div>
       </section>
 
@@ -411,13 +413,13 @@ export default function PrivateHomes() {
 
         <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 space-y-3 md:space-y-4">
           {currentImages.map((img, index) => (
-            <div key={index} className={`gallery-item relative overflow-hidden rounded-2xl group break-inside-avoid shadow-lg ${img.aspectRatio}`}>
-              <Image
+              <div key={index} className={`gallery-item relative overflow-hidden rounded-2xl group break-inside-avoid shadow-lg ${img.aspectRatio}`}>
+              <ImageLightbox
                 src={img.src}
                 alt={img.alt}
-                fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                wrapperClassName="absolute inset-0"
+                imageClassName="object-cover"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#08172f]/90 via-[#08172f]/40 to-transparent p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
                 <p className="text-white font-medium text-xs leading-snug">Referência Técnica: Histórico de projetos dos sócios fundadores.</p>
@@ -440,7 +442,7 @@ export default function PrivateHomes() {
           <div className="nh-comercial-photos">
             {commercialPhotos.map((photo) => (
               <div className="nh-gallery-item" key={photo.src}>
-                <Image src={photo.src} alt={photo.alt} fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
+                <ImageLightbox src={photo.src} alt={photo.alt} sizes="(max-width: 768px) 50vw, 25vw" wrapperClassName="absolute inset-0" imageClassName="object-cover" />
               </div>
             ))}
           </div>

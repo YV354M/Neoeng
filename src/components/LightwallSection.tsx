@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Clock3, ShieldCheck, Sparkles } from "lucide-react";
+import ImageLightbox from "@/components/ImageLightbox";
 
 const highlights = [
   {
@@ -59,15 +60,13 @@ export default function LightwallSection() {
         </div>
 
         <figure className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl">
-          <div className="relative aspect-[4/3]">
-            <Image
-              src="/assets/lightwall/lightwall-installation.jpeg"
-              alt="Equipe instalando painéis cimentíceos Lightwall em uma obra residencial"
-              fill
-              sizes="(max-width: 1024px) 100vw, 55vw"
-              className="object-cover"
-            />
-          </div>
+          <ImageLightbox
+            src="/assets/lightwall/lightwall-installation.jpeg"
+            alt="Equipe instalando painéis cimentíceos Lightwall em uma obra residencial"
+            sizes="(max-width: 1024px) 100vw, 55vw"
+            wrapperClassName="aspect-[4/3]"
+            imageClassName="object-cover"
+          />
           <figcaption className="px-5 py-3 text-[10px] leading-relaxed text-white/55">
             Registro de obra com a tecnologia Lightwall.
           </figcaption>

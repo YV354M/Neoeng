@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { BrainCircuit, CalendarCheck, Shield, Eye, TrendingDown, CheckCircle, BarChart3 } from "lucide-react";
+import ImageLightbox from "@/components/ImageLightbox";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -96,11 +97,13 @@ export default function Differentiator() {
         <div className="relative h-[600px] w-full rounded-3xl diff-item">
           {/* Imagem de Fundo (Engenheiro com Tablet) */}
           <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl group">
-            <div className="absolute inset-0 bg-gradient-to-tr from-deep-navy via-deep-navy/30 to-transparent z-10" />
-            <img
+            <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-tr from-deep-navy via-deep-navy/30 to-transparent" />
+            <ImageLightbox
               src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?q=80&w=2000&auto=format&fit=crop"
               alt="Engenheira usando tablet digital na obra"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s]"
+              native
+              wrapperClassName="absolute inset-0"
+              imageClassName="w-full h-full object-cover"
             />
             {/* Tag inferior */}
             <div className="absolute bottom-10 left-10 right-10 z-20">
