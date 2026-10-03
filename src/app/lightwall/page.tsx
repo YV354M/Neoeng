@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import LeadAssessmentForm from "@/components/LeadAssessmentForm";
 import LightwallEvidenceGallery from "@/components/LightwallEvidenceGallery";
 import ImageLightbox from "@/components/ImageLightbox";
+import LightwallHeroCarousel from "@/components/LightwallHeroCarousel";
 
 export const metadata: Metadata = {
   title: "Sistema construtivo Lightwall | Execução habilitada pela Neoeng",
@@ -87,6 +88,52 @@ const galleryPhotos = [
   ["/assets/lightwall/gallery-galeria-jarlan.jpg", "Galeria Jarlan", "Galeria Jarlan, Maceió/AL."],
   ["/assets/lightwall/gallery-bar-cuscuz.jpg", "Bar do Cuscuz", "Bar do Cuscuz, Recife/PE."],
   ["/assets/lightwall/gallery-fratelate.jpg", "Fratelate", "Fratelate, Recife/PE."],
+] as const;
+
+const heroCarouselImages = [
+  { src: "/assets/lightwall/carousel/01-wall-finish.jpeg", alt: "Parede Lightwall aparente com acabamento uniforme" },
+  { src: "/assets/lightwall/carousel/02-lightwall-wall.jpeg", alt: "Muro executado com painéis Lightwall" },
+  { src: "/assets/lightwall/carousel/03-panel-construction.jpeg", alt: "Painéis Lightwall integrados à estrutura metálica" },
+  { src: "/assets/lightwall/carousel/04-panel-detail.jpg", alt: "Detalhe interno do núcleo leve de um painel Lightwall" },
+  { src: "/assets/lightwall/carousel/05-industrial-interior.jpg", alt: "Ambiente amplo executado com painéis e estrutura metálica" },
+  { src: "/assets/lightwall/carousel/06-finished-house.jpg", alt: "Residência contemporânea concluída com sistema Lightwall" },
+  { src: "/assets/lightwall/carousel/07-embedded-installations.jpg", alt: "Tubulações embutidas no núcleo do painel Lightwall" },
+  { src: "/assets/lightwall/carousel/08-curved-wall.jpg", alt: "Parede curva executada em ambiente comercial" },
+  { src: "/assets/lightwall/carousel/09-building-structure.jpg", alt: "Edificação de múltiplos pavimentos em execução com painéis" },
+  { src: "/assets/lightwall/carousel/10-mixed-structure.jpg", alt: "Estrutura mista com fechamento em painéis Lightwall" },
+  { src: "/assets/lightwall/carousel/11-multistory-building.jpg", alt: "Edifício de múltiplos pavimentos com vedação Lightwall" },
+  { src: "/assets/lightwall/carousel/12-large-development.jpg", alt: "Empreendimento de grande porte em execução" },
+  { src: "/assets/lightwall/carousel/13-finished-development.jpg", alt: "Empreendimento residencial finalizado com arquitetura modular" },
+  { src: "/assets/lightwall/carousel/14-finished-interior.jpg", alt: "Ambiente interno finalizado com painéis aparentes" },
+  { src: "/assets/lightwall/carousel/15-roof-installation.jpg", alt: "Montagem de cobertura sobre painéis Lightwall" },
+  { src: "/assets/lightwall/carousel/16-prefabricated-assembly.jpg", alt: "Montagem de construção pré-fabricada em área de mata" },
+  { src: "/assets/lightwall/carousel/17-kitchen-finish.jpg", alt: "Cozinha finalizada com painel aparente" },
+  { src: "/assets/lightwall/carousel/18-wall-installation.jpg", alt: "Método executivo de montagem de muro Lightwall" },
+  { src: "/assets/lightwall/carousel/19-finished-wall.jpg", alt: "Muro Lightwall finalizado em empreendimento" },
+] as const;
+
+const lightwallAdvantages = [
+  "Leve: gera economia em concreto e aço da Fundação e estrutura da construção",
+  "Toque firme de parede, não de gesso",
+  "Montagem Rápida",
+  "Utiliza mesmas ferramentas construtivas tradicionais",
+  "Reaproveitamento de peças sem gerar resíduos",
+  "Obra limpa, sem cimento",
+  "Equipe de 3 pessoas para construir uma casa",
+  "Possibilidade de Instalações embutidas",
+  "Sem necessidade de Reboco, chapisco emboço…",
+  "Sem verga e contra verga",
+  "Obra com esquadro e prumo sem esforço",
+  "Isolamento acústico e térmico",
+  "Resistente ao fogo (120min)",
+  "Aumento de área útil",
+  "Obra sustentável",
+  "Obra anda mais rápido e com isso reduz os custos indiretos",
+  "Manutenção de baixo custo",
+  "Para lajes, não precisa de formas e escora",
+  "Produto pré fabricado, redução de INSS",
+  "Pode ser usado aparente, sem revestimento ou pintura",
+  "Novas possibilidades arquitetônicas",
 ] as const;
 
 const lightwallWhatsappHref = "https://wa.me/5585987240375?text=Vim%20do%20site%20da%20Neoeng%20e%20desejo%20entender%20mais%20sobre%20Lightwall.";
@@ -181,38 +228,56 @@ export default function LightwallPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <article>
-        <header className="bg-deep-navy px-6 pb-20 pt-36 text-white md:px-12 md:pt-44">
-          <div className="mx-auto max-w-7xl">
-            <div className="grid items-end gap-12 lg:grid-cols-[1fr_0.9fr]">
+        <header className="flex min-h-[100svh] items-center bg-deep-navy px-6 pb-6 pt-24 text-white md:px-12 md:pb-8 md:pt-28">
+          <div className="mx-auto w-full max-w-7xl">
+            <div className="grid items-center gap-6 lg:grid-cols-[1.08fr_0.72fr] xl:gap-10">
               <div>
-                <div className="mb-6 flex items-center gap-4">
-                  <div className="relative h-16 w-44 rounded-xl p-1">
+                <div className="mb-3 flex items-center gap-4">
+                  <div className="relative h-12 w-36 rounded-xl p-1 md:h-14 md:w-40">
                     <Image src="/assets/lightwall/lightwall-logo.png" alt="Lightwall" fill sizes="176px" className="object-contain" />
                   </div>
                   <span className="text-xs font-bold uppercase tracking-[0.24em] text-active-orange">Neoeng Engenharia</span>
                 </div>
                 <p className="text-sm font-bold uppercase tracking-[0.24em] text-active-orange">Sistema construtivo industrializado</p>
-                <h1 className="mt-4 max-w-3xl text-4xl font-black leading-tight md:text-6xl">
+                <h1 className="mt-3 max-w-3xl text-4xl font-black leading-[1.04] md:text-5xl">
                   Lightwall: desempenho modular com execução Neoeng.
                 </h1>
-                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-xl">
+                <p className="mt-3 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
                   Painéis de placas cimentíceas com núcleo de concreto leve, EPS e aditivos. O peso, perfil modular e a superfície permitem obra mais limpa, menos etapas, menos tempo, menos custo e mais previsibilidade.
                 </p>
-                <div className="mt-8 flex flex-wrap gap-4">
+                <div className="mt-5 flex flex-wrap gap-3">
                   <Link href="#orcamento" className="group inline-flex items-center gap-2 rounded-full bg-active-orange px-6 py-3.5 text-sm font-bold text-white transition-transform hover:scale-[1.03]">
                     Orçar minha obra em Lightwall
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </Link>
+                  <a href={lightwallWhatsappHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-black text-[#063b22] shadow-lg transition-transform hover:scale-[1.03]" aria-label="Falar com um representante Lightwall pelo WhatsApp">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true" fill="currentColor">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.1-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.075c.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982 1-3.648-.235-.374a9.86 9.86 0 1 1 8.372 4.632M20.52 3.449A11.82 11.82 0 0 0 12.08 0C5.565 0 .26 5.305.26 11.82c0 2.083.544 4.116 1.578 5.907L.16 24l6.426-1.685a11.82 11.82 0 0 0 5.49 1.397h.005c6.514 0 11.819-5.305 11.819-11.82a11.82 11.82 0 0 0-3.38-8.443" />
+                    </svg>
+                    Falar com Representante
+                  </a>
                 </div>
               </div>
 
-              <figure className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl">
-                <ImageLightbox src="/assets/lightwall/lightwall-team.jpg" alt="Equipe em evento de habilitação Lightwall" priority sizes="(max-width: 1024px) 100vw, 45vw" wrapperClassName="aspect-[4/3]" imageClassName="object-cover" />
-                <figcaption className="px-5 py-3 text-[10px] leading-relaxed text-white/55">Registro de equipe em atividade Lightwall. Imagem fornecida para uso institucional.</figcaption>
+              <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-[2rem] border border-white/10 bg-black/25 p-2 shadow-2xl lg:max-w-none">
+                <video
+                  className="h-[min(52svh,540px)] w-full rounded-[1.5rem] object-contain"
+                  src="/assets/lightwall/lightwall-hero.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  preload="metadata"
+                  aria-label="Vídeo de apresentação do sistema construtivo Lightwall"
+                />
+                <figcaption className="px-3 py-2 text-[10px] leading-relaxed text-white/55">Tecnologia Lightwall em apresentação.</figcaption>
               </figure>
             </div>
           </div>
         </header>
+
+        <LightwallHeroCarousel images={heroCarouselImages} advantages={lightwallAdvantages} />
 
         <div className="mx-auto max-w-5xl px-6 py-12 md:px-12">
           <SourceNote />
@@ -297,6 +362,10 @@ export default function LightwallPage() {
                 <h3 className="mt-4 text-xl font-bold">Neoeng habilitada</h3>
                 <p className="mt-3 text-sm leading-relaxed text-deep-navy/65">Yves Rabelo Mourão concluiu o curso Lightwall Experts Pro, com imersão presencial na fábrica em Cabo de Santo Agostinho/PE, acumulando experiência prática sobre montagem, especificações, normativas e aplicações.</p>
                 <a href="/assets/lightwall/certificado-expert-yves.pdf" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-active-orange hover:text-orange-600">Consultar certificado <ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
+                <figure className="mt-6 overflow-hidden rounded-2xl border border-deep-navy/10 bg-concrete-gray/30 p-2">
+                  <ImageLightbox src="/assets/lightwall/lightwall-team.jpg" alt="Equipe em evento de habilitação Lightwall" sizes="(max-width: 768px) 100vw, 40vw" wrapperClassName="aspect-[4/3] rounded-xl" imageClassName="object-cover" />
+                  <Caption>Equipe Neoeng em atividade de habilitação Lightwall. Clique para ampliar.</Caption>
+                </figure>
               </div>
             </div>
             <div className="mt-7 grid gap-8">
@@ -353,7 +422,7 @@ export default function LightwallPage() {
             <div className="mt-12">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-active-orange">Galeria de obras</p>
               <h3 className="mt-2 text-2xl font-black md:text-3xl">Demais Aplicações</h3>
-              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy/65">Uma seleção de registros de empreendimentos residenciais, hoteleiros e comerciais. Cada legenda identifica o empreendimento ou a etapa mostrada.</p>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-deep-navy/65">Uma seleção de registros de empreendimentos residenciais, hoteleiros e comerciais. Cada legenda identifica o empreendimento ou a etapa mostrada. Fotos fornecidas pela Lightwall Brasil, obras realizadas por parceiros.</p>
               <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {galleryPhotos.map(([src, alt, caption]) => (
                   <figure key={src}>
